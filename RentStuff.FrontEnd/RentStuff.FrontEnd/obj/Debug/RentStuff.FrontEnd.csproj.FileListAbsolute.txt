@@ -36,4 +36,3 @@ C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\obj\Debug\App.
 C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\bin\App.RentStuff.FrontEnd.dll.config
 C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\bin\Newtonsoft.Json.dll
 C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\bin\Newtonsoft.Json.xml
-C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\obj\Debug\RentStuff.FrontEnd.csprojResolveAssemblyReference.cache
