@@ -33,6 +33,3 @@ C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\bin\System.Web
 C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\bin\System.Web.WebPages.Razor.xml
 C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\obj\Debug\App.RentStuff.FrontEnd.dll
 C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\obj\Debug\App.RentStuff.FrontEnd.pdb
-C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\bin\App.RentStuff.FrontEnd.dll.config
-C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\bin\Newtonsoft.Json.dll
-C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\bin\Newtonsoft.Json.xml
