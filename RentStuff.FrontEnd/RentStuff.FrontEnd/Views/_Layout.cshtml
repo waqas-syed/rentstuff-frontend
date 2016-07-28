@@ -50,8 +50,7 @@
             </div>
         </header>-->
 
-    <header role="banner" ng-if=" !layout ">
-        <div class="page-wrapper">
+    <header role="banner" ng-if=" !layout ">        
             <div class="header-wrapper">
                 <div class="header header-small">
                     <div class="header-inner">
@@ -200,10 +199,9 @@
                     </div><!-- /.header-inner -->
                 </div><!-- /.header -->
             </div><!-- /.header-wrapper-->
-        </div>
     </header>
 
-    <div id="ui-view" class="container" ui-view data-tmpl-url="@Request.RequestContext.RouteData.DataTokens["templateUrl"]">
+    <div id="ui-view" class="page-wrapper" ui-view data-tmpl-url="@Request.RequestContext.RouteData.DataTokens["templateUrl"]">
         @RenderBody()
     </div>
 
