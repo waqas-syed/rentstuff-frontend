@@ -5663,7 +5663,6 @@ label {
 }
 
 .cover-image {
-  background-image: url("C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\Views\cover.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
