@@ -4705,6 +4705,15 @@ hr {
   table-layout: fixed;
   width: 100%; }
 
+.page-wrapper-ui-view {
+  display: table;
+  height: 100%;
+  overflow: hidden;
+  table-layout: fixed;
+  width: 100%;
+  padding-top: -10px;
+}
+
 .header-wrapper {
   display: table-row;
   height: 1px; }
@@ -5632,8 +5641,29 @@ label {
     margin: 0;
     padding: 14px 30px; }
 
+  #over img {
+	background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  bottom: 0;
+  left: 0;
+  opacity: .75;
+  position: absolute;
+  right: 0;
+  top: 0; }
+  .cover-center .cover-image:after {
+    background-color: rgba(0, 0, 0, 0.4);
+    bottom: 0;
+    content: '';
+    display: block;
+    left: 0;
+    position: absolute;
+    right: 0;
+    top: 0; 
+}
+
 .cover-image {
-  background-image: url("../img/tmp/cover.jpg");
+  background-image: url("C:\Repos\rentstuff-frontend\RentStuff.FrontEnd\RentStuff.FrontEnd\Views\cover.png");
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5656,7 +5686,7 @@ label {
 .cover-title {
   left: 0;
   position: absolute;
-  top: 50%;
+  top: 20%;
   transform: translateY(-50%);
   right: 0; }
 
