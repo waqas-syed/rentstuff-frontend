@@ -3,7 +3,7 @@
 <body class="cover-pull-top header-transparent">
 <div class="page-wrapper">-->
 		
-    <div class="main-wrapper">
+    <div class="main-wrapper" ng-controller="MainController">
 	    <!--<div class="main">-->
 	        <div class="main-inner">
 	        	
@@ -17,21 +17,17 @@
 
 		    <div class="container">
 			<div class="cover-title-inner" style="padding-top:165px;">
-				<h1>Start Searching Best Properties</h1>
+				<h1>Start Searching</h1>
                 <p> </p>
 				<!--<p> Villareal implements features like favorites, compare properties, advanced search fields. For more information check out full list of features.</p>-->
 			</div><!-- /.cover-title-->
 
-			<form method="get" action="properties.html">
+			<form ng-submit="getLocation()">
 				<div class="form-group col-sm-3">
-					<select class="form-control">
-						<option value="">Location</option>
-						<option value="">New York</option>
-						<option value="">Washington</option>
-					</select>
+                    <input class="form-control" type="text" name="location" placeholder="Location">
 				</div><!-- /.form-group -->
 
-				<div class="form-group col-sm-3">
+				<!--<div class="form-group col-sm-3">
 					<select class="form-control">
 						<option value="">Property Type</option>
 						<option value="">Apartment</option>
@@ -40,7 +36,7 @@
 						<option value="">House</option>
 						<option value="">Villa</option>
 					</select>
-				</div><!-- /.form-group -->					
+				</div>--><!-- /.form-group -->					
 
 				<div class="form-group col-sm-2">
 					<button type="submit" class="btn btn-primary btn-block">Search</button>
@@ -49,7 +45,6 @@
 		</div><!-- /.container -->
 	<!--</div>--><!-- /.cover-title -->
 </div><!-- /.cover -->
-
 
 </div><!-- /.content -->
 	        </div><!-- /.main-inner -->

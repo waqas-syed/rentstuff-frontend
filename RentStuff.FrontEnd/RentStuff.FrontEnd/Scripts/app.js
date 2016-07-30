@@ -14,7 +14,7 @@ angular.module('app', ['ui.router', 'app.filters', 'app.services', 'app.directiv
             .state('home', {
                 url: '/',
                 templateUrl: '/views/index-static-image-filter-center.html',
-                controller: 'HomeCtrl'
+                controller: 'mainController'
 
             })
             .state('about', {

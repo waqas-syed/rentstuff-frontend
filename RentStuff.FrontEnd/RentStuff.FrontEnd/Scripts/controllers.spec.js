@@ -33,6 +33,21 @@ describe('Controllers: AboutCtrl', function () {
     });
 });
 
+describe('MainController: mainController', function () {
+    var $scope, ctrl;
+
+    beforeEach(module('app.controllers'));
+
+    beforeEach(inject(function ($rootScope, $controller) {
+        $scope = $rootScope.$new();
+        ctrl = $controller('mainContoller', { $scope: $scope });
+    }));
+
+    it('should set a page title', function () {
+        expect($scope.$root.title).toBe('AngularJS SPA | Main');
+    });
+});
+
 describe('Controllers: LoginCtrl', function () {
     var $scope, ctrl;
 
