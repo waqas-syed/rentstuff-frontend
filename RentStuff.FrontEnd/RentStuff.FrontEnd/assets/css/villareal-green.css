@@ -5616,7 +5616,7 @@ label {
   height: 750px;
   position: relative; }
   .cover.cover-center {
-    height: 750px; }
+    height: 480px; }
     .cover.cover-center form {
       letter-spacing: -4px;
       text-align: center; }
@@ -5641,16 +5641,6 @@ label {
     margin: 0;
     padding: 14px 30px; }
 
-  #over img {
-	background-position: center center;
-  background-repeat: no-repeat;
-  background-size: cover;
-  bottom: 0;
-  left: 0;
-  opacity: .75;
-  position: absolute;
-  right: 0;
-  top: 0; }
   .cover-center .cover-image:after {
     background-color: rgba(0, 0, 0, 0.4);
     bottom: 0;
@@ -5663,6 +5653,7 @@ label {
 }
 
 .cover-image {
+  overflow: hidden;
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
@@ -5671,7 +5662,8 @@ label {
   opacity: .75;
   position: absolute;
   right: 0;
-  top: 0; }
+  top: 0;
+}
   .cover-center .cover-image:after {
     background-color: rgba(0, 0, 0, 0.4);
     bottom: 0;
