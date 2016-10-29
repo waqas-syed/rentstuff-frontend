@@ -1,1 +1,2 @@
-!function(){"use strict";angular.module("houseApp",["houseService"])}(),function(){"use strict";function a(a,b){a.House=b.query()}angular.module("houseApp").controller("houseController",a),a.$inject=["$scope","House"]}(),function(){"use strict";angular.module("houseService",["ngResource"]);heroesService.factory("House",["$resource",function(a){return a("/api/house",{},{query:{method:"GET",params:{},isArray:!0}})}])}();
+!function(){"use strict";angular.module("app",[])}();
+//# sourceMappingURL=app.js.map
