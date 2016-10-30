@@ -35,6 +35,12 @@
                     cwd: 'assets',
                     src: '**',
                     dest: 'wwwroot/assets/'
+                }, {
+                    expand: true,
+                    flatten: true,
+                    src: ['Views/*.html'],
+                    dest: 'wwwroot/',
+                    filter: 'isFile'
                 }]
             }
         },
