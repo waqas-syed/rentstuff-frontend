@@ -8,5 +8,8 @@
     "grunt-contrib-uglify": "1.0.1",
     "grunt-contrib-watch": "1.0.0"
   },
-  "dependencies": {}
+  "dependencies": {
+    "angular": "1.2.31",
+    "angular-ui-router": "0.2.8"
+  }
 }

@@ -1,0 +1,146 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+    <!--<script src="app.js"></script>
+    <script src="angular.js"></script>
+    <script src="angular-ui-router.js"></script>-->
+   <!--<script src="//cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.8/angular-ui-router.min.js"></script>-->
+    <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,300,700&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+    <link href="assets/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/owl-carousel/owl.carousel.css" rel="stylesheet" type="text/css">
+    <link href="assets/libraries/chartist/chartist.min.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/leaflet.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/leaflet.markercluster.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/leaflet.markercluster.default.css" rel="stylesheet" type="text/css">
+    <link href="assets/css/villareal-green.css" rel="stylesheet" type="text/css" id="css-primary">
+    <link rel="shortcut icon" type="image/x-icon" href="assets/favicon.png">
+</head>
+<body ng-cloak ng-app="rentApp">
+    <div class="page-wrapper">
+        <div class="header-wrapper">
+            <div class="header">
+                <div class="header-inner">
+                    <div class="container">
+                        <div class="header-topbar">
+                            <div class="header-topbar-left">
+                                <ul class="nav nav-pills nav-topbar">
+                                    <li class="nav-item"><a ui-sref="login.html" class="nav-link"><strong>Login</strong></a></li>
+                                    <li class="nav-item"><a ui-sref="registration.html" class="nav-link"><strong>Registration</strong></a></li>
+                                    <li class="nav-item"><a ui-sref="contact.html" class="nav-link">Contact</a></li>
+                                </ul><!-- /.nav -->
+                            </div><!-- /.header-topbar-left -->
+                            <div class="header-topbar-right nav-topbar nav-topbar-social">
+                                <ul class="nav nav-pills">
+                                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-facebook"></i></a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-twitter"></i></a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-linkedin"></i></a></li>
+                                    <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-foursquare"></i></a></li>
+                                </ul><!-- /.nav -->
+                            </div><!-- /.header-topbar-right -->
+                        </div><!-- /.header-topbar -->
+                        <div class="header-top">
+                            <div class="header-top-inner">
+                                <a class="header-logo" href="index.html">
+                                    <span class="header-logo-shape"></span>
+                                    <span class="header-logo-text">Villareal</span>
+                                </a><!-- /.header-logo -->
+                                <div class="header-separator">
+                                </div><!-- /.header-separator -->
+                                <!--<button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target=".nav-primary-wrapper">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>-->
+                            </div><!-- /.header-top-inner -->
+                            <div class="header-top-right">
+                                <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
+                                    <ul class="nav nav-pills nav-primary">
+                                        <li class="nav-item">
+                                            <a href="index.html" class="nav-link ">
+                                                Search Houses
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="index.html" class="nav-link ">
+                                                Search Services
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a href="index.html" class="nav-link ">
+                                                My Properties
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div><!-- /.header-top -->
+                    </div><!-- /.container -->
+                </div><!-- /.header-inner -->
+            </div><!-- /.header -->
+        </div><!-- /.header-wrapper-->
+        <div id="ui-view" class="page-wrapper">
+        </div>
+    </div>
+
+    <div class="footer-wrapper">
+        <div class="container">
+            <div class="footer-inner">
+                <div class="footer-top">
+                    <div class="footer-top-left">
+                        <h2>Villareal Real Estate</h2>
+
+                        <p>
+                            Villareal is advanced real estate application kit. Template implements specialized components which will help you in the developement of your website or application.
+                        </p>
+
+                        <div class="social">
+                            <a href="#"><i class="fa fa-facebook"></i></a>
+                            <a href="#"><i class="fa fa-twitter"></i></a>
+                            <a href="#"><i class="fa fa-linkedin"></i></a>
+                            <a href="#"><i class="fa fa-envelope"></i></a>
+                            <a href="#"><i class="fa fa-instagram"></i></a>
+                        </div><!-- /.social -->
+                    </div><!-- /.footer-top-left -->
+
+                    <div class="footer-top-right">
+                        <h2>Subscribe To Newsletter</h2>
+
+                        <form method="post" action="?">
+                            <div class="input-group">
+                                <input type="email" class="form-control" placeholder="Your e-mail address">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary" type="submit">Subscribe</button>
+                                </span><!-- /.input-group-btn -->
+                            </div><!-- /.form-group -->
+                        </form>
+
+                        <p>
+                            * We promise that we will not send you spam messages.
+                        </p>
+                    </div><!-- /.footer-top-right -->
+                </div><!-- /.footer-top -->
+
+                <div class="footer-bottom">
+                    <div class="footer-left">
+                        &copy; 2016 Created by Code Vision. All Rights reserved.
+                    </div><!-- /.footer-left -->
+
+                    <div class="footer-right">
+                        <ul class="nav nav-pills">
+                            <li class="nav-item"><a href="pricing.html" class="nav-link">Pricing</a></li>
+                            <li class="nav-item"><a href="terms-conditions.html" class="nav-link">Terms &amp; Conditions</a></li>
+                            <li class="nav-item"><a href="contact.html" class="nav-link">Contact</a></li>
+                        </ul>
+                    </div><!-- /.footer-right -->
+                </div><!-- /.footer-bottom -->
+            </div><!-- /.footer-inner -->
+        </div><!-- /.container -->
+    </div><!-- /.footer-wrapper -->
+    <script src="lib/angular/angular.js"></script>
+    <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
+    <script type="text/javascript" src="app.js"></script>
+</body>
+</html> 

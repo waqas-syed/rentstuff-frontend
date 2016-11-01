@@ -26,9 +26,11 @@
                     expand: true,
                     flatten: true,
                     src: [
-                        'Scripts/js/**/*.js'
+                        'Scripts/js/**/*.js', 'node_modules/angular/angular.js',
+                        'node_modules/angular/angular.min.js', 'node_modules/angular-ui-router/release/angular-ui-router.js',
+                        'node_modules/angular-ui-router/release/angular-ui-router.min.js'
                     ],
-                    dest: 'wwwroot/js/',
+                    dest: 'wwwroot/',
                     filter: 'isFile'
                 }, {
                     expand: true,
