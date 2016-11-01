@@ -26,9 +26,7 @@
                     expand: true,
                     flatten: true,
                     src: [
-                        'Scripts/js/**/*.js', 'node_modules/angular/angular.js',
-                        'node_modules/angular/angular.min.js', 'node_modules/angular-ui-router/release/angular-ui-router.js',
-                        'node_modules/angular-ui-router/release/angular-ui-router.min.js'
+                        'Scripts/js/**/*.js'
                     ],
                     dest: 'wwwroot/',
                     filter: 'isFile'
@@ -37,13 +35,13 @@
                     cwd: 'assets',
                     src: '**',
                     dest: 'wwwroot/assets/'
-                }, {
+                }/*, {
                     expand: true,
                     flatten: true,
                     src: ['Views/*.html'],
                     dest: 'wwwroot/',
                     filter: 'isFile'
-                }]
+                }*/]
             }
         },
 
