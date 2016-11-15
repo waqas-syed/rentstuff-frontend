@@ -25,10 +25,10 @@
 
     rentApp.config(["$stateProvider", "$urlRouterProvider",
 		function ($stateProvider, $urlRouterProvider) {
-		    $urlRouterProvider.otherwise("/home");
+		    $urlRouterProvider.otherwise("/");
 
 		    $stateProvider
-                .state("home", { url: "/home", templateUrl: "/views/landing-page.html" })
+                .state("home", { url: "/", templateUrl: "/views/landing-page.html" })
                     .state("overview", {
                         parent: "home", url: "/overview", templateUrl: "/views/overview.html"/*, controller: "OverviewController",*/
                        /* resolve: {
