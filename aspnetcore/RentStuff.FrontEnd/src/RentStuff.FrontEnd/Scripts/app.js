@@ -40,6 +40,8 @@
                             }]
                         }*/
                     })
+                .state("signup", {
+                    url: "/signup", templateUrl: "/views/signup.html"})
                         //.state("details", {
                           //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
                             /*resolve: {
