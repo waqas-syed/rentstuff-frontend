@@ -41,7 +41,14 @@
                         }*/
                     })
                 .state("signup", {
-                    url: "/signup", templateUrl: "/views/signup.html"})
+                    url: "/signup", templateUrl: "/views/signup.html"
+                })
+                .state("contact", {
+                    url: "/contact", templateUrl: "/views/contact.html"
+                })
+                .state("forgot-password", {
+                    url: "/forgot-password", templateUrl: "/views/forgot-password.html"
+                })
                         //.state("details", {
                           //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
                             /*resolve: {
