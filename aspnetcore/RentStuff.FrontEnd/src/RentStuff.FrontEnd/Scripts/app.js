@@ -25,12 +25,12 @@
 
     rentApp.config(["$stateProvider", "$urlRouterProvider",
 		function ($stateProvider, $urlRouterProvider) {
-		    $urlRouterProvider.otherwise("/");
+		    $urlRouterProvider.otherwise("/home");
 
 		    $stateProvider
-                .state("home", { url: "/", templateUrl: "/views/landing-page.html" })
-                    .state("overview", {
-                        parent: "home", url: "/overview", templateUrl: "/views/overview.html"/*, controller: "OverviewController",*/
+                .state("home", { url: "/home", templateUrl: "/views/landing-page.html" })
+                    .state("login", {
+                        url: "/login", templateUrl: "/views/login.html"/*, controller: "OverviewController",*/
                        /* resolve: {
 
                             FastestAnimalService: "FastestAnimalService",
@@ -40,8 +40,8 @@
                             }]
                         }*/
                     })
-                        .state("details", {
-                            parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
+                        //.state("details", {
+                          //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
                             /*resolve: {
                                 FastestAnimalService: "FastestAnimalService",
 
@@ -51,7 +51,7 @@
                                     return FastestAnimalService.getAnimal({ animalId: animalId });
                                 }]
                             }*/
-                        })
+                        //})
 		}
     ]
     );
