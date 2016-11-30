@@ -26,7 +26,8 @@
                     expand: true,
                     flatten: true,
                     src: [
-                        'Scripts/js/**/*.js'
+                        'Scripts/js/**/*.js',
+                        'Scripts/**/*.js'
                     ],
                     dest: 'wwwroot/',
                     filter: 'isFile'

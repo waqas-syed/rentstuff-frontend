@@ -1,2 +1,87 @@
-!function(){"use strict";var a=angular.module("rentApp",["ui.router"]);a.config(["$stateProvider","$urlRouterProvider",function(a,b){b.otherwise("/home"),a.state("home",{url:"/home",templateUrl:"/views/landing-page.html"}).state("login",{url:"/login",templateUrl:"/views/login.html"}).state("signup",{url:"/signup",templateUrl:"/views/signup.html"}).state("contact",{url:"/contact",templateUrl:"/views/contact.html"}).state("forgot-password",{url:"/forgot-password",templateUrl:"/views/forgot-password.html"})}]),a.run(["$rootScope",function(a){a.$on("$stateChangeError",function(a,b,c,d,e,f){console.log(a),console.log(b),console.log(c),console.log(d),console.log(e),console.log(f)}),a.$on("$stateNotFound",function(a,b,c,d){console.log(a),console.log(b),console.log(c),console.log(d)})}])}();
-//# sourceMappingURL=app.js.map
+﻿(function () {
+    'use strict';
+
+    var rentApp=angular.module('rentApp', ['ui.router']);
+    /*rentApp.config(["$stateProvider", "$urlRouterProvider",
+        function ($stateProvider, $urlRouterProvider) {
+
+        $urlRouterProvider.otherwise('/home');
+
+        $stateProvider
+        
+            // HOME STATES AND NESTED VIEWS ========================================
+            .state('home', {
+                url: '/home',
+                templateUrl: 'landing-page.html'
+            })
+
+            // ABOUT PAGE AND MULTIPLE NAMED VIEWS =================================
+            .state('login', {
+                url: '/login',
+                templateUrl: 'landing-page.html'
+            });
+
+        }]);*/
+
+    rentApp.config(["$stateProvider", "$urlRouterProvider",
+		function ($stateProvider, $urlRouterProvider) {
+		    $urlRouterProvider.otherwise("/home");
+
+		    $stateProvider
+                .state("home", { url: "/home", templateUrl: "/views/landing-page.html" })
+                    .state("login", {
+                        url: "/login", templateUrl: "/views/login.html"/*, controller: "OverviewController",*/
+                       /* resolve: {
+
+                            FastestAnimalService: "FastestAnimalService",
+
+                            fastestAnimals: ["FastestAnimalService", function (FastestAnimalService) {
+                                return FastestAnimalService.getAnimals();
+                            }]
+                        }*/
+                    })
+                .state("signup", {
+                    url: "/signup", templateUrl: "/views/signup.html"
+                })
+                .state("contact", {
+                    url: "/contact", templateUrl: "/views/contact.html"
+                })
+                .state("forgot-password", {
+                    url: "/forgot-password", templateUrl: "/views/forgot-password.html"
+                })
+                        //.state("details", {
+                          //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
+                            /*resolve: {
+                                FastestAnimalService: "FastestAnimalService",
+
+                                fastestAnimal: ["FastestAnimalService", "$stateParams", function (FastestAnimalService, $stateParams) {
+                                    var animalId = $stateParams.animalId;
+                                    console.log($stateParams.animalId);
+                                    return FastestAnimalService.getAnimal({ animalId: animalId });
+                                }]
+                            }*/
+                        //})
+		}
+    ]
+    );
+
+    rentApp.run(["$rootScope", function ($rootScope) {
+
+        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
+            console.log(event);
+            console.log(toState);
+            console.log(toParams);
+            console.log(fromState);
+            console.log(fromParams);
+            console.log(error);
+        })
+
+        $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
+            console.log(event);
+            console.log(unfoundState);
+            console.log(fromState);
+            console.log(fromParams);
+        })
+
+    }]);
+})();
