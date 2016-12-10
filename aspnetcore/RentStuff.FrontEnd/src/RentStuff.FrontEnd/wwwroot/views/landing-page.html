@@ -24,15 +24,12 @@
 
                     <form ng-submit="getPropertyType()">
                         <div class="form-group col-sm-3">
-                            <input class="form-control" type="text" name="location" placeholder="Location">
+                            <input class="form-control" type="text" name="location" placeholder="Location" g-places-autocomplete ng-model="myScopeVar">
                         </div><!-- /.form-group -->
                         <div class="form-group col-sm-3">
-                            <select class="form-control">
-                                <option value="">Property Type</option>
-                                <option value="">House</option>
-                                <option value="">Apartment</option>
-                                <option value="">Hostel</option>
-                                <option value="">Hotel</option>
+                            <select class="form-control" ng-model="selectedPropertyType"
+                             ng-options="propertyType as propertyType for propertyType in propertyTypes">
+                                <option value="" disabled selected style="display: none;">Property Type</option>
                             </select>
                         </div>
                         <!-- /.form-group -->
