@@ -33,39 +33,52 @@
 		    $urlRouterProvider.otherwise("/home");
 
 		    $stateProvider
-                .state("home", { url: "/home", templateUrl: "/views/landing-page.html" })
-                    .state("login", {
-                        url: "/login", templateUrl: "/views/login.html"/*, controller: "OverviewController",*/
-                       /* resolve: {
+		        .state("home", { url: "/home", templateUrl: "/views/landing-page.html" })
+		        .state("login",
+		        {
+		            url: "/login",
+		            templateUrl: "/views/login.html" /*, controller: "OverviewController",*/
+		            /* resolve: {
 
-                            FastestAnimalService: "FastestAnimalService",
+                         FastestAnimalService: "FastestAnimalService",
 
-                            fastestAnimals: ["FastestAnimalService", function (FastestAnimalService) {
-                                return FastestAnimalService.getAnimals();
-                            }]
-                        }*/
-                    })
-                .state("signup", {
-                    url: "/signup", templateUrl: "/views/signup.html"
-                })
-                .state("contact", {
-                    url: "/contact", templateUrl: "/views/contact.html"
-                })
-                .state("forgot-password", {
-                    url: "/forgot-password", templateUrl: "/views/forgot-password.html"
-                })
-                        //.state("details", {
-                          //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
-                            /*resolve: {
-                                FastestAnimalService: "FastestAnimalService",
+                         fastestAnimals: ["FastestAnimalService", function (FastestAnimalService) {
+                             return FastestAnimalService.getAnimals();
+                         }]
+                     }*/
+		        })
+		        .state("signup",
+		        {
+		            url: "/signup",
+		            templateUrl: "/views/signup.html"
+		        })
+		        .state("contact",
+		        {
+		            url: "/contact",
+		            templateUrl: "/views/contact.html"
+		        })
+		        .state("forgot-password",
+		        {
+		            url: "/forgot-password",
+		            templateUrl: "/views/forgot-password.html"
+		        })
+                .state("search-results",
+		        {
+		            url: "/search-results",
+		            templateUrl: "/views/search-results.html"
+		        });
+		    //.state("details", {
+		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
+		    /*resolve: {
+                FastestAnimalService: "FastestAnimalService",
 
-                                fastestAnimal: ["FastestAnimalService", "$stateParams", function (FastestAnimalService, $stateParams) {
-                                    var animalId = $stateParams.animalId;
-                                    console.log($stateParams.animalId);
-                                    return FastestAnimalService.getAnimal({ animalId: animalId });
-                                }]
-                            }*/
-                        //})
+                fastestAnimal: ["FastestAnimalService", "$stateParams", function (FastestAnimalService, $stateParams) {
+                    var animalId = $stateParams.animalId;
+                    console.log($stateParams.animalId);
+                    return FastestAnimalService.getAnimal({ animalId: animalId });
+                }]
+            }*/
+		    //})
 		}
     ]
     );
