@@ -8295,6 +8295,9 @@ label {
       text-overflow: ellipsis;
       transition: color .15s linear;
       white-space: nowrap; }
+      .listing-row-content h3 b {
+        color: #25b45b;
+        text-decoration: none; }
       .listing-row-content h3 a:hover {
         color: #25b45b;
         text-decoration: none; }
