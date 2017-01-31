@@ -2,8 +2,8 @@
 
 rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($http, $q, globalService) {
     return {
-        searchHouses: function () {
-            return $http.get(globalService.serverUrl + 'house')
+        searchHousesByAddressAndPropertyType: function (area, propertyType) {
+            return $http.get(globalService.serverUrl + 'house', {params: {area: area, propertyType: propertyType}})
             .then(
                     function (response) {
                         return response.data;

@@ -62,10 +62,13 @@
 		            url: "/forgot-password",
 		            templateUrl: "/views/forgot-password.html"
 		        })
-                .state("search-results",
+		        .state("search-results",
 		        {
-		            url: "/search-results",
-		            templateUrl: "/views/search-results.html"
+		            templateUrl: "/views/search-results.html",
+		            controller: "SearchResultController",
+		            params: {
+		                'houseList': 'No Value'
+		            }
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
@@ -85,21 +88,23 @@
 
     rentApp.run(["$rootScope", function ($rootScope) {
 
-        $rootScope.$on('$stateChangeError', function (event, toState, toParams, fromState, fromParams, error) {
-            console.log(event);
-            console.log(toState);
-            console.log(toParams);
-            console.log(fromState);
-            console.log(fromParams);
-            console.log(error);
-        })
+        $rootScope.$on('$stateChangeError',
+            function(event, toState, toParams, fromState, fromParams, error) {
+                console.log(event);
+                console.log(toState);
+                console.log(toParams);
+                console.log(fromState);
+                console.log(fromParams);
+                console.log(error);
+            });
 
-        $rootScope.$on('$stateNotFound', function (event, unfoundState, fromState, fromParams) {
-            console.log(event);
-            console.log(unfoundState);
-            console.log(fromState);
-            console.log(fromParams);
-        })
+        $rootScope.$on('$stateNotFound',
+            function(event, unfoundState, fromState, fromParams) {
+                console.log(event);
+                console.log(unfoundState);
+                console.log(fromState);
+                console.log(fromParams);
+            });
 
     }]);
 })();
