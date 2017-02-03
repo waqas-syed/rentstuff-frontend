@@ -12,9 +12,16 @@ rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchSer
     }
     
     $scope.searchHouses = function () {
-        searchService.searchHousesByAddressAndPropertyType($scope.area.formatted_address, $scope.selectedPropertyType).then(function (response) {
-            $scope.allHouses = response;
-            $state.go("search-results", { 'houseList': response });
-        });
+        if ($scope.area === '' || $scope.area === undefined ||
+            $scope.selectedPropertyType === '' || $scope.selectedPropertyType === undefined) {
+            $window.alert("Please provide Location and PropertyType");
+        } else {
+            searchService
+                .searchHousesByAddressAndPropertyType($scope.area.formatted_address, $scope.selectedPropertyType)
+                .then(function(response) {
+                    $scope.allHouses = response;
+                    $state.go("search-results", { 'houseList': response });
+                });
+        }
     };
 }]);
