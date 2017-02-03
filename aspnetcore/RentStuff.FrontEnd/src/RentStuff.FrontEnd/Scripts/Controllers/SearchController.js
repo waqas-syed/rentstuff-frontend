@@ -5,6 +5,11 @@ rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchSer
     searchService.getPropertyTypes().then(function (response) {
         $scope.propertyTypes = response;
     });
+
+    $scope.autocompleteOptions = {
+        componentRestrictions: { country: 'pk' },
+        types: ['geocode']
+    }
     
     $scope.searchHouses = function () {
         searchService.searchHousesByAddressAndPropertyType($scope.area, $scope.selectedPropertyType).then(function (response) {
