@@ -12,7 +12,7 @@ rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchSer
     }
     
     $scope.searchHouses = function () {
-        searchService.searchHousesByAddressAndPropertyType($scope.area, $scope.selectedPropertyType).then(function (response) {
+        searchService.searchHousesByAddressAndPropertyType($scope.area.formatted_address, $scope.selectedPropertyType).then(function (response) {
             $scope.allHouses = response;
             $state.go("search-results", { 'houseList': response });
         });
