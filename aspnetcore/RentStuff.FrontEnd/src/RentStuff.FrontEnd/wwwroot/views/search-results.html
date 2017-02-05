@@ -56,7 +56,7 @@
                                     <div class="listing-row-content">
                                         <h3><a href="properties-detail-standard.html"><b ng-bind="house.Title"></b></a></h3>
                                         <h3><a href="properties-detail-standard.html" ng-bind="house.Area"></a></h3>
-                                        <h4 ng-bind="house.Rent"></h4>
+                                        <h4 ng-bind="'Rs ' + house.Rent"></h4>
                                         <ul class="listing-row-attributes">
                                             <!--<li>
                                                 <strong><i class="fa fa-map-marker"></i> City</strong>
@@ -72,11 +72,11 @@
                                             </li>
                                             <li>
                                                 <strong><i class="fa fa-umbrella"></i> Baths</strong>
-                                                <span ng-bind="house.Bathrooms">3</span>
+                                                <span ng-bind="house.NumberOfBathrooms">3</span>
                                             </li>
                                             <li>
                                                 <strong><i class="fa fa-bed"></i> Bedrooms</strong>
-                                                <span ng-bind="house.Bedrooms">5</span>
+                                                <span ng-bind="house.NumberOfBedrooms">5</span>
                                             </li>
                                             <li>
                                                 <strong><i class="fa fa-arrows-alt"></i> Area</strong>
@@ -86,7 +86,8 @@
                                     </div><!-- /.listing-row-content -->
                                 </div><!-- /.listing-row-inner -->
                             </div><!-- /.listing-row -->
-                            <div class="pagination-wrapper">
+                        <!--ToDo: Make pagination work after MVP is launched-->
+                            <!--<div class="pagination-wrapper">
                                 <ul class="pagination">
                                     <li class="page-item disabled">
                                         <a class="page-link" href="#" aria-label="Previous">
@@ -107,8 +108,8 @@
                                             <span class="sr-only">Next</span>
                                         </a>
                                     </li>
-                                </ul><!-- /.pagination -->
-                            </div><!-- /.pagination-wrapper -->
+                                </ul>--><!-- /.pagination -->
+                            <!--</div>--><!-- /.pagination-wrapper -->
                         </div><!-- /.col-sm-* -->
                         <div class="col-md-4 col-lg-3">
                             <div class="widget">
