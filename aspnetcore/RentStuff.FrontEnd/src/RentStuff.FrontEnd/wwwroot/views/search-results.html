@@ -48,11 +48,14 @@
 
                             <div class="listing-row" ng-repeat="house in houses">
                                 <div class="listing-row-inner">
-                                    <div class="listing-row-image" style="background-image: url('assets/img/tmp/tmp-5.jpg');">
+                                    <div class="listing-row-image">
+                                        
                                         <span class="listing-row-image-links">
+                                            <img ng-src="data:image/JPEG;base64,{{house.ImageList[0]}}" />
                                             <a href="properties-detail-standard.html"><i class="fa fa-search"></i> <span>View detail</span></a>
                                         </span>
                                     </div>
+                                    
                                     <div class="listing-row-content">
                                         <h3><a href="properties-detail-standard.html"><b ng-bind="house.Title"></b></a></h3>
                                         <h3><a href="properties-detail-standard.html" ng-bind="house.Area"></a></h3>
