@@ -68,7 +68,8 @@
 		            templateUrl: "/views/search-results.html",
 		            controller: "SearchResultController",
 		            params: {
-		                'houseList': 'No Value'
+		                "location": "",
+                        "propertytype": ""
 		            }
 		        });
 		    //.state("details", {

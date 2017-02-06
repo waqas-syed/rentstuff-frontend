@@ -10,7 +10,7 @@ rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchSer
         componentRestrictions: { country: 'pk' },
         types: ['geocode']
     }
-    
+
     $scope.searchHouses = function () {
         if (($scope.area.formatted_address === '' || $scope.area.formatted_address === undefined) &&
             ($scope.selectedPropertyType === '' || $scope.selectedPropertyType === undefined)) {
@@ -22,12 +22,7 @@ rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchSer
         else if ($scope.selectedPropertyType === '' || $scope.selectedPropertyType === undefined) {
             $window.alert("Please provide PropertyType");
         } else {
-            searchService
-                .searchHousesByAddressAndPropertyType($scope.area.formatted_address, $scope.selectedPropertyType)
-                .then(function(response) {
-                    $scope.allHouses = response;
-                    $state.go("search-results", { 'houseList': response });
-                });
+            $state.go("search-results", { 'location': $scope.area.formatted_address, 'propertytype': $scope.selectedPropertyType });
         }
     };
 }]);
