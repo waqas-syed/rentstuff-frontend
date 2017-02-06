@@ -64,6 +64,7 @@
 		        })
 		        .state("search-results",
 		        {
+		            url: "/search-results",
 		            templateUrl: "/views/search-results.html",
 		            controller: "SearchResultController",
 		            params: {

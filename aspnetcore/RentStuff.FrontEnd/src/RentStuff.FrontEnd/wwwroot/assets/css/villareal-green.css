@@ -8203,7 +8203,7 @@ label {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   display: table;
   margin: 0 0 30px 0;
-  min-height: 180px;
+  min-height: 160px;
   transition: box-shadow .15s linear;
   width: 100%; }
   .listing-row:hover {
@@ -8226,7 +8226,7 @@ label {
   display: table-cell;
   overflow: hidden;
   position: relative;
-  width: 30%; }
+  width: 25%; }
   .listing-row-simple-image .listing-row-image {
     background-size: inherit;
     border-right: 1px solid rgba(0, 0, 0, 0.08); }
@@ -8279,7 +8279,7 @@ label {
   display: table-cell;
   padding: 20px;
   position: relative;
-  width: 70%; }
+  width: 65%; }
   @media (max-width: 991px) {
     .listing-row-content {
       display: block;
@@ -8313,6 +8313,27 @@ label {
     position: absolute;
     right: 20px;
     top: 20px; }
+  .listing-row-content p {
+    color: gray; }
+
+  .listing-row-content-20-percent {
+  display: table-cell;
+  padding: 20px 0 20px 100px;
+  position: relative;
+  width: 10%; }
+  @media (max-width: 991px) {
+    .listing-row-content-20-percent {
+      display: block;
+      width: 100%; } }
+  .listing-row-content-20-percent h4 {
+    background-color: #25b45b;
+    color: #fff;
+    font-size: 1.0em;
+    font-weight: 700;
+    padding: 5px 12px;
+    position: absolute;
+    right: 0px;
+    top: 20px;}
   .listing-row-content p {
     color: gray; }
 
