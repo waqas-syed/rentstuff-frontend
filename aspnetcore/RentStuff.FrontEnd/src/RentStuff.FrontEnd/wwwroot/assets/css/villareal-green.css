@@ -8335,6 +8335,12 @@ label {
     right: 0px;
     top: 20px; }
 
+
+.listing-row-content-tooltip {
+    margin: 30px 10px 0px -12px;
+    width: 176px;
+}
+
 .listing-box-social, .listing-user-social ul, .listing-row-social {
   list-style: none;
   margin: 0 0 10px 0;

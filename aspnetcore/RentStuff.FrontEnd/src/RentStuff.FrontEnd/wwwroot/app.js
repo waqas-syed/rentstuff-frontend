@@ -1,7 +1,7 @@
 ﻿(function () {
     'use strict';
 
-    var rentApp = angular.module('rentApp', ['ui.router', 'google.places']);
+    var rentApp = angular.module('rentApp', ['ui.router', 'google.places', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
     /*rentApp.config(["$stateProvider", "$urlRouterProvider",
         function ($stateProvider, $urlRouterProvider) {
 
