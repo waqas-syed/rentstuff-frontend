@@ -8203,7 +8203,7 @@ label {
   box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
   display: table;
   margin: 0 0 30px 0;
-  min-height: 180px;
+  min-height: 160px;
   transition: box-shadow .15s linear;
   width: 100%; }
   .listing-row:hover {
@@ -8318,14 +8318,14 @@ label {
 
   .listing-row-content-20-percent {
   display: table-cell;
-  padding: 20px 0 20px 100px;
+  padding: 5px 0 30px 100px;
   position: relative;
-  width: 10%; }
+  width: 5%; }
   @media (max-width: 991px) {
     .listing-row-content-20-percent {
       display: block;
       width: 100%; } }  
-  .listing-row-content-20-percent h4 {
+  .listing-row-content-20-percent button {
     background-color: #25b45b;
     color: #fff;
     font-size: 1.1em;
