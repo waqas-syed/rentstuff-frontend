@@ -88,9 +88,10 @@
                                                 <span ng-bind="house.Dimension"></span>
                                             </li>
                                         </ul>
+                                    <br/>
                                         <div class="listing-row-content-20-percent" >
                                             <button type="submit" ng-click="tooltipIsOpen = !tooltipIsOpen" class="btn btn-primary">
-                                                Show Phone <span tooltip-class="listing-row-content-tooltip" uib-tooltip="{{house.OwnerPhoneNumber}}" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom-left"></span>
+                                                Show Phone <span tooltip-class="listing-row-content-tooltip" uib-tooltip-html="'{{house.OwnerName}} <br/> {{house.OwnerPhoneNumber}}'" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom-left"></span>
                                                 Number
                                             </button>
                                         </div>
