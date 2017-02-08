@@ -50,13 +50,13 @@
                                 <div class="listing-row-inner">
                                     <div class="listing-row-image" style="background-image: url('data:image/JPEG;base64,{{house.ImageString}}');">
                                         <span class="listing-row-image-links">
-                                            <a href="properties-detail-standard.html"><i class="fa fa-search"></i> <span>View detail</span></a>
+                                            <a ui-sref="house-details"><i class="fa fa-search"></i> <span>View detail</span></a>
                                         </span>
                                     </div>
                                     
                                     <div class="listing-row-content">
-                                        <h3><a href="properties-detail-standard.html"><b ng-bind="house.Title"></b></a></h3>
-                                        <h3><a href="properties-detail-standard.html" ng-bind="house.Area"></a></h3>
+                                        <h3><a ui-sref="house-details"><b ng-bind="house.Title"></b></a></h3>
+                                        <h3><a ui-sref="house-details" ng-bind="house.Area"></a></h3>
                                         <h4 ng-bind="'Rs ' + house.Rent"></h4>
                                         <ul class="listing-row-attributes">
                                             <!--<li>

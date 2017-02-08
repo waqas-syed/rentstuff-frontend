@@ -71,6 +71,11 @@
 		                "location": "",
                         "propertytype": ""
 		            }
+		        })
+		        .state("house-details",
+		        {
+		            url: "/house-details",
+		            templateUrl: "/views/house-details.html"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
