@@ -37,16 +37,14 @@
                             </div><!-- /.listing-detail-attributes -->
                         </div><!-- /.col-sm-12 -->
                         <div class="listing-detail col-md-8 col-lg-9">
-                            <div class="gallery">
-                                <div class="gallery-item" style="background-image: url('assets/img/tmp/tmp-5.jpg');">
-                                </div><!-- /.gallery-item -->
-                                <div class="gallery-item" style="background-image: url('assets/img/tmp/tmp-11.jpg');">
-                                </div><!-- /.gallery-item -->
-                                <div class="gallery-item" style="background-image: url('assets/img/tmp/tmp-12.jpg');">
-                                </div><!-- /.gallery-item -->
-                                <div class="gallery-item" style="background-image: url('assets/img/tmp/tmp-8.jpg');">
-                                </div><!-- /.gallery-item -->
-                            </div><!-- /.gallery -->
+                            <md-card layout="column" layout-align="center center" style="padding-bottom: 10px">
+                                <h3>Basic Carousel setup</h3>
+                                <jk-carousel data="dataArray"
+                                             item-template-url="'item-template.html'"
+                                             max-width="800"
+                                             max-height="500">
+                                </jk-carousel>
+                            </md-card>
                             <div class="row">
                                 <div class="col-lg-5">
                                     <div class="overview">

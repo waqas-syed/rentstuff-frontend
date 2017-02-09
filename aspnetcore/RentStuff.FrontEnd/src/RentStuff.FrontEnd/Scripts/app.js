@@ -1,7 +1,8 @@
 ﻿(function () {
     'use strict';
 
-    var rentApp = angular.module('rentApp', ['ui.router', 'google.places', 'ngAnimate', 'ngSanitize', 'ui.bootstrap']);
+    var rentApp = angular.module('rentApp', ['ui.router', 'google.places', 'ngAnimate', 'ngSanitize', 'ui.bootstrap',
+    'ngMaterial', 'jkAngularCarousel']);
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider",
 		function ($stateProvider, $urlRouterProvider, $httpProvider) {
