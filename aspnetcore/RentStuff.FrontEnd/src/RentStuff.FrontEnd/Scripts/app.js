@@ -55,8 +55,11 @@
 		        })
 		        .state("house-details",
 		        {
-		            url: "/house-details",
-		            templateUrl: "/views/house-details.html"
+		            url: "/house-details?houseId",
+		            templateUrl: "/views/house-details.html",
+		            params: {
+		                "houseId": ""
+		            }
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
