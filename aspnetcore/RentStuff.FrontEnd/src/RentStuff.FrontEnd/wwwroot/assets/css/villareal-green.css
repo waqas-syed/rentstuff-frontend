@@ -1767,6 +1767,42 @@ fieldset[disabled] a.pricing-btn {
     background-color: #0275d8;
     border-color: #0275d8; }
 
+  .btn-white, .pricing-btn {
+  color: #25b45b;
+  background-color: #fff;
+  border-color: #fff; }
+  .btn-white:hover, .pricing-btn:hover {
+    color: #25b45b;
+    background-color: #fff;
+    border-color: #fff; }
+  .btn-white:focus, .pricing-btn:focus, .btn-white.focus, .focus.pricing-btn {
+    color: #25b45b;
+    background-color: #fff;
+    border-color: #fff; }
+  .btn-white:active, .pricing-btn:active, .btn-white.active, .active.pricing-btn,
+  .open > .btn-white.dropdown-toggle,
+  .open > .dropdown-toggle.pricing-btn {
+    color: #25b45b;
+    background-color: #fff;
+    border-color: #fff;
+    background-image: none; }
+    .btn-white:active:hover, .pricing-btn:active:hover, .btn-white:active:focus, .pricing-btn:active:focus, .btn-white:active.focus, .pricing-btn:active.focus, .btn-white.active:hover, .active.pricing-btn:hover, .btn-white.active:focus, .active.pricing-btn:focus, .btn-white.active.focus, .active.focus.pricing-btn,
+    .open > .btn-white.dropdown-toggle:hover,
+    .open > .dropdown-toggle.pricing-btn:hover,
+    .open > .btn-white.dropdown-toggle:focus,
+    .open > .dropdown-toggle.pricing-btn:focus,
+    .open > .btn-white.dropdown-toggle.focus,
+    .open > .dropdown-toggle.focus.pricing-btn {
+      color: #25b45b;
+      background-color: #fff;
+      border-color: #fff; }
+  .btn-white.disabled:focus, .disabled.pricing-btn:focus, .btn-white.disabled.focus, .disabled.focus.pricing-btn, .btn-white:disabled:focus, .pricing-btn:disabled:focus, .btn-white:disabled.focus, .pricing-btn:disabled.focus {
+    background-color: #fff;
+    border-color: #fff; }
+  .btn-white.disabled:hover, .disabled.pricing-btn:hover, .btn-white:disabled:hover, .pricing-btn:disabled:hover {
+    background-color: #fff;
+    border-color: #fff; }
+
 .btn-secondary, .pricing-col:hover .pricing-btn, .filter.filter-primary .btn, .filter.filter-primary .pricing-btn {
   color: #373a3c;
   background-color: #fff;
@@ -8336,9 +8372,13 @@ label {
     right: 0px;
     top: 20px; }
 
-
 .listing-row-content-tooltip {
     margin: 30px 10px 0px -12px;
+    width: 176px;
+}
+
+.detail-page-content-tooltip {
+    margin: 17px 400px 0 0;
     width: 176px;
 }
 
@@ -8688,3 +8728,10 @@ label {
       color: #25b45b; }
     .listing-compare-list li.no {
       color: #F75156; }
+
+.detail-contact-label {  
+    display:block;
+    text-align: center;
+    margin: 2px 0 5px 0;
+    padding: 0 0 0 0;
+}

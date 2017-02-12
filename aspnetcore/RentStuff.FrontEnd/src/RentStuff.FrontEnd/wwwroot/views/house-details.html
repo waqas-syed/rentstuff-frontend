@@ -27,12 +27,12 @@
                                 </div><!-- /.listing-detail-attribute -->
                                 <div class="listing-detail-attribute">
                                     <div class="key">Location</div>
-                                    <div class="value">New York / Brooklyn</div>
+                                    <div class="value" ng-bind="house.Area"></div>
                                 </div><!-- /.listing-detail-attribute -->
 
                                 <div class="listing-detail-attribute">
                                     <div class="key">Rent</div>
-                                    <div class="value">$ 280.000,00</div>
+                                    <div class="value" ng-bind="house.MonthlyRent"></div>
                                 </div><!-- /.listing-detail-attribute -->
                             </div><!-- /.listing-detail-attributes -->
                         </div><!-- /.col-sm-12 -->
@@ -300,48 +300,16 @@
                         </div><!-- /.col-* -->
                         <div class="col-md-4 col-lg-3">
                             <div class="widget">
-                                <ul class="nav nav-stacked nav-style-primary">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-share-alt"></i> Share Property
-                                        </a>
-                                    </li><!-- /.nav-item -->
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-heart"></i> Add to Favorites
-                                        </a>
-                                    </li><!-- /.nav-item -->
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-balance-scale"></i> Compare Property
-                                        </a>
-                                    </li><!-- /.nav-item -->
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-envelope"></i> Send By E-mail
-                                        </a>
-                                    </li><!-- /.nav-item -->
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-building"></i> View Agency Detail
-                                        </a>
-                                    </li><!-- /.nav-item -->
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-calculator"></i> Calculator
-                                        </a>
-                                    </li><!-- /.nav-item -->
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-comment"></i> Write Review
-                                        </a>
-                                    </li><!-- /.nav-item -->
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link">
-                                            <i class="fa fa-warning"></i> Report Abuse
-                                        </a>
-                                    </li><!-- /.nav-item -->
-                                </ul><!-- /.nav-style-primary -->
+                                <div method="post" class="mortgage-calculator">
+                                    <div class="form-group">
+                                        <label class="detail-contact-label">Interested?</label>
+                                        <label class="detail-contact-label">Contact Owner</label>
+                                    </div><!-- /.form-group -->
+                                    <!--<input type="submit" class="btn btn-secondary btn-block" value="Calculate">-->
+                                    <button type="submit" ng-class="{true: 'btn btn-white btn-block', false: 'btn btn-secondary btn-block'}[!tooltipIsOpen]" ng-click="tooltipIsOpen = !tooltipIsOpen">
+                                        Show Phone Number<span tooltip-class="detail-page-content-tooltip" uib-tooltip-html="'Dummy Value'" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom"></span>
+                                    </button>
+                                </div>
                             </div><!-- /.widget -->
                             <div class="widget widget-background-white">
                                 <h3 class="widgettitle">Inquire Form</h3>
