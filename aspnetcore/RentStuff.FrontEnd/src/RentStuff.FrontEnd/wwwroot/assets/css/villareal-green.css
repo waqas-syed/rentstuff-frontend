@@ -2123,6 +2123,13 @@ fieldset[disabled] a.pricing-btn {
   display: block;
   width: 100%; }
 
+.btn-block-95-percent, .pricing-btn-block-95-percent {
+  display: block;
+  text-align: center;
+  width: 95%;
+  margin: 0 0 0 5px;
+}
+
 .btn-block + .btn-block, .pricing-btn + .btn-block, .btn-block + .pricing-btn, .pricing-btn + .pricing-btn {
   margin-top: 5px; }
 
@@ -8378,8 +8385,8 @@ label {
 }
 
 .detail-page-content-tooltip {
-    margin: 17px 400px 0 0;
-    width: 176px;
+    margin: 17px 0px 0 -68.5px;
+    width: 195px;
 }
 
 .listing-box-social, .listing-user-social ul, .listing-row-social {
