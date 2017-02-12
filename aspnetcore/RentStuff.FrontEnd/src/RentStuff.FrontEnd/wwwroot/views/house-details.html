@@ -5,7 +5,7 @@
             <div class="content-title">
                 <div class="content-title-inner">
                     <div class="container">
-                        <h1>Emerson Street 20921 Blvd.</h1>
+                        <h1 ng-bind="house.Title"></h1>
                     </div><!-- /.container -->
                 </div><!-- /.content-title-inner -->
             </div><!-- /.content-title -->
@@ -22,7 +22,7 @@
                                         <div class="value-image">
                                             <a href="#" style="background-image: url('../assets/img/house_thumbnail.jpg');"></a>
                                         </div><!-- /.value-image -->
-                                        Apartment
+                                        {{house.PropertyType}}
                                     </div>
                                 </div><!-- /.listing-detail-attribute -->
                                 <div class="listing-detail-attribute">
