@@ -39,11 +39,14 @@
                         <div class="listing-detail col-md-8 col-lg-9">
                             <md-card layout="column" layout-align="center center" style="padding-bottom: 10px">
                                 <h3>Basic Carousel setup</h3>
-                                <jk-carousel data="dataArray"
-                                             item-template-url="'item-template.html'"
-                                             max-width="800"
-                                             max-height="500">
-                                </jk-carousel>
+                                <div ng-if="readyToLoadCarousel">
+                                    <jk-carousel param="readyToLoadCarousel"
+                                                 data="dataArray"
+                                                 item-template-url="'item-template.html'"
+                                                 max-width="800"
+                                                 max-height="500">
+                                    </jk-carousel>
+                                </div>
                             </md-card>
                             <div class="row">
                                 <div class="col-lg-5">
