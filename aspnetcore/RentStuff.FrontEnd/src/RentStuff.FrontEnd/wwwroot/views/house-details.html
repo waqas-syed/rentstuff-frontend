@@ -307,10 +307,13 @@
                                     </div><!-- /.form-group -->
                                     <!--<input type="submit" class="btn btn-secondary btn-block" value="Calculate">-->
                                     <button type="submit" ng-class="{true: 'btn btn-white btn-block-95-percent', false: 'btn btn-secondary btn-block-95-percent'}[!tooltipIsOpen]" ng-click="tooltipIsOpen = !tooltipIsOpen">
-                                        Show Phone Number<span tooltip-class="detail-page-content-tooltip" uib-tooltip-html="'Dummy Value'" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom"></span>
+                                        Show Phone Number<span tooltip-class="detail-page-content-tooltip" uib-tooltip-template="'tooltipTemplate.html'" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom"></span>
                                     </button>
                                 </div>
                             </div><!-- /.widget -->
+                            <script type="text/ng-template" id="tooltipTemplate.html">
+                                <span>{{house.OwnerName}} <br /> {{house.OwnerPhoneNumber}}</span>
+                            </script>
                             <div class="widget widget-background-white">
                                 <h3 class="widgettitle">Inquire Form</h3>
                                 <form method="post" action="?">
