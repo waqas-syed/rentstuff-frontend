@@ -2,10 +2,12 @@
     'use strict';
 
     var rentApp = angular.module('rentApp', ['ui.router', 'google.places', 'ngAnimate', 'ngSanitize', 'ui.bootstrap',
-    'ngMaterial', 'jkAngularCarousel']);
+    'ngMaterial', 'jkAngularCarousel', 'LocalStorageModule']);
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider",
 		function ($stateProvider, $urlRouterProvider, $httpProvider) {
+		    $httpProvider.interceptors.push('authInterceptorService');
+
 		    $httpProvider.defaults.useXDomain = true;
 		    $httpProvider.defaults.withCredentials = true;
 		    delete $httpProvider.defaults.headers.common["X-Requested-With"];
