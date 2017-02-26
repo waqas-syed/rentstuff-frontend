@@ -14,7 +14,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
 
         _logOut();
 
-        return $http.post('http://localhost:14832/api/account/register', registration).then(function (response) {
+        return $http.post('http://localhost:2431/api/account/register', registration).then(function (response) {
             return response;
         });
 
@@ -26,7 +26,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
 
         var deferred = $q.defer();
 
-        $http.post('http://localhost:14832/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
+        $http.post('http://localhost:2431/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
             localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
 
