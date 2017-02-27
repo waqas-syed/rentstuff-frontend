@@ -16,8 +16,10 @@ rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'auth
     $scope.signUp = function () {
 
         if ($scope.registration.password !== $scope.registration.confirmPassword) {
-            $window.alert('Password and confirm password do not match');
+            //$window.alert('Password and confirm password do not match');
+            $scope.passwordsDontMatch = true;
         } else {
+            $scope.passwordsDontMatch = false;
             authService.saveRegistration($scope.registration)
                 .then(function(response) {
 
