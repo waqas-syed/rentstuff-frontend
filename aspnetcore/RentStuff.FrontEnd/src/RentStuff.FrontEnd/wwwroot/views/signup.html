@@ -7,7 +7,11 @@
                         <div class="row">
                             <div class="col-md-12 col-lg-8 col-lg-offset-2">
                                 <div class="row">
-                                    <div class="col-sm-6">
+                                    <div class="col-lg-4 col-lg-offset-4">
+                                        <div class="form-group">
+                                            <label for="">Full Name</label>
+                                            <input type="text" class="form-control" placeholder="First Name" ng-model="registration.fullName" ng-maxlength="14" maxlength="14">
+                                        </div><!-- /.form-group -->
                                         <div class="form-group">
                                             <label for="">Email</label>
                                             <input type="mail" class="form-control" placeholder="Email" ng-model="registration.email">
@@ -21,23 +25,8 @@
                                             <input type="password" class="form-control" placeholder="Confirm Password" ng-model="registration.confirmPassword">
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
-                                    <div class="col-sm-6">
-                                        <div class="form-group">
-                                            <label for="">First Name</label>
-                                            <input type="text" class="form-control" placeholder="First Name" ng-model="registration.firstName">
-                                        </div><!-- /.form-group -->
-                                        <div class="form-group">
-                                            <label for="">Last Name</label>
-                                            <input type="text" class="form-control" placeholder="Last Name" ng-model="registration.lastName">
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.col-* -->
                                 </div><!-- /.row -->
                                 <div class="center">
-                                    <div class="checkbox">
-                                        <label>
-                                            <input type="checkbox"> By signing up, you agree with the <a href="terms-conditions.html">terms and conditions</a>.
-                                        </label>
-                                    </div><!-- /.form-group -->
                                     <div class="form-group-btn">
                                         <button type="submit" class="btn btn-primary" ng-click="signUp()">Create Account</button>
                                     </div><!-- /.form-group-btn -->
