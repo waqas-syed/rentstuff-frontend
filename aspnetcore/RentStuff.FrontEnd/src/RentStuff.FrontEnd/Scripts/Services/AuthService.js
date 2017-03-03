@@ -14,11 +14,25 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
 
         _logOut();
 
-        return $http.post('http://localhost:2431/api/account/register', registration).then(function (response) {
-            return response;
-        });
+        return $http.post(globalService.serverUrl + 'account/register', registration)
+            .then(function (response) {
+                return response;
+            })
+            .catch(function (error) {
+                return error;
+            });;
 
     };
+
+    var activateAccount = function(emailConfirmation) {
+        return $http.post(globalService.serverUrl + 'account/activate-account', emailConfirmation)
+            .then(function (response) {
+                return response;
+            })
+            .catch(function(error) {
+                return error;
+            });
+    }
 
     var _login = function (loginData) {
 
@@ -68,6 +82,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
     authServiceFactory.logOut = _logOut;
     authServiceFactory.fillAuthData = _fillAuthData;
     authServiceFactory.authentication = _authentication;
+    authServiceFactory.activateAccount = activateAccount;
 
     return authServiceFactory;
 }]);

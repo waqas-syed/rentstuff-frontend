@@ -62,6 +62,16 @@
 		            params: {
 		                "houseId": ""
 		            }
+		        })
+		        .state("registration-confirmation",
+		        {
+		            url: "/registration-confirmation",
+		            templateUrl: "/views/registration-confirmation.html"
+		        })
+		        .state("activate-account",
+		        {
+		            url: "/activate-account?email&activationcode",
+		            templateUrl: "/views/activate-account.html"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/

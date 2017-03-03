@@ -1,0 +1,22 @@
+﻿<div class="main-wrapper" ng-controller="activateAccountController">
+    <div class="main">
+        <div class="main-inner">
+
+            <div class="content">
+                <div class="container">
+                    <div class="row">
+                        <div ng-show="activationSuccess" class="alert alert-success" role="alert">
+                            Awesome<br/>
+                            You have successfully activated your account.<br/>
+                            Head on to <a ui-sref="login" style="color: white; text-decoration: underline;"><strong>LOGIN</strong></a>
+                        </div>
+                        <div ng-show="activationFailure" class="alert alert-danger" role="alert" ng-bind="activationFailureMessage">
+                        </div>
+                    </div><!-- /.row -->
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div><!-- /.main-wrapper -->
+
+<link href="../lib/angular-material/angular-material.min.css" rel="stylesheet">

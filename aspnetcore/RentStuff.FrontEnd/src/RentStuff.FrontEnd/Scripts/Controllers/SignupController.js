@@ -1,8 +1,8 @@
 ﻿'use strict';
 
 var rentApp = angular.module('rentApp');
-rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'authService', '$window',
-    function ($scope, $location, $timeout, authService, $window) {
+rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'authService', '$state',
+    function ($scope, $location, $timeout, authService, $state) {
  
     $scope.savedSuccessfully = false;
     $scope.message = "";
@@ -22,13 +22,17 @@ rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'auth
             $scope.passwordsDontMatch = false;
             authService.saveRegistration($scope.registration)
                 .then(function(response) {
-
-                        $scope.savedSuccessfully = true;
-                        $scope
-                            .message =
-                            "User has been registered successfully, you will be redicted to login page in 2 seconds.";
-                        startTimer();
-
+                        if (response.status === 200) {
+                            $scope.savedSuccessfully = true;
+                            $scope
+                                .message =
+                                "User has been registered successfully, you will be redicted to login page in 2 seconds.";
+                            startTimer();
+                        } else {
+                            if (response.data.Message === "Select a different email address. An account has already been created with this email address.") {
+                                $scope.emailAlreadyTaken = true;
+                            }
+                        }
                     },
                     function(response) {
                         var errors = [];
@@ -45,7 +49,8 @@ rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'auth
     var startTimer = function () {
         var timer = $timeout(function () {
             $timeout.cancel(timer);
-            $location.path('/login');
+            //$location.path('/login');
+            $state.go('registration-confirmation');
         }, 2000);
     }
  
