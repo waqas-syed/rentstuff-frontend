@@ -28,19 +28,23 @@
                     <div class="header-inner">
                         <div class="container">
                             <div class="header-topbar">
-                                <div class="header-topbar-left">
+                                <div class="header-topbar-left" ng-show="!authentication.isAuth">
                                     <ul class="nav nav-pills nav-topbar">
                                         <li class="nav-item"><a ui-sref="login" class="nav-link"><strong>LOGIN</strong></a></li>
                                         <li class="nav-item"><a ui-sref="signup" class="nav-link"><strong>SIGNUP</strong></a></li>
                                         <li class="nav-item"><a ui-sref="contact" class="nav-link"><strong>CONTACT</strong></a></li>
                                     </ul><!-- /.nav -->
                                 </div><!-- /.header-topbar-left -->
-                                <div class="header-topbar-right nav-topbar nav-topbar-social">
+                                <div class="header-topbar-right nav-topbar nav-topbar-social" ng-show="!authentication.isAuth">
                                     <ul class="nav nav-pills">
                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-facebook"></i></a></li>
                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-twitter"></i></a></li>
                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-linkedin"></i></a></li>
                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-foursquare"></i></a></li>
+                                    </ul><!-- /.nav -->
+                                </div><!-- /.header-topbar-right -->
+                                <div class="header-topbar-right nav-topbar nav-topbar-social" ng-show="authentication.isAuth">
+                                    <ul class="nav nav-pills">
                                     </ul><!-- /.nav -->
                                 </div><!-- /.header-topbar-right -->
                             </div><!-- /.header-topbar -->
