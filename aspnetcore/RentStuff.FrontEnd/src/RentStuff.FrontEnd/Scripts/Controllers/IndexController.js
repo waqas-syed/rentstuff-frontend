@@ -1,12 +1,12 @@
 ﻿'use strict';
 
 var rentApp = angular.module('rentApp');
-rentApp.controller('indexController', ['$scope', '$location', 'authService', function ($scope, $location, authService) {
+rentApp.controller('indexController', ['$scope', '$location', 'authService', '$state', function ($scope, $location, authService, $state) {
 
     $scope.authentication = { isAuth:false, userName:"" };
     $scope.logOut = function () {
         authService.logOut();
-        $location.path('/home');
+        $state.go('home');
     }
     
     $scope.authentication = authService.authentication;
