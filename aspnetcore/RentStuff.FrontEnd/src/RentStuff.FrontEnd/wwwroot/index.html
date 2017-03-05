@@ -27,15 +27,15 @@
                 <div class="header">
                     <div class="header-inner">
                         <div class="container">
-                            <div class="header-topbar">
-                                <div class="header-topbar-left" ng-show="!authentication.isAuth">
+                            <div class="header-topbar" ng-if="!authentication.isAuth">
+                                <div class="header-topbar-left">
                                     <ul class="nav nav-pills nav-topbar">
                                         <li class="nav-item"><a ui-sref="login" class="nav-link"><strong>LOGIN</strong></a></li>
                                         <li class="nav-item"><a ui-sref="signup" class="nav-link"><strong>SIGNUP</strong></a></li>
                                         <li class="nav-item"><a ui-sref="contact" class="nav-link"><strong>CONTACT</strong></a></li>
                                     </ul><!-- /.nav -->
                                 </div><!-- /.header-topbar-left -->
-                                <div class="header-topbar-right nav-topbar nav-topbar-social" ng-show="!authentication.isAuth">
+                                <div class="header-topbar-right nav-topbar nav-topbar-social">
                                     <ul class="nav nav-pills">
                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-facebook"></i></a></li>
                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-twitter"></i></a></li>
@@ -43,11 +43,20 @@
                                         <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-foursquare"></i></a></li>
                                     </ul><!-- /.nav -->
                                 </div><!-- /.header-topbar-right -->
-                                <div class="header-topbar-right nav-topbar nav-topbar-social" ng-show="authentication.isAuth">
-                                    <ul class="nav nav-pills">
-                                    </ul><!-- /.nav -->
-                                </div><!-- /.header-topbar-right -->
                             </div><!-- /.header-topbar -->
+                            <div class="nav-primary-wrapper collapse navbar-toggleable-sm header-topbar-right" ng-if="authentication.isAuth">
+                                <ul class="nav nav-pills nav-primary">
+                                    <li class="nav-item nav-item-parent">
+                                        <a href="index.html" class="nav-link active" ng-bind="authentication.userName">
+                                                    
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li><a href="index-static-image.html">Log Out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+
                             <div class="header-top">
                                 <div class="header-top-inner">
                                     <a class="header-logo" ui-sref="home">
@@ -57,10 +66,10 @@
                                     <div class="header-separator">
                                     </div><!-- /.header-separator -->
                                     <!--<button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target=".nav-primary-wrapper">
-                                    <span></span>
-                                    <span></span>
-                                    <span></span>
-                                </button>-->
+                                        <span></span>
+                                        <span></span>
+                                        <span></span>
+                                    </button>-->
                                 </div><!-- /.header-top-inner -->
                                 <div class="header-top-right">
                                     <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
