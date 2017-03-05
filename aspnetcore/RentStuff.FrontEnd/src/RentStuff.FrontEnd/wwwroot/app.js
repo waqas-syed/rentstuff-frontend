@@ -89,8 +89,9 @@
     ]
     );
 
-    rentApp.run(["$rootScope", function ($rootScope) {
+    rentApp.run(["$rootScope", "authService", function ($rootScope, authService) {
 
+        authService.fillAuthData();
         $rootScope.$on('$stateChangeError',
             function(event, toState, toParams, fromState, fromParams, error) {
                 console.log(event);
