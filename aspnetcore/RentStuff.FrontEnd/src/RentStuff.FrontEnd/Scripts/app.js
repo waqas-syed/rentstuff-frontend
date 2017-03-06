@@ -74,6 +74,11 @@
 		        {
 		            url: "/activate-account?email&activationcode",
 		            templateUrl: "/views/activate-account.html"
+		        })
+		        .state("my-houses",
+		        {
+		            url: "/my-houses",
+		            templateUrl: "/views/my-houses.html"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/

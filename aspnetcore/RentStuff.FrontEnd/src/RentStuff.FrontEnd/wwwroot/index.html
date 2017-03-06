@@ -27,7 +27,7 @@
                 <div class="header">
                     <div class="header-inner">
                         <div class="container">
-                            <div class="header-topbar" ng-if="!authentication.isAuth">
+                            <div class="header-topbar ng-cloak" ng-if="!isAuthenticated()">
                                 <div class="header-topbar-left">
                                     <ul class="nav nav-pills nav-topbar">
                                         <li class="nav-item"><a ui-sref="login" class="nav-link"><strong>LOGIN</strong></a></li>
@@ -44,11 +44,10 @@
                                     </ul><!-- /.nav -->
                                 </div><!-- /.header-topbar-right -->
                             </div><!-- /.header-topbar -->
-                            <div class="nav-primary-wrapper collapse navbar-toggleable-sm header-topbar-right" ng-if="authentication.isAuth">
-                                <ul class="nav nav-pills nav-primary">
+                            <div class="nav-primary-wrapper collapse navbar-toggleable-sm header-topbar-right" ng-show="isAuthenticated()">
+                                <ul class="nav nav-pills nav-primary ng-cloak">
                                     <li class="nav-item nav-item-parent">
                                         <a href="index.html" class="nav-link active" ng-bind="authentication.fullName">
-                                                    
                                         </a>
                                         <ul class="sub-menu">
                                             <li ng-click="logOut()"><a href="">Log Out</a></li>

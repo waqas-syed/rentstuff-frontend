@@ -10,7 +10,8 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     },
                     function (errResponse) {
                         console.error('Error while fetching users');
-                     //   return $q.reject(errResponse);
+                        return error;
+                        //   return $q.reject(errResponse);
                     }
             );
         },
@@ -22,9 +23,20 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     },
                     function (errResponse) {
                         console.error('Error while fetching users');
+                        return error;
                         //   return $q.reject(errResponse);
                     }
             );
+        },
+        getHousesByEmail: function(email) {
+            return $http.get(globalService.serverUrl + 'house', { params: { email: email }})
+                .then(function(response) {
+                        return response.data;
+                    },
+                    function(error) {
+                        console.log('Error while fetching houses by email');
+                        return error;
+                    });
         },
 
         getPropertyTypes: function () {
