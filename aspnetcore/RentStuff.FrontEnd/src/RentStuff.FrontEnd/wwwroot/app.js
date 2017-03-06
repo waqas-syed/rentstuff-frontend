@@ -20,7 +20,8 @@
 		        .state("login",
 		        {
 		            url: "/login",
-		            templateUrl: "/views/login.html" /*, controller: "OverviewController",*/
+		            templateUrl: "/views/login.html",
+		            permissions: { hideFromLoggedInUser: true } /*, controller: "OverviewController",*/
 		            /* resolve: {
 
                          FastestAnimalService: "FastestAnimalService",
@@ -33,7 +34,8 @@
 		        .state("signup",
 		        {
 		            url: "/signup",
-		            templateUrl: "/views/signup.html"
+		            templateUrl: "/views/signup.html",
+                    permissions: { hideFromLoggedInUser: true}
 		        })
 		        .state("contact",
 		        {
@@ -89,9 +91,22 @@
     ]
     );
 
-    rentApp.run(["$rootScope", "authService", function ($rootScope, authService) {
+    rentApp.run(["$rootScope", "authService", "$state", function ($rootScope, authService, $state) {
 
         authService.fillAuthData();
+        $rootScope.$on('$stateChangeStart',
+            function(event, next) {
+                if (next.permissions !== null && next.permissions !== undefined) {
+                    var hideFromLoggedInUser = next.permissions.hideFromLoggedInUser;
+                    if (hideFromLoggedInUser) {
+                        //event.preventDefault();
+                        if (authService.authentication.isAuth) {
+                            event.preventDefault();
+                            $state.go('home');
+                        }
+                    }
+                }
+            });
         $rootScope.$on('$stateChangeError',
             function(event, toState, toParams, fromState, fromParams, error) {
                 console.log(event);

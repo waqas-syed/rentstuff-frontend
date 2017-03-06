@@ -42,19 +42,27 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
 
         $http.post('http://localhost:2431/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (response) {
 
-            localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
-
             _authentication.isAuth = true;
-            $http.get(globalService.serverUrl + 'account/get-user', {params:{email:loginData.userName}}).success(function(response) {
-                    _authentication.userName = response.FullName;
-                })
-            .error(function (err, status) {
-                _authentication.userName = loginData.userName;
-                console.log('Error while retreiving user: ' + err);
-            });
             
-            deferred.resolve(response);
-
+            $http.get(globalService.serverUrl + 'account/get-user', {params:{email:loginData.userName}}).success(function(response) {
+                localStorageService.set('authorizationData', {
+                    token: response.access_token,
+                    userName: response.Email,
+                    fullName: response.FullName
+                });
+                _authentication.fullName = response.FullName;
+                deferred.resolve(response);
+            })
+            .error(function (err, status) {
+                localStorageService.set('authorizationData', {
+                    token: response.access_token,
+                    userName: loginData.userName,
+                    fullName: loginData.userName
+                });
+                _authentication.fullName = loginData.userName;
+                console.log('Error while retreiving user: ' + err);
+                deferred.resolve(err);
+            });
         }).error(function (err, status) {
             _logOut();
             deferred.reject(err);
@@ -69,7 +77,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         localStorageService.remove('authorizationData');
 
         _authentication.isAuth = false;
-        _authentication.userName = "";
+        _authentication.fullName = "";
 
     };
 
@@ -78,9 +86,8 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         var authData = localStorageService.get('authorizationData');
         if (authData) {
             _authentication.isAuth = true;
-            _authentication.userName = authData.userName;
+            _authentication.fullName = authData.fullName;
         }
-
     }
 
     authServiceFactory.saveRegistration = _saveRegistration;
