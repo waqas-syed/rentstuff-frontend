@@ -32,7 +32,6 @@
                                     <ul class="nav nav-pills nav-topbar">
                                         <li class="nav-item"><a ui-sref="login" class="nav-link"><strong>LOGIN</strong></a></li>
                                         <li class="nav-item"><a ui-sref="signup" class="nav-link"><strong>SIGNUP</strong></a></li>
-                                        <li class="nav-item"><a ui-sref="contact" class="nav-link"><strong>CONTACT</strong></a></li>
                                     </ul><!-- /.nav -->
                                 </div><!-- /.header-topbar-left -->
                                 <div class="header-topbar-right nav-topbar nav-topbar-social">
@@ -78,14 +77,19 @@
                                                     Search Houses
                                                 </a>
                                             </li>
-                                            <li class="nav-item">
+                                            <li class="nav-item ng-cloak" ng-if="isAuthenticated()">
                                                 <a href="index.html" class="nav-link ">
-                                                    Search Services
+                                                    My Properties
+                                                </a>
+                                            </li>
+                                            <li class="nav-item">
+                                                <a ui-sref="contact" class="nav-link ">
+                                                    Contact Us
                                                 </a>
                                             </li>
                                             <li class="nav-item">
                                                 <a href="index.html" class="nav-link ">
-                                                    My Properties
+                                                    About Us
                                                 </a>
                                             </li>
                                         </ul>
