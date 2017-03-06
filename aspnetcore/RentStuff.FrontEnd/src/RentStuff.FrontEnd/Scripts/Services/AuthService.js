@@ -45,8 +45,14 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
             localStorageService.set('authorizationData', { token: response.access_token, userName: loginData.userName });
 
             _authentication.isAuth = true;
-            _authentication.userName = loginData.userName;
-
+            $http.get(globalService.serverUrl + 'account/get-user', {params:{email:loginData.userName}}).success(function(response) {
+                    _authentication.userName = response.FullName;
+                })
+            .error(function (err, status) {
+                _authentication.userName = loginData.userName;
+                console.log('Error while retreiving user: ' + err);
+            });
+            
             deferred.resolve(response);
 
         }).error(function (err, status) {
