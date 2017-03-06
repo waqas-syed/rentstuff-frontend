@@ -79,6 +79,11 @@
 		        {
 		            url: "/my-houses",
 		            templateUrl: "/views/my-houses.html"
+		        })
+		        .state("upload-house",
+		        {
+		            url: "/upload-house",
+		            templateUrl: "/views/upload-house.html"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
