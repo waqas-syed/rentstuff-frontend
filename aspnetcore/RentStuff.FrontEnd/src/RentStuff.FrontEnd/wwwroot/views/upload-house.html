@@ -1,7 +1,7 @@
-﻿<div class="main-wrapper">
+﻿<div class="main-wrapper" ng-controller="myHousesController">
     <div class="main">
-        <div class="main-inner">
-            <div class="container">
+        <div class="main-inner" >
+            <div class="container" style ="margin: -56px 200px 0; background-color: #fff; border-radius: 3px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);">
                 <div class="row">
                     <div class="col-md-8 col-lg-9">
                         <div class="content">
@@ -19,7 +19,6 @@
                                     <label>Description</label>
                                     <textarea class="form-control" rows="6"></textarea>
                                 </div><!-- /.form-group -->
-
 
                                 <div class="page-header page-header-small">
                                     <h3>Payment Information</h3>
@@ -287,72 +286,6 @@
 
                     <div class="col-md-4 col-lg-3">
                         <div class="sidebar">
-                            <div class="widget">
-                                <div class="search">
-                                    <form method="get" action="?">
-                                        <div class="input-group">
-                                            <span class="input-group-addon"><i class="fa fa-search"></i></span>
-                                            <input type="text" placeholder="Search the site" class="form-control">
-                                        </div><!-- /.form-group -->
-                                    </form>
-                                </div><!-- /.search -->
-                            </div><!-- /.widget -->
-
-                            <div class="widget">
-                                <h3 class="widgettitle">Mortgage Calculator</h3>
-
-                                <form method="post" action="?" class="mortgage-calculator">
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="House price">
-                                    </div><!-- /.form-group -->
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Interest">
-                                    </div><!-- /.form-group -->
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Down payment">
-                                    </div><!-- /.form-group -->
-
-                                    <div class="form-group">
-                                        <input type="text" class="form-control" placeholder="Years">
-                                    </div><!-- /.form-group -->
-
-                                    <div class="form-group">
-                                        <label>Monthly Repayments</label>
-                                        <p class="form-control-static center">$ 0</p>
-                                    </div><!-- /.form-group -->
-
-                                    <div class="form-group">
-                                        <label>Weekly Repayments</label>
-                                        <p class="form-control-static center">$ 0</p>
-                                    </div><!-- /.form-group -->
-
-                                    <input type="submit" class="btn btn-secondary btn-block" value="Calculate">
-                                </form>
-                            </div><!-- /.widget -->
-
-                            <div class="widget">
-                                <h2 class="widgettitle">Navigation</h2>
-
-                                <ul class="menu nav nav-stacked">
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link"><i class="fa fa-chevron-right"></i> Properties</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link"><i class="fa fa-chevron-right"></i>  Agents</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link"><i class="fa fa-chevron-right"></i>  Agencies</a>
-                                    </li>
-
-                                    <li class="nav-item">
-                                        <a href="#" class="nav-link"><i class="fa fa-chevron-right"></i>  Upoad Property</a>
-                                    </li>
-                                </ul><!-- /.nav -->
-                            </div><!-- /.widget -->
                         </div><!-- /.sidebar -->
                     </div><!-- /.col-* -->
                 </div><!-- /.row -->
