@@ -11,6 +11,15 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
                     console.log(error);
                 });
 
+        $scope.getPropertySizes = function (min, max, step) {
+            step = step || 1;
+            var input = [];
+            for (var i = min; i <= max; i += step) {
+                input.push(i);
+            }
+            return input;
+        };
+
         $scope.navigateToDetails = function (houseId) {
             $state.go('house-details', { houseId: houseId });
         };

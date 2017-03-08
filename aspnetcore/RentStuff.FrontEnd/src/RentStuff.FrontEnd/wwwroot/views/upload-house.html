@@ -7,197 +7,123 @@
                         <div class="content">
                             <form method="post" action="?">
                                 <div class="page-header page-header-small">
-                                    <h3>Basic Information</h3>
+                                    <h3><strong>Property Information</strong></h3>
                                 </div><!-- /.page-header -->
 
                                 <div class="form-group">
-                                    <label>Property Title</label>
-                                    <input type="text" class="form-control">
+                                    <label><strong>Property Title</strong></label>
+                                    <input type="text" class="form-control" placeholder="Title for your property" ng-model="house.Title" required>
                                 </div><!-- /.form-group -->
 
                                 <div class="form-group">
-                                    <label>Description</label>
-                                    <textarea class="form-control" rows="6"></textarea>
+                                    <label><strong>Description</strong></label>
+                                    <textarea class="form-control" rows="6" placeholder="For example: seaside with a great view, newly refurbished, safe locality etc" ng-model="house.Description"></textarea>
                                 </div><!-- /.form-group -->
-
-                                <div class="page-header page-header-small">
-                                    <h3>Payment Information</h3>
-                                </div><!-- /.page-header -->
-
+                                
                                 <div class="row">
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Package</label>
-
-                                            <select class="form-control">
-                                                <option value="">Bronze + $10</option>
-                                            </select>
+                                            <label><strong>Monthly Rent</strong></label>
+                                            <input type="text" class="form-control" placeholder="In Pakistani Rupees" ng-model="house.MonthlyRent" required>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
-
-                                    <div class="col-sm-4">
+                                </div><!-- /.row -->
+                                
+                                <div class="row">
+                                    <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label>Payment Method</label>
-
+                                            <label><strong>Property Type</strong></label>
                                             <select class="form-control">
-                                                <option value="">Paypal</option>
-                                            </select>
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.col-* -->
-
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Duration</label>
-
-                                            <select class="form-control">
-                                                <option value="">1 Year (Save 10%)</option>
+                                                <option value="">House</option>
+                                                <option value="">Apartment</option>
+                                                <option value="">Hostel</option>
+                                                <option value="">Hotel</option>
                                             </select>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->
 
-                                <div class="page-header page-header-small">
-                                    <h3>Location</h3>
-                                </div><!-- /.page-header -->
-
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Country</label>
-                                            <select class="form-control"></select>
+                                            <label><strong>Number of Bedrooms</strong></label>
+                                            <input type="text" class="form-control" placeholder="Enter a number" ng-model="house.NumberOfBedrooms" required>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
 
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Location</label>
-                                            <select class="form-control"></select>
+                                            <label><strong>Number of Bathrooms</strong></label>
+                                            <input type="text" class="form-control" placeholder="Enter a number" ng-model="house.NumberOfBathrooms" required>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
 
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Sublocation</label>
-                                            <select class="form-control"></select>
+                                            <label><strong>Number of Kitchens</strong></label>
+                                            <input type="text" class="form-control" placeholder="Enter a number" ng-model="house.NumberOfKitchens">
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->
 
-                                <div class="page-header page-header-small">
-                                    <h3>Contact Information</h3>
-                                </div><!-- /.page-header -->
-
                                 <div class="row">
                                     <div class="col-sm-4">
                                         <div class="form-group">
-                                            <label>Country</label>
-                                            <input type="text" class="form-control">
+                                            <label><strong>Size</strong></label>
+                                            <select class="form-control">
+                                                <option value="">Kanal</option>
+                                                <option value="">Marla</option>
+                                                <option value="">Acre</option>
+                                            </select>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
-
-                                    <div class="col-sm-4">
+                                    <div class="col-sm-2" style="margin: 28px 0 0 -30px;">
                                         <div class="form-group">
-                                            <label>City</label>
-                                            <input type="text" class="form-control">
+                                            <select class="form-control" ng-model="selectedPropertySize"
+                                                ng-options="propertySize as propertySize for propertySize in getPropertySizes(1,20)">
+                                                <option value="" disabled selected style="display: none;" >1</option>
+                                            </select>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
+                                </div><!-- /.row -->
 
-                                    <div class="col-sm-4">
+                                <div class="row">
+                                    <div class="col-sm-9">
                                         <div class="form-group">
-                                            <label>Address</label>
-                                            <input type="text" class="form-control">
+                                            <label><strong>Location</strong></label>
+                                            <input type="text" class="form-control" placeholder="Start Typing Location like: Saddar, Rawalpindi, Pakistan" ng-model="house.Area" required>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
+                                </div><!-- /.row -->
 
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Phone</label>
-                                            <input type="text" class="form-control">
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.col-* -->
+                            <div class="page-header page-header-small">
+                                <h3><strong>Contact Information</strong></h3>
+                            </div><!-- /.page-header -->
+                                
+                            <div class="row">
+                                <div class="col-sm-6">
+                                    <div class="form-group">
+                                        <label><strong>Phone</strong></label>
+                                        <input type="text" class="form-control" placeholder="For example: 03191234567" maxlength="11" required>
+                                    </div><!-- /.form-group -->
+                                </div><!-- /.col-* -->
+                            </div>
 
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>E-mail</label>
-                                            <input type="text" class="form-control">
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.col-* -->
-
-                                    <div class="col-sm-4">
-                                        <div class="form-group">
-                                            <label>Website</label>
-                                            <input type="text" class="form-control">
-                                        </div><!-- /.form-group -->
-                                    </div><!-- /.col-* -->
-                                </div>
-
-                                <div class="page-header page-header-small">
-                                    <h3>Amenities</h3>
+                            <div class="page-header page-header-small">
+                                    <h3><strong>Facilities</strong></h3>
                                 </div><!-- /.page-header -->
 
                                 <div class="checkbox-list" style="margin: 0 0 0 25px;">
                                     <div class="checkbox">
-                                        <label><input type="checkbox"> Air conditioning</label>
+                                        <label><input type="checkbox"> Faimilies Only</label>
                                     </div><!-- /.checkbox-->
 
                                     <div class="checkbox">
-                                        <label><input type="checkbox"> Balcony</label>
+                                        <label><input type="checkbox"> Girls Only</label>
                                     </div><!-- /.checkbox-->
 
                                     <div class="checkbox">
-                                        <label><input type="checkbox"> Bedding</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Cable TV</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Cleaning after exit</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Cofee pot</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Computer</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Cot</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Dishwasher</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> DVD</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Fan</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Fridge</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Grill</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Hairdryer</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Heating</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Hi-fi</label>
+                                        <label><input type="checkbox"> Boys Only</label>
                                     </div><!-- /.checkbox-->
 
                                     <div class="checkbox">
@@ -205,64 +131,21 @@
                                     </div><!-- /.checkbox-->
 
                                     <div class="checkbox">
-                                        <label><input type="checkbox"> Iron</label>
+                                        <label><input type="checkbox"> Landline Phone</label>
                                     </div><!-- /.checkbox-->
 
                                     <div class="checkbox">
-                                        <label><input type="checkbox"> Juicer</label>
+                                        <label><input type="checkbox"> Cable Tv</label>
                                     </div><!-- /.checkbox-->
 
                                     <div class="checkbox">
-                                        <label><input type="checkbox"> Lift</label>
+                                        <label><input type="checkbox"> Garage</label>
                                     </div><!-- /.checkbox-->
 
                                     <div class="checkbox">
-                                        <label><input type="checkbox"> Microwave</label>
+                                        <label><input type="checkbox"> Smoking Allowed</label>
                                     </div><!-- /.checkbox-->
 
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Oven</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Parking</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Parquet</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Pool</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Radio</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Roof terrace</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Smoking allowed</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Terrace</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Toaster</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Towelwes</label>
-                                    </div><!-- /.checkbox-->
-
-                                    <div class="checkbox">
-                                        <label><input type="checkbox"> Use of pool</label>
-                                    </div><!-- /.checkbox-->
                                 </div><!-- /.checkbox-list -->
 
                                 <!--<div class="page-header page-header-small">
