@@ -15,6 +15,19 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     }
             );
         },
+        uploadHouse: function (house) {
+            return $http.post(globalService.serverUrl + 'house', house)
+            .then(
+                    function (response) {
+                        return response.data;
+                    },
+                    function (errResponse) {
+                        console.error('Error while fetching users');
+                        return error;
+                        //   return $q.reject(errResponse);
+                    }
+            );
+        },
         getHouseDetails: function (houseId) {
             return $http.get(globalService.serverUrl + 'house', {params: {houseId: houseId}})
             .then(

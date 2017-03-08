@@ -2,7 +2,7 @@
     'use strict';
 
     var rentApp = angular.module('rentApp', ['ui.router', 'google.places', 'ngAnimate', 'ngSanitize', 'ui.bootstrap',
-    'ngMaterial', 'jkAngularCarousel', 'LocalStorageModule']);
+    'ngMaterial', 'jkAngularCarousel', 'LocalStorageModule', 'lr.upload']);
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider",
 		function ($stateProvider, $urlRouterProvider, $httpProvider) {
@@ -83,7 +83,8 @@
 		        .state("upload-house",
 		        {
 		            url: "/upload-house",
-		            templateUrl: "/views/upload-house.html"
+		            templateUrl: "/views/upload-house.html",
+                    permissions: { redirectForNonLoggedInUser: true }
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
@@ -107,12 +108,18 @@
         $rootScope.$on('$stateChangeStart',
             function(event, next) {
                 if (next.permissions !== null && next.permissions !== undefined) {
-                    var hideFromLoggedInUser = next.permissions.hideFromLoggedInUser;
-                    if (hideFromLoggedInUser) {
-                        //event.preventDefault();
-                        if (authService.authentication.isAuth) {
+                    if (authService.authentication.isAuth) {
+                        var hideFromLoggedInUser = next.permissions.hideFromLoggedInUser;
+                        if (hideFromLoggedInUser !== undefined && hideFromLoggedInUser != null && hideFromLoggedInUser) {
                             event.preventDefault();
                             $state.go('home');
+                        }
+                    }
+                    if (!authService.authentication.isAuth) {
+                        var redirectForNonLoggedInUser = next.permissions.redirectForNonLoggedInUser;
+                        if (redirectForNonLoggedInUser) {
+                            event.preventDefault();
+                            $state.go('login');
                         }
                     }
                 }

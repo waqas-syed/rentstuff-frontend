@@ -55,6 +55,7 @@
 /// <reference path="lib/angular-google-places-autocomplete/src/autocomplete.js" />
 /// <reference path="lib/angular-local-storage/dist/angular-local-storage.js" />
 /// <reference path="lib/angular-ui-router/release/angular-ui-router.js" />
+/// <reference path="lib/angular-upload/angular-upload.js" />
 /// <reference path="lib/bootstrap/dist/js/bootstrap.js" />
 /// <reference path="lib/jquery/dist/jquery.js" />
 /// <reference path="lib/jquery-validation/dist/jquery.validate.js" />
