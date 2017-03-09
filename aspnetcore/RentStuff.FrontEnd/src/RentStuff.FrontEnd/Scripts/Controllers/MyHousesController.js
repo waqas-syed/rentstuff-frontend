@@ -25,6 +25,7 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
             var authData = localStorageService.get('authorizationData');
             if (authData) {
                 $scope.house.OwnerEmail = authData.userName;
+                $scope.house.OwnerName = authData.fullName;
             }
 
             // Upload the house to the server API through HTTP using the searchService
