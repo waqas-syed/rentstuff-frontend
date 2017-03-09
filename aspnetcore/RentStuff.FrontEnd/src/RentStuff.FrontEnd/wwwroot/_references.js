@@ -51,6 +51,7 @@
 /// <reference path="jk-carousel.min.js" />
 /// <reference path="js/site.js" />
 /// <reference path="lib/angular/angular.js" />
+/// <reference path="lib/angular-file-upload/dist/angular-file-upload.min.js" />
 /// <reference path="lib/angular-google-places-autocomplete/dist/autocomplete.min.js" />
 /// <reference path="lib/angular-google-places-autocomplete/src/autocomplete.js" />
 /// <reference path="lib/angular-local-storage/dist/angular-local-storage.js" />

@@ -1,7 +1,25 @@
 ﻿var rentApp = angular.module('rentApp');
 
-rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 'searchService', 'localStorageService',
-    function ($scope, $state, $stateParams, searchService, localStorageService) {
+rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 'searchService', 'localStorageService', 'FileUploader',
+    function ($scope, $state, $stateParams, searchService, localStorageService, FileUploader) {
+
+        // create a uploader with options
+        var uploader = $scope.uploader = new FileUploader({
+            scope: $scope,                          // to automatically update the html. Default: $rootScope
+            url: 'http://localhost:2431/v1/HouseImageUpload'
+            /*headers: {
+                'X-CSRF-TOKEN': CSRF_TOKEN
+            },*/
+        });
+
+        $scope.uploadPhotos = function() {
+            var queue = $scope.uploader.queue;
+            angular.forEach(queue,
+                function (key, value) {
+                    $scope.uploader.uploadAll();
+                    console.log('');
+                });
+        };
 
         $scope.numbersOnly = "^[0-9-]*$";
         $scope.propertyTypes = ['House', 'Apartment', 'Hostel', 'Hotel'];
