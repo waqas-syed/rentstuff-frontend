@@ -32,7 +32,7 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
             searchService.uploadHouse($scope.house)
                 .then(function(response) {
                     console.log('Uploaded House Successfuly');
-                        $scope.houseId = response.houseId;
+                    $scope.houseId = response.houseId;
                     },
                     function(error) {
                         console.log('Error while uploading house:' + error);
@@ -41,6 +41,7 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
         function(error) {
             console.log('Error while uploading house');
         };
+
         searchService.getHousesByEmail()
             .then(function(response) {
                     $scope.houses = response;
