@@ -22,10 +22,6 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
             $scope.uploader.uploadAll();
         };
 
-        $scope.upload = function() {
-            uploadPhotos();
-        }
-
         $scope.uploader.onSuccessItem = function(item, response, status, headers) {
             console.log('Photos Uploaded successfully');
         };
