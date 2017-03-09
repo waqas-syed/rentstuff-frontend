@@ -168,7 +168,11 @@
     </div>
 
     <!--<script src="lib/angular/angular.js"></script>-->
-    
+    <!-- Fix for old browsers: angular-file-upload image preview -->
+    <script src="http://nervgh.github.io/js/es5-shim.min.js"></script>
+    <script src="http://nervgh.github.io/js/es5-sham.min.js"></script>
+    <script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+
     <script data-require="angular.js@*" data-semver="1.5.0" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.js"></script>
     <script src="lib/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="lib/angular-local-storage/dist/angular-local-storage.min.js"></script>
@@ -184,12 +188,12 @@
     <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCm75jVJuUaH8YZCs7266vhmeOh-6njxKE&libraries=places"></script>
     <script src="lib/angular-google-places-autocomplete/src/autocomplete.js"></script>
     <script src="lib/angular-file-upload/dist/angular-file-upload.min.js"></script>
-    <script src="NgThumbDirective.js"></script>
     <script type="text/javascript" src="app.js"></script>
     <script type="text/javascript" src="AuthInterceptorService.js"></script>    
     <script type="text/javascript" src="GlobalService.js"></script>
     <script type="text/javascript" src="SearchService.js"></script>
     <script type="text/javascript" src="AuthService.js"></script>
+    <script src="NgThumbDirective.js"></script>
     <script type="text/javascript" src="SearchController.js"></script>
     <script type="text/javascript" src="IndexController.js"></script>
     <script type="text/javascript" src="SearchResultController.js"></script>
