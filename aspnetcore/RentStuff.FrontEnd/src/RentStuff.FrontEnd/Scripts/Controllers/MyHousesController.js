@@ -3,22 +3,35 @@
 rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 'searchService', 'localStorageService', 'FileUploader',
     function ($scope, $state, $stateParams, searchService, localStorageService, FileUploader) {
 
+        $scope.checked = true;
         // create a uploader with options
         var uploader = $scope.uploader = new FileUploader({
             scope: $scope,                          // to automatically update the html. Default: $rootScope
-            url: 'http://localhost:2431/v1/HouseImageUpload'
-            /*headers: {
-                'X-CSRF-TOKEN': CSRF_TOKEN
-            },*/
+            url: 'http://localhost:2431/v1/HouseImageUpload',
+            removeAfterUpload: true/*,
+            headers: {
+                'HouseId': 'd48c8e37-4027-45da-bdc9-b906ecc9c4ff'
+            }*/
         });
 
-        $scope.uploadPhotos = function() {
+        var uploadPhotos = function(houseId) {
             var queue = $scope.uploader.queue;
-            angular.forEach(queue,
-                function (key, value) {
-                    $scope.uploader.uploadAll();
-                    console.log('');
-                });
+            for (var i = 0; i < queue.length; i++) {
+                uploader.queue[i].headers.houseId = houseId;
+            }
+            $scope.uploader.uploadAll();
+        };
+
+        $scope.upload = function() {
+            uploadPhotos();
+        }
+
+        $scope.uploader.onSuccessItem = function(item, response, status, headers) {
+            console.log('Photos Uploaded successfully');
+        };
+
+        $scope.uploader.onErrorItem = function (item, response, status, headers) {
+            console.error('Error while uploading photos');
         };
 
         $scope.numbersOnly = "^[0-9-]*$";
@@ -50,7 +63,9 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
             searchService.uploadHouse($scope.house)
                 .then(function(response) {
                     console.log('Uploaded House Successfuly');
-                    $scope.houseId = response.houseId;
+                    var houseId = response.houseId;
+                    // Upload photos for this house
+                    uploadPhotos(houseId);
                     },
                     function(error) {
                         console.log('Error while uploading house:' + error);
