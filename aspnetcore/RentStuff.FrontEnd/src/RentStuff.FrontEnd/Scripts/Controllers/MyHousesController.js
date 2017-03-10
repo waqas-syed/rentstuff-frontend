@@ -1,23 +1,33 @@
 ﻿var rentApp = angular.module('rentApp');
 
-rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 'searchService', 'localStorageService', 'FileUploader',
-    function ($scope, $state, $stateParams, searchService, localStorageService, FileUploader) {
+rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 'searchService', 'localStorageService', 'FileUploader', 'globalService',
+    function ($scope, $state, $stateParams, searchService, localStorageService, FileUploader, globalService) {
 
         $scope.checked = true;
-        // create a uploader with options
-        var uploader = $scope.uploader = new FileUploader({
-            scope: $scope,                          // to automatically update the html. Default: $rootScope
-            url: 'http://localhost:2431/v1/HouseImageUpload',
-            removeAfterUpload: true/*,
-            headers: {
-                'HouseId': 'd48c8e37-4027-45da-bdc9-b906ecc9c4ff'
-            }*/
-        });
+        var bearerToken = '';
+        var authData = localStorageService.get('authorizationData');
+        if (authData) {
+            bearerToken = 'Bearer ' + authData.token;
+
+            // create a uploader with options
+            var uploader = $scope.uploader = new FileUploader({
+                scope: $scope, // to automatically update the html. Default: $rootScope
+                url: globalService.serverUrl + 'HouseImageUpload',
+                removeAfterUpload: true,
+                headers: {
+                    'Authorization': bearerToken
+                }
+            });
+        }
+        // How in the world did a non-authenticated user got here man?
+        else {
+            $state.go('home');
+        }
 
         var uploadPhotos = function(houseId) {
             var queue = $scope.uploader.queue;
             for (var i = 0; i < queue.length; i++) {
-                uploader.queue[i].headers.houseId = houseId;
+                $scope.uploader.queue[i].headers.houseId = houseId;
             }
             $scope.uploader.uploadAll();
         };
