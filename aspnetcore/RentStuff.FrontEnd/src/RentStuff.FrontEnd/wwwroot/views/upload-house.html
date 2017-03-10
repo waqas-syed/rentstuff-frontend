@@ -114,8 +114,12 @@
                             <div class="page-header page-header-small">
                                 <h3><strong>Upload Photos</strong></h3>
                                 </div><!-- /.page-header -->
-                                <input type="file" nv-file-select uploader="uploader" multiple/><br />
-                                
+                                <!--<input type="file" nv-file-select="" uploader="uploader" multiple />-->
+                                <label class="fileContainer btn btn-primary" >
+                                    Choose Files
+                                    <input type="file" nv-file-select="" uploader="uploader" multiple/>
+                                </label>
+                                <!--<button ng-click="upload()"></button>-->
                                 <table class="table">
                                     <thead>
                                     </thead>

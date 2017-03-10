@@ -22,12 +22,21 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
             $scope.uploader.uploadAll();
         };
 
+        /*$scope.upload = function () {
+            uploadPhotos('d48c8e37-4027-45da-bdc9-b906ecc9c4ff');
+            //console.log('Photos Uploaded successfully');
+        };*/
+
+        $scope.uploader.onCompleteAll = function() {
+            console.log("All photos Uploaded successfully");
+        }
+
         $scope.uploader.onSuccessItem = function(item, response, status, headers) {
-            console.log('Photos Uploaded successfully');
+            console.log('Photo Uploaded successfully');
         };
 
         $scope.uploader.onErrorItem = function (item, response, status, headers) {
-            console.error('Error while uploading photos');
+            console.error('Error while uploading photo');
         };
 
         $scope.numbersOnly = "^[0-9-]*$";
@@ -59,7 +68,7 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
             searchService.uploadHouse($scope.house)
                 .then(function(response) {
                     console.log('Uploaded House Successfuly');
-                    var houseId = response.houseId;
+                    var houseId = response;
                     // Upload photos for this house
                     uploadPhotos(houseId);
                     },
