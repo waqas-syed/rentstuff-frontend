@@ -29,14 +29,15 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
 
         $scope.uploader.onCompleteAll = function() {
             console.log("All photos Uploaded successfully");
+            $state.go('house-details', {houseId: $scope.houseId});
         }
 
         $scope.uploader.onSuccessItem = function(item, response, status, headers) {
-            console.log('Photo Uploaded successfully');
+            console.log("Photo Uploaded successfully. HouseId = " + item.headers.houseId + " | FielName = " + item._file.name);
         };
 
         $scope.uploader.onErrorItem = function (item, response, status, headers) {
-            console.error('Error while uploading photo');
+            console.error("Error while uploading photo" + item.headers.houseId + " | FielName = " + item._file.name);
         };
 
         $scope.numbersOnly = "^[0-9-]*$";
@@ -68,7 +69,7 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
             searchService.uploadHouse($scope.house)
                 .then(function(response) {
                     console.log('Uploaded House Successfuly');
-                    var houseId = response;
+                    $scope.houseId = response;
                     // Upload photos for this house
                     uploadPhotos(houseId);
                     },
