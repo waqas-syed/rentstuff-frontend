@@ -5,14 +5,18 @@
                 <div class="row" style="padding: 10px 0 15px 180px">
                     <div class="col-md-8 col-lg-9">
                         <div class="content">
-                            <form method="post" action="?">
+                            <form name="uploadHouseForm" method="post" action="?">
                                 <div class="page-header page-header-small">
                                     <h3><strong>Property Information</strong></h3>
                                 </div><!-- /.page-header -->
 
                                 <div class="form-group">
-                                    <label><strong>Property Title *</strong></label>
-                                    <input type="text" class="form-control" placeholder="Title for your property" ng-model="house.Title" required>
+                                    <label><strong>Property Title<span class="required-arsterisk">  *</span></strong></label>
+                                    <input type="text" class="form-control" placeholder="Title for your property" ng-model="house.Title" 
+                                           required>
+                                    <span class="error" ng-show="uploadHouseForm.input.$error.required">
+                                        Title is required
+                                    </span>
                                 </div><!-- /.form-group -->
 
                                 <div class="form-group">
@@ -23,8 +27,12 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label><strong>Monthly Rent</strong></label>
-                                            <input type="text" class="form-control" placeholder="In Pakistani Rupees" ng-model="house.MonthlyRent" ng-pattern="numbersOnly" required>
+                                            <label><strong>Monthly Rent<span class="required-arsterisk">  *</span></strong></label>
+                                            <input type="text" class="form-control" placeholder="In Pakistani Rupees" 
+                                                   ng-model="house.MonthlyRent" ng-pattern="numbersOnly" required>
+                                            <span class="error" ng-show="uploadHouseForm.input.$error.required">
+                                                Rent is Required!
+                                            </span>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->
@@ -32,11 +40,14 @@
                                 <div class="row">
                                     <div class="col-sm-6">
                                         <div class="form-group">
-                                            <label><strong>Property Type</strong></label>
+                                            <label><strong>Property Type<span class="required-arsterisk">  *</span></strong></label>
                                             <select class="form-control" ng-model="house.PropertyType" 
-                                                    ng-options="propertyType as propertyType for propertyType in propertyTypes">
+                                                    ng-options="propertyType as propertyType for propertyType in propertyTypes" required>
                                                 <option value="" disabled selected style="display: none;">PropertyType</option>
                                             </select>
+                                            <span class="error" ng-show="uploadHouseForm.input.$error.required">
+                                                Property Type is Required!
+                                            </span>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->
@@ -45,14 +56,16 @@
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label><strong>Number of Bedrooms</strong></label>
-                                            <input type="text" class="form-control" placeholder="Enter a number" ng-model="house.NumberOfBedrooms" required>
+                                            <input type="text" class="form-control" placeholder="Enter a number" 
+                                                   ng-model="house.NumberOfBedrooms">
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
 
                                     <div class="col-sm-4">
                                         <div class="form-group">
                                             <label><strong>Number of Bathrooms</strong></label>
-                                            <input type="text" class="form-control" placeholder="Enter a number" ng-model="house.NumberOfBathrooms" required>
+                                            <input type="text" class="form-control" placeholder="Enter a number" 
+                                                   ng-model="house.NumberOfBathrooms">
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
 
@@ -77,10 +90,15 @@
                                     </div><!-- /.col-* -->
                                     <div class="col-sm-2" style="margin: 28px 0 0 -30px;">
                                         <div class="form-group">
-                                            <select class="form-control" ng-model="house.DimensionStringValue"
-                                                ng-options="propertySize as propertySize for propertySize in getPropertySizes(1,20)">
+                                            <select ng-disabled="house.DimensionType === undefined || house.DimensionType === null"
+                                                    class="form-control" ng-model="house.DimensionStringValue"
+                                                    ng-options="propertySize as propertySize for propertySize in getPropertySizes(1,20)">
                                                 <option value="" disabled selected style="display: none;" >Size</option>
                                             </select>
+                                        <!--If the DimensionType is not empty but the DimensionString value is, then do not proceed instead show the error to the user on the UI-->
+                                            <span class="error" ng-show="DimensionStringEmpty">
+                                                Land Size is Required!
+                                            </span>
                                         </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->
@@ -88,12 +106,15 @@
                                 <div class="row">
                                     <div class="col-sm-11">
                                         <div class="form-group">
-                                            <label><strong>Location</strong></label>
+                                            <label><strong>Location<span class="required-arsterisk">  *</span></strong></label>
                                             <input type="text" class="form-control" 
                                                    placeholder="Start Typing Location like: Saddar, Rawalpindi, Pakistan" 
                                                    options="autocompleteOptions" g-places-autocomplete ng-model="houseArea" 
-                                                   autocomplete="off">
-                                                Suggestions will be shown automatically once you start typing
+                                                   autocomplete="off" required>
+                                            Suggestions will be shown automatically once you start typing
+                                            <span class="error" ng-show="uploadHouseForm.input.$error.required">
+                                                Location is Required!
+                                            </span>
                                             </div><!-- /.form-group -->
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->
@@ -105,9 +126,12 @@
                             <div class="row">
                                 <div class="col-sm-6">
                                     <div class="form-group">
-                                        <label><strong>Phone</strong></label>
+                                        <label><strong>Phone<span class="required-arsterisk">  *</span></strong></label>
                                         <input type="text" class="form-control" placeholder="For example: 03191234567" 
                                                maxlength="11" ng-model="house.OwnerPhoneNumber" required>
+                                        <span class="error" ng-show="uploadHouseForm.input.$error.required">
+                                            Phone Number is Required!
+                                        </span>
                                     </div><!-- /.form-group -->
                                 </div><!-- /.col-* -->
                             </div>
@@ -192,9 +216,12 @@
                                     <label><input type="checkbox"> I agree with terms &amp; conditions</label>
                                 </div>-->
 
-                                <div class="center">
-                                    <a href="" class="btn btn-primary" ng-click="uploadHouse()">Submit Property</a>
-                                </div><!-- /.center -->
+                            <div class="center">
+                                <span class="error" ng-show="uploadHouseForm.input.$error.required">
+                                    Please fill all required fields
+                                </span>
+                                <a href="" class="btn btn-primary" ng-click="uploadHouse()">Submit Property</a>
+                            </div><!-- /.center -->
                             </form>
                         </div><!-- /.content -->
                     </div><!-- /.col-* -->

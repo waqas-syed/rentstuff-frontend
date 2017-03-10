@@ -73,6 +73,7 @@ video {
   display: inline-block;
   vertical-align: baseline; }
 
+/** Custom CSS added by Waqas */
 canvas {
     background-color: #f3f3f3;
     -webkit-box-shadow: 3px 3px 3px 0 #e3e3e3;
@@ -100,6 +101,14 @@ canvas {
     text-align: right;
     top: 0;
 }
+
+.required-arsterisk {
+    font-size: 15px;
+    font-family: arial;
+    color: red;
+}
+
+/** Custom CSS added by Waqas */
 
 audio:not([controls]) {
   display: none;

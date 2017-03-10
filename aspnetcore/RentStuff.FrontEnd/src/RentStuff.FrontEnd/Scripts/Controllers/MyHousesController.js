@@ -4,6 +4,7 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
     function ($scope, $state, $stateParams, searchService, localStorageService, FileUploader, globalService) {
 
         $scope.checked = true;
+        $scope.DimensionStringEmpty = false;
         var bearerToken = '';
         var authData = localStorageService.get('authorizationData');
         if (authData) {
@@ -56,40 +57,52 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
         $scope.genderRestrictions = ['Families Only', 'Girls Only', 'Boys Only', 'No restriction'];
 
         $scope.uploadHouse = function() {
-            // Only one of Families, Girls or Boys value is allowed.
-            if ($scope.genderRestriction === "Families Only") {
-                $scope.house.FamiliesOnly = true;
-            } else if ($scope.genderRestriction === "Girls Only") {
-                $scope.house.GirlsOnly = true;
-            } else if ($scope.genderRestriction === "Boys Only") {
-                $scope.house.BoysOnly = true;
-            }
+                if ($scope.house !== null && $scope.house !== undefined) {
+                    // Only one of Families, Girls or Boys value is allowed.
+                    if ($scope.genderRestriction === "Families Only") {
+                        $scope.house.FamiliesOnly = true;
+                    } else if ($scope.genderRestriction === "Girls Only") {
+                        $scope.house.GirlsOnly = true;
+                    } else if ($scope.genderRestriction === "Boys Only") {
+                        $scope.house.BoysOnly = true;
+                    }
+                    // If the DimensionType is not empty but the DimensionString value is, then do not proceed instead show the error
+                    // to the user on the UI
+                    if ($scope.house.DimensionType !== null &&
+                        $scope.house.DimensionType !== undefined &&
+                        ($scope.house
+                            .DimensionStringValue ===
+                            null ||
+                            $scope.house.DimensionStringValue === undefined)) {
+                        $scope.DimensionStringEmpty = true;
+                    } else {
+                        // Set the area from the Area object specified
+                        $scope.house.Area = $scope.houseArea.formatted_address;
 
-            // Set the area from the Area object specified
-            $scope.house.Area = $scope.houseArea.formatted_address;
+                        // Get the Owner's email from the LocalStorageService 
+                        var authData = localStorageService.get('authorizationData');
+                        if (authData) {
+                            $scope.house.OwnerEmail = authData.userName;
+                            $scope.house.OwnerName = authData.fullName;
+                        }
 
-            // Get the Owner's email from the LocalStorageService 
-            var authData = localStorageService.get('authorizationData');
-            if (authData) {
-                $scope.house.OwnerEmail = authData.userName;
-                $scope.house.OwnerName = authData.fullName;
-            }
-
-            // Upload the house to the server API through HTTP using the searchService
-            searchService.uploadHouse($scope.house)
-                .then(function(response) {
-                    console.log('Uploaded House Successfuly');
-                    $scope.houseId = response;
-                    // Upload photos for this house
-                    uploadPhotos(houseId);
-                    },
-                    function(error) {
-                        console.log('Error while uploading house:' + error);
-                    });
-        },
-        function(error) {
-            console.log('Error while uploading house');
-        };
+                        // Upload the house to the server API through HTTP using the searchService
+                        searchService.uploadHouse($scope.house)
+                            .then(function(response) {
+                                    console.log('Uploaded House Successfuly');
+                                    $scope.houseId = response;
+                                    // Upload photos for this house
+                                    uploadPhotos(houseId);
+                                },
+                                function(error) {
+                                    console.log('Error while uploading house:' + error);
+                                });
+                    }
+                }
+            },
+            function(error) {
+                console.log('Error while uploading house');
+            };
 
         searchService.getHousesByEmail()
             .then(function(response) {
