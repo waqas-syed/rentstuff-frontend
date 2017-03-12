@@ -63,6 +63,12 @@
 		            templateUrl: "/views/house-details.html",
 		            params: {
 		                "houseId": ""
+		            },
+		            controller: "HouseDetailsController",
+		            resolve: {
+		                houseDetails: function(resolveService) {
+		                    return resolveService.getHouseDetails();
+		                }
 		            }
 		        })
 		        .state("registration-confirmation",
@@ -143,4 +149,29 @@
             });
 
     }]);
+
+    rentApp.factory('resolveService', ['$http', function($http) {
+            return {
+                getHouseDetails: function() {
+                    return $http.get('http://localhost:2431/v1/house',
+                            { params: { houseId: '99c6ad06-0706-4e56-83c8-b39764302194' } })
+                        .then(
+                            function (response) {
+                                var imagesArray = [];
+                                angular.forEach(response.data.HouseImages,
+                                    function (value, key) {
+                                        imagesArray.push({ src: 'data:image/JPEG;base64,' + value });
+                                    });
+                                return {house: response.data, imagesArray: imagesArray}
+                            },
+                            function(errResponse) {
+                                console.error('Error while fetching users');
+                                return errResponse;
+                                //   return $q.reject(errResponse);
+                            }
+                        );
+                }
+            };
+        }
+    ]);
 })();
