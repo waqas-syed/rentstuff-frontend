@@ -25,12 +25,16 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
             $state.go('home');
         }
 
-        var uploadPhotos = function(houseId) {
-            var queue = $scope.uploader.queue;
-            for (var i = 0; i < queue.length; i++) {
-                $scope.uploader.queue[i].headers.houseId = houseId;
+        var uploadPhotos = function (houseId) {
+            if ($scope.uploader.queue.length === 0) {
+                $state.go('house-details', { houseId: $scope.houseId });
+            } else {
+                var queue = $scope.uploader.queue;
+                for (var i = 0; i < queue.length; i++) {
+                    $scope.uploader.queue[i].headers.houseId = houseId;
+                }
+                $scope.uploader.uploadAll();
             }
-            $scope.uploader.uploadAll();
         };
 
         /*$scope.upload = function () {
@@ -88,14 +92,15 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
 
                         // Upload the house to the server API through HTTP using the searchService
                         searchService.uploadHouse($scope.house)
-                            .then(function(response) {
-                                    console.log('Uploaded House Successfuly');
-                                    $scope.houseId = response;
-                                    // Upload photos for this house
-                                    uploadPhotos(houseId);
-                                },
-                                function(error) {
-                                    console.log('Error while uploading house:' + error);
+                            .then(function (response) {
+                                    if (response.status === 200) {
+                                        console.log('Uploaded House Successfuly');
+                                        $scope.houseId = response.data;
+                                        // Upload photos for this house
+                                        uploadPhotos($scope.houseId);
+                                    } else {
+                                        console.log('Error while uploading house:' + error);
+                                    }
                                 });
                     }
                 }

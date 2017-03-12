@@ -10,7 +10,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     },
                     function (errResponse) {
                         console.error('Error while fetching users');
-                        return error;
+                        return errResponse;
                         //   return $q.reject(errResponse);
                     }
             );
@@ -19,11 +19,11 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
             return $http.post(globalService.serverUrl + 'house', house)
             .then(
                     function (response) {
-                        return response.data;
+                        return response;
                     },
                     function (errResponse) {
                         console.error('Error while fetching users');
-                        return error;
+                        return errResponse;
                         //   return $q.reject(errResponse);
                     }
             );
@@ -36,7 +36,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     },
                     function (errResponse) {
                         console.error('Error while fetching users');
-                        return error;
+                        return errResponse;
                         //   return $q.reject(errResponse);
                     }
             );
@@ -60,6 +60,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     },
                     function (errResponse) {
                         console.error('Error while fetching users');
+                        return errResponse;
                         //return $q.reject(errResponse);
                     }
             );
