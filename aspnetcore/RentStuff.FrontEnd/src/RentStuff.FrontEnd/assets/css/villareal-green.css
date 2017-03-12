@@ -4859,6 +4859,11 @@ hr {
     border: 0;
     padding-bottom: 60px; }
 
+.header-top-authenticated {
+  margin: 0 -1000px;
+  min-height: 32px;
+  padding: 0 1000px; }
+
 .header-top-inner {
   position: relative; }
 

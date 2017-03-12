@@ -43,66 +43,67 @@
                                     </ul><!-- /.nav -->
                                 </div><!-- /.header-topbar-right -->
                             </div><!-- /.header-topbar -->
-                            <div class="nav-primary-wrapper collapse navbar-toggleable-sm header-topbar-right" ng-show="isAuthenticated()">
-                                <ul class="nav nav-pills nav-primary ng-cloak">
-                                    <li class="nav-item nav-item-parent">
-                                        <a href="index.html" class="nav-link active" ng-bind="authentication.fullName">
-                                        </a>
-                                        <ul class="sub-menu">
-                                            <li ng-click="logOut()"><a href="">Log Out</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
+                            <div class="header-top-authenticated ng-cloak" ng-show="isAuthenticated()">
+                                <div class="nav-primary-wrapper collapse navbar-toggleable-sm header-topbar-right">
+                                    <ul class="nav nav-pills nav-primary ng-cloak">
+                                        <li class="nav-item nav-item-parent">
+                                            <a href="index.html" class="nav-link active" ng-bind="authentication.fullName">
+                                            </a>
+                                            <ul class="sub-menu">
+                                                <li ng-click="logOut()"><a href="">Log Out</a></li>
+                                            </ul>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
 
-                            <div class="header-top">
-                                <div class="header-top-inner">
-                                    <a class="header-logo" ui-sref="home">
-                                        <span class="header-logo-shape"></span>
-                                        <span class="header-logo-text">Rent Stuff</span>
-                                    </a><!-- /.header-logo -->
-                                    <div class="header-separator">
-                                    </div><!-- /.header-separator -->
-                                    
-                                    <!--<button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target=".nav-primary-wrapper">
-                                        <span></span>
-                                        <span></span>
-                                        <span></span>
-                                    </button>-->
-                                </div><!-- /.header-top-inner -->
-                                <div class="header-top-right">
-                                    <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
-                                        <ul class="nav nav-pills nav-primary">
-                                            <li class="nav-item">
-                                                <a href="index.html" class="nav-link ">
-                                                    Search Houses
-                                                </a>
-                                            </li>
-                                            <li class="nav-item ng-cloak" ng-if="isAuthenticated()">
-                                                <a href="index.html" class="nav-link ">
-                                                    My Properties
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a ui-sref="contact" class="nav-link ">
-                                                    Contact Us
-                                                </a>
-                                            </li>
-                                            <li class="nav-item">
-                                                <a href="index.html" class="nav-link ">
-                                                    About Us
-                                                </a>
-                                            </li>
-                                            <li class="nav-item right">
-                                                <a class="btn btn-primary" style="margin:4px 0 0 7px" ui-sref="upload-house">
-                                                    <i class="fa fa-upload"></i> <span>Upload Property</span>
-                                                </a><!-- /.header-action -->
-                                            </li>
-                                        </ul>                                        
+                                <div class="header-top">
+                                    <div class="header-top-inner">
+                                        <a class="header-logo" ui-sref="home">
+                                            <span class="header-logo-shape"></span>
+                                            <span class="header-logo-text">Rent Stuff</span>
+                                        </a><!-- /.header-logo -->
+                                        <div class="header-separator">
+                                        </div><!-- /.header-separator -->
+                                        <!--<button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target=".nav-primary-wrapper">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>-->
+                                    </div><!-- /.header-top-inner -->
+                                    <div class="header-top-right">
+                                        <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
+                                            <ul class="nav nav-pills nav-primary">
+                                                <li class="nav-item">
+                                                    <a href="index.html" class="nav-link ">
+                                                        Search Houses
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item ng-cloak" ng-if="isAuthenticated()">
+                                                    <a href="index.html" class="nav-link ">
+                                                        My Properties
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a ui-sref="contact" class="nav-link ">
+                                                        Contact Us
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item">
+                                                    <a href="index.html" class="nav-link ">
+                                                        About Us
+                                                    </a>
+                                                </li>
+                                                <li class="nav-item right">
+                                                    <a class="btn btn-primary" style="margin:4px 0 0 7px" ui-sref="upload-house">
+                                                        <i class="fa fa-upload"></i> <span>Upload Property</span>
+                                                    </a><!-- /.header-action -->
+                                                </li>
+                                            </ul>
+                                        </div>
                                     </div>
-                                </div>
-                            </div><!-- /.header-top -->
-                        </div><!-- /.container -->
+                                </div><!-- /.header-top -->
+                            </div><!-- /.container -->
                     </div><!-- /.header-inner -->
                 </div><!-- /.header -->
             </div><!-- /.header-wrapper-->
