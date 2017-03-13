@@ -66,9 +66,9 @@
 		            },
 		            controller: "HouseDetailsController",
 		            resolve: {
-		                houseDetails: function(resolveService) {
-		                    return resolveService.getHouseDetails();
-		                }
+		                houseDetails: ["resolveService", "$stateParams", function (resolveService, $stateParams) {
+		                    return resolveService.getHouseDetails($stateParams.houseId);
+		                }]
 		            }
 		        })
 		        .state("registration-confirmation",
@@ -150,11 +150,10 @@
 
     }]);
 
-    rentApp.factory('resolveService', ['$http', function($http) {
+    rentApp.factory("resolveService", ["$http", "globalService", function($http, globalService) {
             return {
-                getHouseDetails: function() {
-                    return $http.get('http://localhost:2431/v1/house',
-                            { params: { houseId: '99c6ad06-0706-4e56-83c8-b39764302194' } })
+                getHouseDetails: function(houseId) {
+                    return $http.get(globalService.serverUrl + 'house', { params: { houseId: houseId } })
                         .then(
                             function (response) {
                                 var imagesArray = [];
