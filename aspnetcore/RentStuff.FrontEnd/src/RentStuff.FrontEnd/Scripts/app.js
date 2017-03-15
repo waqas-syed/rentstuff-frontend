@@ -49,12 +49,13 @@
 		        })
 		        .state("search-results",
 		        {
-		            url: "/search-results?location&propertytype",
+		            url: "/search-results?location&propertytype&email",
 		            templateUrl: "/views/search-results.html",
 		            controller: "SearchResultController",
 		            params: {
 		                "location": "",
-                        "propertytype": ""
+                        "propertytype": "",
+                        "email": ""
 		            }
 		        })
 		        .state("house-details",

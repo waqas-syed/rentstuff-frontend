@@ -86,7 +86,7 @@ rentApp.controller('myHousesController', ['$scope', '$state', '$stateParams', 's
                         // Get the Owner's email from the LocalStorageService 
                         var authData = localStorageService.get('authorizationData');
                         if (authData) {
-                            $scope.house.OwnerEmail = authData.userName;
+                            $scope.house.OwnerEmail = authData.email;
                             $scope.house.OwnerName = authData.fullName;
                         }
 

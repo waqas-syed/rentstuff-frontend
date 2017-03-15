@@ -2,11 +2,11 @@
 
 rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($http, $q, globalService) {
     return {
-        searchHousesByAddressAndPropertyType: function (area, propertyType) {
-            return $http.get(globalService.serverUrl + 'house', {params: {area: area, propertyType: propertyType}})
+        searchHouses: function (searchParameters) {
+            return $http.get(globalService.serverUrl + 'house', {params: searchParameters})
             .then(
                     function (response) {
-                        return response.data;
+                        return response;
                     },
                     function (errResponse) {
                         console.error('Error while fetching users');

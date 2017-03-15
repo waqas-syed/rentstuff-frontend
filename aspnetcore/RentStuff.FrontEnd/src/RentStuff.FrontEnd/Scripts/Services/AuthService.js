@@ -43,12 +43,13 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         $http.post('http://localhost:2431/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (loginResponse) {
 
             _authentication.isAuth = true;
+            _authentication.email = loginData.userName;
             
             $http.get(globalService.serverUrl + 'account/get-user', {params:{email:loginData.userName}}).success(function(response) {
                 _authentication.fullName = response.FullName;
                 localStorageService.set('authorizationData', {
                     token: loginResponse.access_token,
-                    userName: loginData.userName,
+                    email: loginData.userName,
                     fullName: response.FullName
                 });
                 deferred.resolve(response);
@@ -57,7 +58,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
                 _authentication.fullName = loginData.userName;
                 localStorageService.set('authorizationData', {
                     token: loginResponse.access_token,
-                    userName: loginData.userName,
+                    email: loginData.userName,
                     fullName: loginData.userName
                 });
                 console.log('Error while retreiving user: ' + err);
@@ -78,7 +79,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
 
         _authentication.isAuth = false;
         _authentication.fullName = "";
-
+        _authentication.email = "";
     };
 
     var _fillAuthData = function () {
@@ -87,6 +88,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         if (authData) {
             _authentication.isAuth = true;
             _authentication.fullName = authData.fullName;
+            _authentication.email = authData.email;
         }
     }
 

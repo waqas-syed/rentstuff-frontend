@@ -49,12 +49,13 @@
 		        })
 		        .state("search-results",
 		        {
-		            url: "/search-results?location&propertytype",
+		            url: "/search-results?location&propertytype&email",
 		            templateUrl: "/views/search-results.html",
 		            controller: "SearchResultController",
 		            params: {
 		                "location": "",
-                        "propertytype": ""
+                        "propertytype": "",
+                        "email": ""
 		            }
 		        })
 		        .state("house-details",
@@ -154,8 +155,7 @@
             return {
                 getHouseDetails: function(houseId) {
                     return $http.get(globalService.serverUrl + 'house', { params: { houseId: houseId } })
-                        .then(
-                            function (response) {
+                        .then(function (response) {
                                 var imagesArray = [];
                                 angular.forEach(response.data.HouseImages,
                                     function (value, key) {
