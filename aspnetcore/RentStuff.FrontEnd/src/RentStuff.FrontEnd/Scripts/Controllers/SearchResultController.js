@@ -3,7 +3,6 @@
 rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams', 'searchService', 'authService',
     function ($scope, $state, $stateParams, searchService, authService) {
 
-        $scope.usersPrivateProperties = false;
         var searchParameters = null;
         if ($stateParams !== null && $stateParams !== undefined) {
             
@@ -12,7 +11,6 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
                 // Only serve this if the user is authenticated
                 if (authService.authentication.isAuth) {
                     searchParameters = { email: $stateParams.email };
-                    $scope.usersPrivateProperties = true;
                 }
             } else {
                 if ($stateParams.location !== null && $stateParams.location !== undefined && $stateParams.location !== "") {
