@@ -90,6 +90,14 @@
 		        .state("upload-house",
 		        {
 		            url: "/upload-house",
+		            controller: "uploadEditHouseController",
+		            templateUrl: "/views/upload-house.html",
+                    permissions: { redirectForNonLoggedInUser: true }
+		        })
+		        .state("edit-house",
+		        {
+		            url: "/edit-house?houseid",
+		            controller: "uploadEditHouseController",
 		            templateUrl: "/views/upload-house.html",
                     permissions: { redirectForNonLoggedInUser: true }
 		        });

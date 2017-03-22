@@ -28,6 +28,19 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     }
             );
         },
+        editHouse: function (house) {
+            return $http.put(globalService.serverUrl + 'house', house)
+            .then(
+                    function (response) {
+                        return response;
+                    },
+                    function (errResponse) {
+                        console.error('Error while fetching users');
+                        return errResponse;
+                        //   return $q.reject(errResponse);
+                    }
+            );
+        },
         getHouseDetails: function (houseId) {
             return $http.get(globalService.serverUrl + 'house', {params: {houseId: houseId}})
             .then(

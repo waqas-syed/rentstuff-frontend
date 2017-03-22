@@ -8,7 +8,7 @@ rentApp.controller('HouseDetailsController', ['$scope', '$stateParams', 'searchS
         $scope.house = houseDetails.house;
 
         if (authService.authentication.isAuth) {
-            if (authService.email === $scope.house.OwnerEmail) {
+            if (authService.authentication.email === $scope.house.OwnerEmail) {
                 $scope.ownerIsViewingHouse = true;
             }
         }
