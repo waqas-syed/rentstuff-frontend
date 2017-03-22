@@ -4,6 +4,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
     function ($scope, $state, $stateParams, searchService, localStorageService, FileUploader, globalService, authService) {
 
         // SETTING UP VARIABLES
+        $scope.propertySizes = ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10', '11', '12', '13', '14', '15', '16', '17', '18', '19', '20'];
         $scope.ownerIsViewingHouse = false;
         $scope.checked = true;
         $scope.DimensionStringEmpty = false;
@@ -65,11 +66,20 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         }
                                         // Parse Dimension into expected format
                                         var dimensionTypeAndStringValueArray = $scope.house.Dimension.split(" ");
-                                        $scope.house.DimensionStringValue = dimensionTypeAndStringValueArray[0];
                                         $scope.house.DimensionType = dimensionTypeAndStringValueArray[1];
+                                        $scope.house.DimensionStringValue = dimensionTypeAndStringValueArray[0];
+                                        
+                                        var counter = 0;
                                         // Convert images from Base64 String to a file
-                                        var cover = Upload.dataUrltoBlob(category.croppedDataUrl);
-                                        cover = new File([cover], 'cover.jpg', { type: "image/jpg" });
+                                        angular.forEach($scope.house.HouseImages,
+                                            function(value, key) {
+                                                var imageBase64 = value;
+                                                var blob = new Blob([imageBase64], { type: 'image/jpg' });
+                                                var file = new File([blob], counter + '.jpg');
+                                                counter++;
+                                                $scope.uploader.addToQueue(file);
+                                            });
+
                                         $scope.ownerIsViewingHouse = true;
                                     }
                                 }
@@ -142,9 +152,9 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                 .then(function (response) {
                                     if (response.status === 200) {
                                         console.log('Edited House Successfuly');
-                                        $scope.houseId = response.data;
+                                        $scope.houseId = $scope.house.Id;
                                         // Upload photos for this house
-                                        //uploadPhotos($scope.houseId);
+                                        uploadPhotos($scope.houseId);
                                     } else {
                                         console.log('Error while editing house:' + error);
                                     }

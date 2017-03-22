@@ -83,9 +83,10 @@
                                         <div class="form-group">
                                             <select ng-disabled="house.DimensionType === undefined || house.DimensionType === null"
                                                     class="form-control" ng-model="house.DimensionStringValue"
-                                                    ng-options="propertySize as propertySize for propertySize in getPropertySizes(1,20)">
-                                                <option value="" disabled selected style="display: none;" >Size</option>
+                                                    ng-options="propertySize as propertySize for propertySize in propertySizes">
+                                                <option value="" disabled selected style="display: none;">Size</option>
                                             </select>
+
                                         <!--If the DimensionType is not empty but the DimensionString value is, then do not proceed instead show the error to the user on the UI-->
                                             <span class="error" ng-show="DimensionStringEmpty">
                                                 Land Size is Required!
