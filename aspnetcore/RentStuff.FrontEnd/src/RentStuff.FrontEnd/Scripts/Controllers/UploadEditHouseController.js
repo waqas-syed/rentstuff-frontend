@@ -73,10 +73,10 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         // Convert images from Base64 String to a file
                                         angular.forEach($scope.house.HouseImages,
                                             function (value, key) {
-                                                var imageBase64 = value;
+                                                var imageBase64 = value.Base64String;
 
                                                 // Creating a new blob
-                                                var contentType = 'image/jpeg';
+                                                var contentType = 'image/' + value.Type;
                                                 var sliceSize = 512;
 
                                                 var byteCharacters = atob(imageBase64);
@@ -99,7 +99,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                                 // Creating a new blob
                                                 //var blob = new Blob([imageBase64], { type: 'image/jpeg' });
                                                 //var blob = new Blob([imageBase64]);
-                                                var file = new File([blob], counter + '.jpg', { type: "image/jpeg", lastModified: new Date() });
+                                                var file = new File([blob], value.Name, { type: contentType, lastModified: new Date() });
                                                 var fileItem = new FileUploader.FileItem($scope.uploader, file);
                                                 fileItem._file = file;
                                                 fileItem.progress = 100;
