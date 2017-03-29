@@ -9,7 +9,7 @@
 
                             <div class="listing-row" ng-repeat="house in houses">
                                 <div class="listing-row-inner">
-                                    <div class="listing-row-image" style="background-image: url('data:image/JPEG;base64,{{house.ImageString}}');">
+                                    <div class="listing-row-image" style="background-image: url('data:image/{{house.Image.Type}};base64,{{house.Image.Base64String}}');">
                                         <span class="listing-row-image-links">
                                             <a href="" ng-click="navigateToDetails(house.HouseId)"><i class="fa fa-search"></i> <span>View detail</span></a>
                                         </span>
