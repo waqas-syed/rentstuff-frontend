@@ -72,12 +72,41 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         var counter = 0;
                                         // Convert images from Base64 String to a file
                                         angular.forEach($scope.house.HouseImages,
-                                            function(value, key) {
+                                            function (value, key) {
                                                 var imageBase64 = value;
-                                                var blob = new Blob([imageBase64], { type: 'image/jpg' });
-                                                var file = new File([blob], counter + '.jpg');
+
+                                                // Creating a new blob
+                                                var contentType = 'image/jpeg';
+                                                var sliceSize = 512;
+
+                                                var byteCharacters = atob(imageBase64);
+                                                var byteArrays = [];
+
+                                                for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
+                                                    var slice = byteCharacters.slice(offset, offset + sliceSize);
+
+                                                    var byteNumbers = new Array(slice.length);
+                                                    for (var i = 0; i < slice.length; i++) {
+                                                        byteNumbers[i] = slice.charCodeAt(i);
+                                                    }
+
+                                                    var byteArray = new Uint8Array(byteNumbers);
+
+                                                    byteArrays.push(byteArray);
+                                                }
+
+                                                var blob = new Blob(byteArrays, { type: contentType });
+                                                // Creating a new blob
+                                                //var blob = new Blob([imageBase64], { type: 'image/jpeg' });
+                                                //var blob = new Blob([imageBase64]);
+                                                var file = new File([blob], counter + '.jpg', { type: "image/jpeg", lastModified: new Date() });
+                                                var fileItem = new FileUploader.FileItem($scope.uploader, file);
+                                                fileItem._file = file;
+                                                fileItem.progress = 100;
+                                                fileItem.isUploaded = true;
+                                                fileItem.isSuccess = true;
+                                                $scope.uploader.queue.push(fileItem);
                                                 counter++;
-                                                $scope.uploader.addToQueue(file);
                                             });
 
                                         $scope.ownerIsViewingHouse = true;
