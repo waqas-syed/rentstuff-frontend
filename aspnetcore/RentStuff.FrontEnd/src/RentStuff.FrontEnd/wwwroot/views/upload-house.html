@@ -147,7 +147,7 @@
                                         </td>
                                         <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
                                         <td nowrap>
-                                            <button type="button" class="btn btn-danger btn-xs" ng-click="item.remove()">
+                                            <button type="button" class="btn btn-danger btn-xs" ng-click="deleteImage(item)">
                                                 <span class="glyphicon glyphicon-trash"></span> Remove
                                             </button>
                                         </td>

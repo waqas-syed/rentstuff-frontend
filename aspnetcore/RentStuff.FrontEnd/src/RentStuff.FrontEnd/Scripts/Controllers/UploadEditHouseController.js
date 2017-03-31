@@ -12,6 +12,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         $scope.propertyTypes = ['House', 'Apartment', 'Hostel', 'Hotel'];
         $scope.dimensionTypes = ['Marla', 'Kanal', 'Acre'];
         $scope.genderRestrictions = ['Families Only', 'Girls Only', 'Boys Only', 'No restriction'];
+        var imagesToDelete = [];
 
         // PHOTOS UPLOADER CONFIGURATION
         var bearerToken = '';
@@ -122,14 +123,24 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
 
         // UPLOAD PHOTOS
         var uploadPhotos = function (houseId) {
-            if ($scope.uploader.queue.length === 0) {
-                $state.go('house-details', { houseId: $scope.houseId });
-            } else {
+            var pendingImageFound = false;
+            angular.forEach($scope.uploader.queue,
+                function (value, key) {
+                    if (!pendingImageFound) {
+                        if (value !== null && value !== undefined && value.isUploaded === false) {
+                            pendingImageFound = true;
+                        }
+                    }
+                });
+            if (pendingImageFound) {
                 var queue = $scope.uploader.queue;
                 for (var i = 0; i < queue.length; i++) {
                     $scope.uploader.queue[i].headers.houseId = houseId;
                 }
                 $scope.uploader.uploadAll();
+                //$state.go('house-details', { houseId: $scope.houseId });
+            } else {
+                $state.go('house-details', { houseId: $scope.houseId });
             }
         };
 
@@ -144,6 +155,19 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         $scope.uploader.onErrorItem = function (item, response, status, headers) {
             console.error("Error while uploading photo" + item.headers.houseId + " | FielName = " + item._file.name);
         };
+
+        // DELETES THE IMAGES FROM THE SERVER FOR THE CURRENT HOUSE
+        var deleteImagesFromServer = function () {
+            var deleteParams = { HouseId: $scope.house.Id, ImagesList: imagesToDelete };
+            searchService.deleteImage(deleteParams)
+                .then(function (response) {
+                    if (response.status === 200) {
+                        console.log("Images deleted successfully. HouseId = " + $scope.house.Id);
+                        // Now upload the photos for this house
+                        uploadPhotos($scope.houseId);
+                    }
+                });
+        }
 
         // UPLOAD HOUSE
         $scope.uploadHouse = function() {
@@ -182,8 +206,9 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                     if (response.status === 200) {
                                         console.log('Edited House Successfuly');
                                         $scope.houseId = $scope.house.Id;
-                                        // Upload photos for this house
-                                        uploadPhotos($scope.houseId);
+                                        // Delete and upload photos for this house. UploadPhotos is called from within the 
+                                        // deleteImagesFromServer method below
+                                        deleteImagesFromServer();
                                     } else {
                                         console.log('Error while editing house:' + error);
                                     }
@@ -208,6 +233,11 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
             function(error) {
                 console.log('Error while uploading house');
             };
+
+        $scope.deleteImage = function (item) {
+            imagesToDelete.push(item.file.name);
+            $scope.uploader.removeFromQueue(item);
+        }
 
         // GET PHOTOS BY EMAIL
         searchService.getHousesByEmail()
