@@ -54,16 +54,15 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         $scope.house = response.data;
                                         $scope.houseArea = new Object();
                                         $scope.houseArea.formatted_address = $scope.house.Area;
-                                        if ($scope.house.BoysOnly) {
-                                            $scope.genderRestriction = "Boys Only";
-                                        }
-                                        else if ($scope.house.GirlsOnly) {
-                                            $scope.genderRestriction = "Girls Only";
-                                        }
-                                        else if ($scope.house.FamiliesOnly) {
+                                        // Only one of Families, Girls or Boys value is allowed.
+                                        if ($scope.house.GenderRestriction === "FamiliesOnly") {
                                             $scope.genderRestriction = "Families Only";
+                                        } else if ($scope.house.GenderRestriction === "GirlsOnly") {
+                                            $scope.genderRestriction = "Girls Only";
+                                        } else if ($scope.house.GenderRestriction === "BoysOnly") {
+                                            $scope.genderRestriction = "Boys Only";
                                         } else {
-                                            $scope.genderRestriction = "No Restriction";
+                                            $scope.genderRestriction = "NoRestriction";
                                         }
                                         // Parse Dimension into expected format
                                         var dimensionTypeAndStringValueArray = $scope.house.Dimension.split(" ");
@@ -150,10 +149,10 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
             $state.go('house-details', {houseId: $scope.houseId});
         }
         $scope.uploader.onSuccessItem = function(item, response, status, headers) {
-            console.log("Photo Uploaded successfully. HouseId = " + item.headers.houseId + " | FielName = " + item._file.name);
+            console.log("Photo Uploaded successfully. HouseId = " + item.headers.houseId + " | FileName = " + item._file.name);
         };
         $scope.uploader.onErrorItem = function (item, response, status, headers) {
-            console.error("Error while uploading photo" + item.headers.houseId + " | FielName = " + item._file.name);
+            console.error("Error while uploading photo" + item.headers.houseId + " | FileName = " + item._file.name);
         };
 
         // DELETES THE IMAGES FROM THE SERVER FOR THE CURRENT HOUSE
@@ -174,11 +173,13 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                 if ($scope.house !== null && $scope.house !== undefined) {
                     // Only one of Families, Girls or Boys value is allowed.
                     if ($scope.genderRestriction === "Families Only") {
-                        $scope.house.FamiliesOnly = true;
+                        $scope.house.GenderRestriction = "FamiliesOnly";
                     } else if ($scope.genderRestriction === "Girls Only") {
-                        $scope.house.GirlsOnly = true;
+                        $scope.house.GenderRestriction = "GirlsOnly";
                     } else if ($scope.genderRestriction === "Boys Only") {
-                        $scope.house.BoysOnly = true;
+                        $scope.house.GenderRestriction = "BoysOnly";
+                    } else {
+                        $scope.house.GenderRestriction = "NoRestriction";
                     }
                     // If the DimensionType is not empty but the DimensionString value is, then do not proceed instead show the error
                     // to the user on the UI

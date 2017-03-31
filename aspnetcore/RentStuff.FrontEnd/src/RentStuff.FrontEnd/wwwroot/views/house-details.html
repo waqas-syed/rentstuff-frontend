@@ -25,15 +25,15 @@
                                         {{house.PropertyType}}
                                     </div>
                                 </div><!-- /.listing-detail-attribute -->
-                                <div class="listing-detail-attribute" ng-show="house.FamiliesOnly">
+                                <div class="listing-detail-attribute" ng-show="house.GenderRestriction === 'FamiliesOnly'">
                                     <div class="key">For</div>
                                     <div class="value">Families Only</div>
                                 </div><!-- /.listing-detail-attribute -->
-                                <div class="listing-detail-attribute" ng-show="house.BoysOnly">
+                                <div class="listing-detail-attribute" ng-show="house.GenderRestriction === 'BoysOnly'">
                                     <div class="key">For</div>
                                     <div class="value">Boys Only</div>
                                 </div><!-- /.listing-detail-attribute -->
-                                <div class="listing-detail-attribute" ng-show="house.GirlsOnly">
+                                <div class="listing-detail-attribute" ng-show="house.GenderRestriction === 'GirlsOnly'">
                                     <div class="key">For</div>
                                     <div class="value">Girls Only</div>
                                 </div><!-- /.listing-detail-attribute -->
