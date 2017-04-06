@@ -18,7 +18,7 @@ rentApp.controller('loginController', ['$scope', '$location', 'authService', fun
  
         },
          function (err) {
-             $scope.message = err.error_description;
+             $scope.loginError = err.error_description;
          });
     };
  

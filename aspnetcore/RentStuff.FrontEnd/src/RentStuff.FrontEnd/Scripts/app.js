@@ -2,7 +2,7 @@
     'use strict';
 
     var rentApp = angular.module('rentApp', ['ui.router', 'google.places', 'ngAnimate', 'ngSanitize', 'ui.bootstrap',
-    'ngMaterial', 'jkAngularCarousel', 'LocalStorageModule', 'angularFileUpload']);
+    'ngMaterial', 'jkAngularCarousel', 'LocalStorageModule', 'angularFileUpload', 'ngLoadingSpinner']);
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider",
 		function ($stateProvider, $urlRouterProvider, $httpProvider) {
