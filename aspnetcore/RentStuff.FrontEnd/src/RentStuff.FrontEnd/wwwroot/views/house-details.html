@@ -1,6 +1,8 @@
 ﻿<div class="main-wrapper">
     <div class="main">
         <div class="main-inner">
+            <!--The Loading Spinner; shown during HTTP requests-->
+            <span us-spinner="{radius:30, width:8, length: 16}"></span>
 
             <div class="content-title">
                 <div class="content-title-inner">
@@ -17,7 +19,7 @@
                             <div class="listing-detail-attributes">
                                 <div class="listing-detail-attribute">
                                     <div class="key">Property Type</div>
-                                    
+
                                     <div class="value">
                                         <div class="value-image">
                                             <a href="#" style="background-image: url('../assets/img/house_thumbnail.jpg');"></a>
@@ -44,17 +46,17 @@
                                 <div class="listing-detail-attribute">
                                     <div class="key">Location</div>
                                     <div class="value" ng-bind="house.Area"></div>
-                                </div><!-- /.listing-detail-attribute -->                      
+                                </div><!-- /.listing-detail-attribute -->
                             </div><!-- /.listing-detail-attributes -->
                         </div><!-- /.col-sm-12 -->
                         <div class="listing-detail col-md-8 col-lg-9" style="margin: -20px 0 0 0;">
                             <md-card layout="column" layout-align="center center" style="padding-bottom: 10px">
                                 <!--<div ng-if="readyToLoadCarousel">-->
-                                    <jk-carousel data="dataArray"
-                                                 item-template-url="'item-template.html'"
-                                                 max-width="830"
-                                                 max-height="500">
-                                    </jk-carousel>
+                                <jk-carousel data="dataArray"
+                                             item-template-url="'item-template.html'"
+                                             max-width="830"
+                                             max-height="500">
+                                </jk-carousel>
                                 <!--</div>-->
                             </md-card>
                             <div class="row">
