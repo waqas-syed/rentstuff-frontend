@@ -4,7 +4,10 @@
 # This folder is copied to the wwwroot folder
 aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/assets
 # This folder contains dependencies which are downloaded
-aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/lib
+aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/lib/*
+# Don't exclude these libraries, these are not downloaded, they are committed here directly
+!aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/lib/angular-loading-spinner
+!aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/lib/jk-carousel
 # The javascript files are copied to wwwroot folder so no need to commit them
 aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/*.js
 
