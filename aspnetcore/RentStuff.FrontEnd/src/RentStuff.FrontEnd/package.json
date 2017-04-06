@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "name": "RentStuff.FrontEnd",
+  "name": "rentstuff.frontend",
   "private": true,
   "devDependencies": {
     "grunt": "1.0.1",
