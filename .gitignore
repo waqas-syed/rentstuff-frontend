@@ -5,6 +5,8 @@
 aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/assets
 # This folder contains dependencies which are downloaded
 aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/lib
+# The javascript files are copied to wwwroot folder so no need to commit them
+aspnetcore/RentStuff.FrontEnd/src/RentStuff.FrontEnd/wwwroot/*.js
 
 # User-specific files
 *.suo
