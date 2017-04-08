@@ -41,6 +41,18 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     }
             );
         },
+        deleteHouse: function (id) {
+            return $http.delete(globalService.serverUrl + 'house/' + id)
+            .success(function (response) {
+                        return response;
+                    }
+            )
+            .error(function (errResponse) {
+                        console.error('Error while deleting house');
+                        return errResponse;
+                        //   return $q.reject(errResponse);
+                    });
+        },
         deleteImage: function (deleteImageParams) {
             return $http.put(globalService.serverUrl + 'houseimageupload', { HouseId: deleteImageParams.HouseId, ImagesList: deleteImageParams.ImagesList }, { headers: { 'Content-Type': 'application/json' } })
             .then(

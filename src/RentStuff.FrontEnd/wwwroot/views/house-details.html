@@ -21,9 +21,9 @@
                                     <div class="key">Property Type</div>
 
                                     <div class="value">
-                                        <div class="value-image">
+                                        <!--<div class="value-image">
                                             <a href="#" style="background-image: url('../assets/img/house_thumbnail.jpg');"></a>
-                                        </div><!-- /.value-image -->
+                                        </div>--><!-- /.value-image -->
                                         {{house.PropertyType}}
                                     </div>
                                 </div><!-- /.listing-detail-attribute -->
@@ -133,7 +133,8 @@
                                     </a>
                                 </div><!-- /.form-group-btn -->
                                 <div class="form-group-btn">
-                                    <button type="submit" class="btn btn-danger btn-block">
+                                    <button type="submit" class="btn btn-danger btn-block" 
+                                            confirmed-click="deleteHouse()" ng-confirm-click="Are you sure you want to delete this house?">
                                         <i class="fa fa-trash"></i> <span>Delete House</span>
                                     </button>
                                 </div><!-- /.form-group-btn -->
