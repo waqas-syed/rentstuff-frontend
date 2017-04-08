@@ -45,7 +45,19 @@
 		        .state("forgot-password",
 		        {
 		            url: "/forgot-password",
+                    controller: "passwordResetController",
 		            templateUrl: "/views/forgot-password.html"
+		        })
+                .state("forgot-password-confirmation",
+		        {
+		            url: "/forgot-password-confirmation",
+                    templateUrl: "/views/forgot-password-confirmation.html"
+		        })
+                .state("reset-password",
+		        {
+		            url: "/reset-password?email&resettoken",
+		            controller: "passwordResetController",
+		            templateUrl: "/views/reset-password.html"
 		        })
 		        .state("search-results",
 		        {
