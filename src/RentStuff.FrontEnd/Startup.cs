@@ -59,6 +59,11 @@ namespace RentStuff.FrontEnd
 
             app.UseApplicationInsightsExceptionTelemetry();
 
+            // Serve my app-specific default file, if present.
+            DefaultFilesOptions options = new DefaultFilesOptions();
+            options.DefaultFileNames.Clear();
+            options.DefaultFileNames.Add("index.html");
+            app.UseDefaultFiles(options);
             app.UseStaticFiles();
 
             app.UseMvc(routes =>
