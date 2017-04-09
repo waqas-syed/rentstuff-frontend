@@ -8,7 +8,10 @@
                     <span us-spinner="{radius:30, width:8, length: 16}"></span>
                     <div class="row">
                         <div class="col-md-8 col-lg-9">
-
+                            <div>
+                                <span class="aligncenter" ng-show="houses.length === 0 && !ownerViewingOwnProperties"><strong>No houses found for the given location. Please try another one</strong></span>
+                                <span class="aligncenter" ng-show="houses.length === 0 && ownerViewingOwnProperties"><strong>You dont have any properties posted. Please click the 'Upload Properties' button to post your property</strong></span>
+                            </div>
                             <div class="listing-row" ng-repeat="house in houses">
                                 <div class="listing-row-inner">
                                     <div class="listing-row-image" style="background-image: url('data:image/{{house.Image.Type}};base64,{{house.Image.Base64String}}');">
