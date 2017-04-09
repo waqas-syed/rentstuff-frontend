@@ -28,7 +28,7 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label><strong>Monthly Rent<span class="required-arsterisk">  *</span></strong></label>
-                    <input type="text" class="form-control" placeholder="In Pakistani Rupees"
+                    <input type="number" min="100" class="form-control" placeholder="In Pakistani Rupees"
                            ng-model="house.MonthlyRent" ng-pattern="numbersOnly" required>
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
@@ -50,7 +50,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label><strong>Number of Bedrooms</strong></label>
-                    <input type="text" class="form-control" placeholder="Enter a number"
+                    <input type="number" class="form-control" placeholder="Enter a number"
                            ng-model="house.NumberOfBedrooms">
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
@@ -58,7 +58,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label><strong>Number of Bathrooms</strong></label>
-                    <input type="text" class="form-control" placeholder="Enter a number"
+                    <input type="number" class="form-control" placeholder="Enter a number"
                            ng-model="house.NumberOfBathrooms">
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
@@ -66,7 +66,7 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label><strong>Number of Kitchens</strong></label>
-                    <input type="text" class="form-control" placeholder="Enter a number"
+                    <input type="number" class="form-control" placeholder="Enter a number"
                            ng-model="house.NumberOfKitchens">
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
@@ -121,7 +121,7 @@
                 <div class="form-group">
                     <label><strong>Phone<span class="required-arsterisk">  *</span></strong></label>
                     <input type="text" class="form-control" placeholder="For example: 03455138018"
-                           maxlength="11" ng-model="house.OwnerPhoneNumber" required>
+                          minlength="11" maxlength="11" ng-model="house.OwnerPhoneNumber" required>
                     <span ng-show="invalidPhoneNumber" style="color: red;">Invalid Phone Number. Enter 11 digits, e.g., 03455138018</span>
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
