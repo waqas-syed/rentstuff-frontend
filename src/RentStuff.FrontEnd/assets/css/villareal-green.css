@@ -60,6 +60,7 @@ footer,
 header,
 hgroup,
 main,
+main-offwhite-background,
 menu,
 nav,
 section,
@@ -4777,6 +4778,12 @@ hr {
 .main {
   padding-bottom: 60px;
   padding-top: 60px; }
+
+.main-offwhite-background {
+  padding-bottom: 60px;
+  padding-top: 60px;
+  background-color: whitesmoke;
+}
 
 .page-wrapper {
   display: table;

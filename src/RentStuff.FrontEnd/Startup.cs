@@ -66,12 +66,12 @@ namespace RentStuff.FrontEnd
             app.UseDefaultFiles(options);
             app.UseStaticFiles();
 
-            app.UseMvc(routes =>
+            /*app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
-            });
+            });*/
         }
     }
 }
