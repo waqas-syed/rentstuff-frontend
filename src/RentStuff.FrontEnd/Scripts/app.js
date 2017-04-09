@@ -31,6 +31,11 @@
                          }]
                      }*/
 		        })
+                .state("about-us",
+		        {
+		            url: "/about-us",
+		            templateUrl: "/views/about-us.html"
+		        })
 		        .state("signup",
 		        {
 		            url: "/signup",
