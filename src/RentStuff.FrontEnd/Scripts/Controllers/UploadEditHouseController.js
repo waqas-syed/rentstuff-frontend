@@ -13,7 +13,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         $scope.dimensionTypes = ['Marla', 'Kanal', 'Acre'];
         $scope.genderRestrictions = ['Families Only', 'Girls Only', 'Boys Only', 'No restriction'];
         var imagesToDelete = [];
-
+        
         // PHOTOS UPLOADER CONFIGURATION
         var bearerToken = '';
         var authData = localStorageService.get('authorizationData');
@@ -169,7 +169,9 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         }
 
         // UPLOAD HOUSE
-        $scope.uploadHouse = function() {
+        $scope.uploadHouse = function () {
+                $scope.invalidPhoneNumber = false;
+                $scope.errorReceived = false;
                 if ($scope.house !== null && $scope.house !== undefined) {
                     // Only one of Families, Girls or Boys value is allowed.
                     if ($scope.genderRestriction === "Families Only") {
@@ -224,7 +226,11 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         // Upload photos for this house
                                         uploadPhotos($scope.houseId);
                                     } else {
-                                        console.log('Error while uploading house:' + error);
+                                        console.log('Error while uploading house:' + response.data.Message);
+                                        if (response.data.Message === 'Invalid phone number') {
+                                            $scope.invalidPhoneNumber = true;
+                                            $scope.errorReceived = true;
+                                        }
                                     }
                                 });
                         }

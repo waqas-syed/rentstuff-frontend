@@ -120,8 +120,9 @@
             <div class="col-sm-6">
                 <div class="form-group">
                     <label><strong>Phone<span class="required-arsterisk">  *</span></strong></label>
-                    <input type="text" class="form-control" placeholder="For example: 03191234567"
+                    <input type="text" class="form-control" placeholder="For example: 03455138018"
                            maxlength="11" ng-model="house.OwnerPhoneNumber" required>
+                    <span ng-show="invalidPhoneNumber" style="color: red;">Invalid Phone Number. Enter 11 digits, e.g., 03455138018</span>
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
         </div>
@@ -207,7 +208,8 @@
         <div class="checkbox" style="margin: -20px 0 20px 25px;">
             <label><input type="checkbox"> I agree with terms &amp; conditions</label>
         </div>-->
-
+            
+        <span ng-show="errorReceived" style="color: red;">Please see and fix the errors highlighted above in the form</span>
         <div class="center">
             <button ng-if="!ownerIsViewingHouse" class="btn btn-primary" ntype="submit">Submit Property</button>
             <button ng-if="ownerIsViewingHouse" class="btn btn-primary" ntype="submit">Update Property</button>
