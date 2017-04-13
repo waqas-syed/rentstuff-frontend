@@ -40,7 +40,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
 
         var deferred = $q.defer();
 
-        $http.post('http://localhost:2431/token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (loginResponse) {
+        $http.post(globalService.serverUrlWithoutVersion + 'token', data, { headers: { 'Content-Type': 'application/x-www-form-urlencoded' } }).success(function (loginResponse) {
 
             _authentication.isAuth = true;
             _authentication.email = loginData.userName;
