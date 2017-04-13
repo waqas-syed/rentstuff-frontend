@@ -247,13 +247,13 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         }
 
         // GET PHOTOS BY EMAIL
-        searchService.getHousesByEmail()
+        /*searchService.getHousesByEmail()
             .then(function(response) {
                     $scope.houses = response;
                 },
                 function(error) {
                     console.log(error);
-                });
+                });*/
 
         // GET PROPERTY SIZES
         $scope.getPropertySizes = function(min, max, step) {

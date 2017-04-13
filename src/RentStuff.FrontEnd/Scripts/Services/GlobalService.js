@@ -1,7 +1,9 @@
 ﻿var rentApp = angular.module('rentApp');
 
 rentApp.factory('globalService', function () {
+    var defaultServerUrl = 'http://localhost:2431/';
     return {
-        serverUrl: 'http://localhost:2431/v1/'
+        serverUrl: defaultServerUrl + 'v1/',
+        serverUrlWithoutVersion: defaultServerUrl
     };
 });
