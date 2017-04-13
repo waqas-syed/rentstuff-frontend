@@ -132,6 +132,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                     }
                 });
             if (pendingImageFound) {
+                $scope.spinnerActive = true;
                 var queue = $scope.uploader.queue;
                 for (var i = 0; i < queue.length; i++) {
                     $scope.uploader.queue[i].headers.houseId = houseId;
@@ -146,7 +147,8 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         // PHOTOS UPLOAD CALLBACKS
         $scope.uploader.onCompleteAll = function() {
             console.log("All photos Uploaded successfully");
-            $state.go('house-details', {houseId: $scope.houseId});
+            $state.go('house-details', { houseId: $scope.houseId });
+            $scope.spinnerActive = false;
         }
         $scope.uploader.onSuccessItem = function(item, response, status, headers) {
             console.log("Photo Uploaded successfully. HouseId = " + item.headers.houseId + " | FileName = " + item._file.name);
