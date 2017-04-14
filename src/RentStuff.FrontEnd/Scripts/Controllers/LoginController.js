@@ -14,7 +14,7 @@ rentApp.controller('loginController', ['$scope', '$location', 'authService', fun
  
         authService.login($scope.loginData).then(function (response) {
  
-            $location.path('/orders');
+            $location.path('/home');
  
         },
          function (err) {

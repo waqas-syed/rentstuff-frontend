@@ -4,9 +4,9 @@
         <!--The Loading Spinner; shown during HTTP requests-->
         <!--<span us-spinner="{radius:30, width:8, length: 16}"></span>-->
         <div>
-            <span class="aligncenter" ng-show="spinnerActive" ng-hide="!spinnerActive"><strong>Please Wait... Uploading photos can take a while depending on image size...</strong></span>
+            <span class="aligncenter" ng-show="uploadInProgress" ng-hide="!uploadInProgress"><strong>Please Wait... Uploading photos can take a while depending on image size...</strong></span>
         </div>
-        <div class="container" ng-show="!spinnerActive" ng-hide="spinnerActive" style="margin: -56px 200px 0; background-color: #fff; border-radius: 3px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);">
+        <div class="container" ng-show="!uploadInProgress" ng-hide="uploadInProgress" style="margin: -56px 200px 0; background-color: #fff; border-radius: 3px; box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);">
         <div class="row" style="padding: 10px 0 15px 180px">
         <div class="col-md-8 col-lg-9">
         <div class="content">

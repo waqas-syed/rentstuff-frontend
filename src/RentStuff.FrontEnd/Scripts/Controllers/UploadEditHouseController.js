@@ -132,7 +132,6 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                     }
                 });
             if (pendingImageFound) {
-                $scope.spinnerActive = true;
                 var queue = $scope.uploader.queue;
                 for (var i = 0; i < queue.length; i++) {
                     $scope.uploader.queue[i].headers.houseId = houseId;
@@ -140,6 +139,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                 $scope.uploader.uploadAll();
                 //$state.go('house-details', { houseId: $scope.houseId });
             } else {
+                $scope.uploadInProgress = false;
                 $state.go('house-details', { houseId: $scope.houseId });
             }
         };
@@ -147,8 +147,8 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         // PHOTOS UPLOAD CALLBACKS
         $scope.uploader.onCompleteAll = function() {
             console.log("All photos Uploaded successfully");
+            $scope.uploadInProgress = false;
             $state.go('house-details', { houseId: $scope.houseId });
-            $scope.spinnerActive = false;
         }
         $scope.uploader.onSuccessItem = function(item, response, status, headers) {
             console.log("Photo Uploaded successfully. HouseId = " + item.headers.houseId + " | FileName = " + item._file.name);
@@ -172,6 +172,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
 
         // UPLOAD HOUSE
         $scope.uploadHouse = function () {
+                $scope.uploadInProgress = true;
                 $scope.invalidPhoneNumber = false;
                 $scope.errorReceived = false;
                 if ($scope.house !== null && $scope.house !== undefined) {
@@ -221,7 +222,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                         } else {
                             // Upload the house to the server API through HTTP using the searchService
                             searchService.uploadHouse($scope.house)
-                                .then(function(response) {
+                                .then(function (response) {
                                     if (response.status === 200) {
                                         console.log('Uploaded House Successfuly');
                                         $scope.houseId = response.data;

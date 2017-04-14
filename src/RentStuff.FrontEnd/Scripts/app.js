@@ -8,6 +8,18 @@
 		function ($stateProvider, $urlRouterProvider, $httpProvider) {
 		    $httpProvider.interceptors.push('authInterceptorService');
 
+		    $httpProvider.interceptors.push(function () {
+		        return {
+		            "request": function (config) {
+		                if (config.url && config.url.endsWith(".html")) {
+		                    config.headers["Content-Type"] = "text/html; charset=utf=8";
+		                    config.headers["Accept"] = "text/html; charset=utf=8";
+		                }
+		                return config;
+		            }
+		        };
+		    });
+
 		    $httpProvider.defaults.useXDomain = true;
 		    $httpProvider.defaults.withCredentials = true;
 		    delete $httpProvider.defaults.headers.common["X-Requested-With"];
