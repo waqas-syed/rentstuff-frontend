@@ -2,9 +2,11 @@
 
 rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchService', '$state', function ($scope, $window, $http, searchService, $state) {
 
-    searchService.getPropertyTypes().then(function (response) {
+    /*searchService.getPropertyTypes().then(function (response) {
         $scope.propertyTypes = response;
-    });
+    });*/
+
+    $scope.propertyTypes = ["House", "Apartment", "Hotel", "Hostel"];
 
     $scope.autocompleteOptions = {
         componentRestrictions: { country: 'pk' },

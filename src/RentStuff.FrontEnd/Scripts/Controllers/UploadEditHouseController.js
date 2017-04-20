@@ -64,11 +64,14 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         } else {
                                             $scope.genderRestriction = "NoRestriction";
                                         }
-                                        // Parse Dimension into expected format
-                                        var dimensionTypeAndStringValueArray = $scope.house.Dimension.split(" ");
-                                        $scope.house.DimensionType = dimensionTypeAndStringValueArray[1];
-                                        $scope.house.DimensionStringValue = dimensionTypeAndStringValueArray[0];
-                                        
+
+                                        if ($scope.house.Dimension !== null && $scope.house.Dimension !== undefined) {
+                                            // Parse Dimension into expected format
+                                            var dimensionTypeAndStringValueArray = $scope.house.Dimension.split(" ");
+                                            $scope.house.DimensionType = dimensionTypeAndStringValueArray[1];
+                                            $scope.house.DimensionStringValue = dimensionTypeAndStringValueArray[0];
+                                        }
+
                                         var counter = 0;
                                         // Convert images from Base64 String to a file
                                         angular.forEach($scope.house.HouseImages,
@@ -207,6 +210,9 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                         }
 
                         if ($scope.ownerIsViewingHouse) {
+                            // Remove the Image from the HouseImages list because the payload is way too high and results in timout during
+                            // HTTP call
+                            $scope.house.HouseImages = null;
                             searchService.editHouse($scope.house)
                                 .then(function (response) {
                                     if (response.status === 200) {

@@ -1460,7 +1460,7 @@ pre {
   width: 100%;
   padding: 0.375rem 0.75rem;
   font-size: 1rem;
-  line-height: 1.5;
+  height: 49px; /*Instead of line-height, as Firefox does not recognize it*/
   color: #55595c;
   background-color: #fff;
   background-image: none;
