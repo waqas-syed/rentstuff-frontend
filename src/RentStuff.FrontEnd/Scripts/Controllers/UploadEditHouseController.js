@@ -142,7 +142,6 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                 $scope.uploader.uploadAll();
                 //$state.go('house-details', { houseId: $scope.houseId });
             } else {
-                $scope.uploadInProgress = false;
                 $state.go('house-details', { houseId: $scope.houseId });
             }
         };
@@ -150,7 +149,6 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         // PHOTOS UPLOAD CALLBACKS
         $scope.uploader.onCompleteAll = function() {
             console.log("All photos Uploaded successfully");
-            $scope.uploadInProgress = false;
             $state.go('house-details', { houseId: $scope.houseId });
         }
         $scope.uploader.onSuccessItem = function(item, response, status, headers) {
@@ -158,6 +156,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         };
         $scope.uploader.onErrorItem = function (item, response, status, headers) {
             console.error("Error while uploading photo" + item.headers.houseId + " | FileName = " + item._file.name);
+            $scope.uploadInProgress = false;
         };
 
         // DELETES THE IMAGES FROM THE SERVER FOR THE CURRENT HOUSE
@@ -248,6 +247,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
             },
             function(error) {
                 console.log('Error while uploading house');
+                $scope.uploadInProgress = false;
             };
 
         $scope.deleteImage = function (item) {
