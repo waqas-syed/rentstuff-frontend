@@ -1,7 +1,7 @@
 ﻿'use strict';
 
 var rentApp = angular.module('rentApp');
-rentApp.factory('authInterceptorService', ['$q', '$location', 'localStorageService', function ($q, $location, localStorageService) {
+rentApp.factory('authInterceptorService', ['$rootScope', '$q', 'localStorageService', function ($rootScope, $q, localStorageService) {
 
     var authInterceptorServiceFactory = {};
 
@@ -19,7 +19,8 @@ rentApp.factory('authInterceptorService', ['$q', '$location', 'localStorageServi
 
     var _responseError = function (rejection) {
         if (rejection.status === 401) {
-            $location.path('/login');
+            //$injector.get('$state').transitionTo('login');
+            $rootScope.$emit('unauthorized');
         }
         return $q.reject(rejection);
     }

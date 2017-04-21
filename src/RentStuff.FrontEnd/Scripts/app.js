@@ -181,6 +181,11 @@
                 console.log(fromParams);
             });
 
+        $rootScope.$on('unauthorized', function () {
+            authService.logOut();
+            $state.go('login');
+        });
+
     }]);
 
     rentApp.factory("resolveService", ["$http", "globalService", function($http, globalService) {
