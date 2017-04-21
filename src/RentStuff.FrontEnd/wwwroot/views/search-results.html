@@ -55,14 +55,21 @@
                                                 <strong><i class="fa fa-arrows-alt" style="color: Orange;"></i> Area</strong>
                                                 <span ng-bind="house.Dimension"></span>
                                             </li>
+                                            <li>
+                                                <button type="submit" ng-class="{true: 'btn btn-primary', false: 'btn btn-secondary'}[!tooltipIsOpen]" ng-click="tooltipIsOpen = !tooltipIsOpen" class="btn btn-primary">
+                                                    Show Phone <span tooltip-class="listing-row-attributes-tooltip" uib-tooltip-html="'{{house.OwnerName}} <br/> {{house.OwnerPhoneNumber}}'" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom"></span>
+                                                    Number
+                                                </button>
+                                            </li>
                                         </ul>
                                         <br/>
-                                        <div class="listing-row-content-20-percent">
+                                        
+                                        <!--<div class="listing-row-content-20-percent">
                                             <button type="submit" ng-class="{true: 'btn btn-primary', false: 'btn btn-secondary'}[!tooltipIsOpen]" ng-click="tooltipIsOpen = !tooltipIsOpen" class="btn btn-primary">
                                                 Show Phone <span tooltip-class="listing-row-content-tooltip" uib-tooltip-html="'{{house.OwnerName}} <br/> {{house.OwnerPhoneNumber}}'" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom-left"></span>
                                                 Number
                                             </button>
-                                        </div>
+                                        </div>-->
                                     </div><!-- /.listing-row-content -->
                                 </div><!-- /.listing-row-inner -->
                             </div><!-- /.listing-row -->

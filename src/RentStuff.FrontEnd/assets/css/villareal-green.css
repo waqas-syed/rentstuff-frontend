@@ -8437,13 +8437,13 @@ label {
     right: 0px;
     top: 20px; }
 
-.listing-row-content-tooltip {
-    margin: 30px 10px 0px -12px;
+.listing-row-attributes-tooltip {
+    margin: 30px 0px 0px -76px;
     width: 176px;
 }
 
 .detail-page-content-tooltip {
-    margin: 17px 0px 0 -68.5px;
+    margin: 17px 0px 0 -71px;
     width: 195px;
 }
 
@@ -8485,7 +8485,18 @@ label {
       color: #25b45b;
       margin: 0 7px 0 0;
       text-align: center;
-      width: 16px; }
+      width: 16px; } 
+    .listing-row-attributes li button {
+     background-color: #25b45b;
+     color: #fff;
+     font-family: sans-serif;
+     font-size: 1.2em;
+     font-weight: 700;
+     padding: 5px 12px;
+     position: absolute;
+     width: 176px;
+     right: 0px;
+     top: 20px; }
 
 @media (max-width: 991px) and (min-width: 768px) {
   .listing-row-attributes li .fa {
