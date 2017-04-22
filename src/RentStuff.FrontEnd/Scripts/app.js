@@ -28,10 +28,16 @@
 		    $urlRouterProvider.otherwise("/home");
 
 		    $stateProvider
-		        .state("home", { url: "/home", templateUrl: "/views/landing-page.html" })
+		        .state("home",
+		        {
+		             url: "/home", 
+		             controller: "SearchController",
+		             templateUrl: "/views/landing-page.html"
+		        })
 		        .state("login",
 		        {
 		            url: "/login",
+		            controller: "loginController",
 		            templateUrl: "/views/login.html",
 		            permissions: { hideFromLoggedInUser: true } /*, controller: "OverviewController",*/
 		            /* resolve: {
@@ -51,6 +57,7 @@
 		        .state("signup",
 		        {
 		            url: "/signup",
+		            controller: "signupController",
 		            templateUrl: "/views/signup.html",
                     permissions: { hideFromLoggedInUser: true}
 		        })
@@ -62,7 +69,7 @@
 		        .state("forgot-password",
 		        {
 		            url: "/forgot-password",
-                    controller: "passwordResetController",
+		            controller: "passwordResetController",
 		            templateUrl: "/views/forgot-password.html"
 		        })
                 .state("forgot-password-confirmation",
@@ -109,6 +116,7 @@
 		        .state("activate-account",
 		        {
 		            url: "/activate-account?email&activationcode",
+		            controller: "activateAccountController",
 		            templateUrl: "/views/activate-account.html"
 		        })
 		        .state("upload-house",
