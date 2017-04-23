@@ -149,9 +149,13 @@
     ]
     );
 
-    rentApp.run(["$rootScope", "authService", "$state", function ($rootScope, authService, $state) {
+    rentApp.run(["$rootScope", "authService", "$state", "$anchorScroll", function ($rootScope, authService, $state, $anchorScroll) {
 
         authService.fillAuthData();
+        $rootScope.$on('$stateChangeSuccess',
+            function(event, next) {
+                $anchorScroll();
+            });
         $rootScope.$on('$stateChangeStart',
             function(event, next) {
                 if (next.permissions !== null && next.permissions !== undefined) {
