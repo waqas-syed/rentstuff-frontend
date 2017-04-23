@@ -49,8 +49,8 @@
                                 </div><!-- /.listing-detail-attribute -->
                             </div><!-- /.listing-detail-attributes -->
                         </div><!-- /.col-sm-12 -->
-                        <div class="listing-detail col-md-8 col-lg-9">
-                            <md-card layout="column" layout-align="center center" style="padding-bottom: 10px">
+                        <div class="listing-detail col-md-8 col-lg-9" >
+                            <md-card layout="column" layout-align="center center" style="padding-bottom: 10px" ng-show="dataArray.length !== 0">
                                 <!--<div ng-if="readyToLoadCarousel">-->
                                 <jk-carousel data="dataArray"
                                              item-template-url="'views/item-template.html'"
@@ -59,13 +59,16 @@
                                 </jk-carousel>
                                 <!--</div>-->
                             </md-card>
+                            <div class="row" ng-show="dataArray.length === 0">
+                                <span class="aligncenter">No images uploaded by the owner</span>
+                            </div>
                             <div class="row">
                                 <div class="col-lg-7">
-                                    <h3>
+                                    <!--<h3>-->
                                         <!--<span ng-show="house.HouseNo != null" ng-bind="house.HouseNo"></span>
                                         <span ng-show="house.StreetNo != null" ng-bind="', ' + house.StreetNo"></span>-->
-                                        <span ng-show="house.Area != null" ng-bind="house.Area"></span>
-                                    </h3>
+                                        <!--<span ng-show="house.Area != null" ng-bind="house.Area"></span>
+                                    </h3>--->
                                     <h2 ng-show="house.Description != null">Owner's Words:</h2>
                                     <p ng-bind="house.Description">
                                     </p>
