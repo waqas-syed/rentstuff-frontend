@@ -14,7 +14,14 @@
                             </div>
                             <div class="listing-row" ng-repeat="house in houses">
                                 <div class="listing-row-inner">
-                                    <div class="listing-row-image" style="background-image: url('data:image/{{house.Image.Type}};base64,{{house.Image.Base64String}}');">
+                                    <!--If the image attached with this house is not null and not undefined, then show the image-->
+                                    <div class="listing-row-image" style="background-image: url('data:image/{{house.Image.Type}};base64,{{house.Image.Base64String}}');" ng-show="house.Image !== null && house.Image !== undefined">
+                                        <span class="listing-row-image-links">
+                                            <a href="" ng-click="navigateToDetails(house.HouseId)"><i class="fa fa-search"></i> <span>View detail</span></a>
+                                        </span>
+                                    </div>
+                                    <!--If the image attached with this house is  null or undefined, then show the default image-->
+                                    <div class="listing-row-image" style="background-image: url('/images/house-logo.jpg');" ng-show="house.Image === null || house.Image === undefined">
                                         <span class="listing-row-image-links">
                                             <a href="" ng-click="navigateToDetails(house.HouseId)"><i class="fa fa-search"></i> <span>View detail</span></a>
                                         </span>
@@ -63,7 +70,7 @@
                                             </li>
                                         </ul>
                                         <br/>
-                                        
+
                                         <!--<div class="listing-row-content-20-percent">
                                             <button type="submit" ng-class="{true: 'btn btn-primary', false: 'btn btn-secondary'}[!tooltipIsOpen]" ng-click="tooltipIsOpen = !tooltipIsOpen" class="btn btn-primary">
                                                 Show Phone <span tooltip-class="listing-row-content-tooltip" uib-tooltip-html="'{{house.OwnerName}} <br/> {{house.OwnerPhoneNumber}}'" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom-left"></span>
