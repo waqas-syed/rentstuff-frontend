@@ -4,14 +4,13 @@
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
-/* //netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css */
-a {
-  background-color: transparent;
-}
-a:active,
-a:hover {
-  outline: 0;
-}
+/*  */
+
+/* 
+    This stylesheet is used solely for the angular ui carousel and has been stripped of all styles except the ones that are used for
+    the carousel. Original stylesheet can be found here: //netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css
+*/
+
 @font-face {
   font-family: 'Glyphicons Halflings';
 
@@ -47,42 +46,11 @@ a:hover {
      -moz-box-sizing: border-box;
           box-sizing: border-box;
 }
-img {
-  vertical-align: middle;
-}
-.img-responsive,
-.thumbnail > img,
-.thumbnail a > img,
 .carousel-inner > .item > img,
 .carousel-inner > .item > a > img {
   display: block;
   max-width: 100%;
   height: auto;
-}
-.img-rounded {
-  border-radius: 6px;
-}
-.img-thumbnail {
-  display: inline-block;
-  max-width: 100%;
-  height: auto;
-  padding: 4px;
-  line-height: 1.42857143;
-  background-color: #fff;
-  border: 1px solid #ddd;
-  border-radius: 4px;
-  -webkit-transition: all .2s ease-in-out;
-       -o-transition: all .2s ease-in-out;
-          transition: all .2s ease-in-out;
-}
-.img-circle {
-  border-radius: 50%;
-}
-hr {
-  margin-top: 20px;
-  margin-bottom: 20px;
-  border: 0;
-  border-top: 1px solid #eee;
 }
 .sr-only {
   position: absolute;
@@ -105,37 +73,6 @@ hr {
 }
 [role="button"] {
   cursor: pointer;
-}
-.has-feedback label.sr-only ~ .form-control-feedback {
-  top: 0;
-}
-.text-center {
-  text-align: center;
-}
-ul,
-ol {
-  margin-top: 0;
-  margin-bottom: 10px;
-}
-ul ul,
-ol ul,
-ul ol,
-ol ol {
-  margin-bottom: 0;
-}
-.list-unstyled {
-  padding-left: 0;
-  list-style: none;
-}
-.list-inline {
-  padding-left: 0;
-  margin-left: -5px;
-  list-style: none;
-}
-.list-inline > li {
-  display: inline-block;
-  padding-right: 5px;
-  padding-left: 5px;
 }
 .carousel {
   position: relative;
