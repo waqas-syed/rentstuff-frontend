@@ -17,7 +17,8 @@ rentApp.controller('passwordResetController', ['$scope', '$state', '$stateParams
                             ) {
                                 $scope.errorReceived = error.Message;
                             } else {
-                                $scope.errorReceived = "Error while resetting password. Please try again later";
+                                $scope.errorReceived = "Error while resetting password. Please try again later. " +
+                                    "P.S., Make sure you have verified your email to activate your account";
                             }
                         });
             };
