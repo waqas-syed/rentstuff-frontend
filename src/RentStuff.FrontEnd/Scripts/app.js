@@ -208,7 +208,8 @@
                                 var imagesArray = [];
                                 angular.forEach(response.data.HouseImages,
                                     function (value, key) {
-                                        imagesArray.push({ src: 'data:image/' + value.Type + ';base64,' + value.Base64String });
+                                        //imagesArray.push({ src: 'data:image/' + value.Type + ';base64,' + value.Base64String });
+                                        imagesArray.push({ src: value });
                                     });
                                 return {house: response.data, imagesArray: imagesArray}
                             },

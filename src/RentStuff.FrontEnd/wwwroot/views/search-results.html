@@ -15,7 +15,7 @@
                             <div class="listing-row" ng-repeat="house in houses">
                                 <div class="listing-row-inner">
                                     <!--If the image attached with this house is not null and not undefined, then show the image-->
-                                    <div class="listing-row-image" style="background-image: url('data:image/{{house.Image.Type}};base64,{{house.Image.Base64String}}');" ng-show="house.Image !== null && house.Image !== undefined">
+                                    <div class="listing-row-image" style="background-image: url('{{house.Image}}');" ng-show="house.Image !== null && house.Image !== undefined">
                                         <span class="listing-row-image-links">
                                             <a href="" ng-click="navigateToDetails(house.HouseId)"><i class="fa fa-search"></i> <span>View detail</span></a>
                                         </span>
