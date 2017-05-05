@@ -71,48 +71,38 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                             $scope.house.DimensionType = dimensionTypeAndStringValueArray[1];
                                             $scope.house.DimensionStringValue = dimensionTypeAndStringValueArray[0];
                                         }
-
+                                        $scope.ownerIsViewingHouse = true;
                                         var counter = 0;
                                         // Convert images from Base64 String to a file
                                         angular.forEach($scope.house.HouseImages,
                                             function (value, key) {
-                                                var imageBase64 = value.Base64String;
+                                                // return an image as an ArrayBuffer.
+                                                var xhr = new XMLHttpRequest();
 
-                                                // Creating a new blob
-                                                var contentType = 'image/' + value.Type;
-                                                var sliceSize = 512;
+                                                // Use JSFiddle logo as a sample image to avoid complicating
+                                                // this example with cross-domain issues.
+                                                xhr.open("GET", value, true);
 
-                                                var byteCharacters = atob(imageBase64);
-                                                var byteArrays = [];
+                                                // Ask for the result as an ArrayBuffer.
+                                                xhr.responseType = "arraybuffer";
+                                                var blob;
+                                                xhr.onload = function (e) {
+                                                    // Obtain a blob: URL for the image data.
+                                                    var arrayBufferView = new Uint8Array(this.response);
+                                                    blob = new Blob([arrayBufferView], { type: "image/jpeg" });
+                                                    var file = new File([blob], value, { type: "image/jpeg", lastModified: new Date() });
+                                                    var fileItem = new FileUploader.FileItem($scope.uploader, file);
+                                                    fileItem._file = file;
+                                                    fileItem.progress = 100;
+                                                    fileItem.isUploaded = true;
+                                                    fileItem.isSuccess = true;
+                                                    $scope.uploader.queue.push(fileItem);
+                                                };
 
-                                                for (var offset = 0; offset < byteCharacters.length; offset += sliceSize) {
-                                                    var slice = byteCharacters.slice(offset, offset + sliceSize);
-
-                                                    var byteNumbers = new Array(slice.length);
-                                                    for (var i = 0; i < slice.length; i++) {
-                                                        byteNumbers[i] = slice.charCodeAt(i);
-                                                    }
-
-                                                    var byteArray = new Uint8Array(byteNumbers);
-
-                                                    byteArrays.push(byteArray);
-                                                }
-
-                                                var blob = new Blob(byteArrays, { type: contentType });
-                                                // Creating a new blob
-                                                //var blob = new Blob([imageBase64], { type: 'image/jpeg' });
-                                                //var blob = new Blob([imageBase64]);
-                                                var file = new File([blob], value.Name, { type: contentType, lastModified: new Date() });
-                                                var fileItem = new FileUploader.FileItem($scope.uploader, file);
-                                                fileItem._file = file;
-                                                fileItem.progress = 100;
-                                                fileItem.isUploaded = true;
-                                                fileItem.isSuccess = true;
-                                                $scope.uploader.queue.push(fileItem);
+                                                xhr.send();
+                                                
                                                 counter++;
                                             });
-
-                                        $scope.ownerIsViewingHouse = true;
                                     }
                                 }
                             }
@@ -251,7 +241,9 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
             };
 
         $scope.deleteImage = function (item) {
-            imagesToDelete.push(item.file.name);
+            if (item.isUploaded) {
+                imagesToDelete.push(item.file.name);
+            }
             $scope.uploader.removeFromQueue(item);
         }
 
