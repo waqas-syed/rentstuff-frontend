@@ -5714,10 +5714,10 @@ label {
 
 .cover {
   background-color: #4E4A4A;
-  height: 750px;
+  height: 300px;
   position: relative; }
   .cover.cover-center {
-    height: 480px; }
+    height: 300px; }
     .cover.cover-center form {
       letter-spacing: -4px;
       text-align: center; }
@@ -5785,7 +5785,7 @@ label {
 .cover-title-inner h1 {
   background-color: rgba(78, 74, 74, 0.95);
   color: #fff;
-  font-size: 3em;
+  font-size: 2em;
   font-weight: 300;
   line-height: 1.4;
   margin: 0 -1000px 0 0;
