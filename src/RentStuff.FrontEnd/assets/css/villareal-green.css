@@ -5794,14 +5794,14 @@ label {
   z-index: 101; }
   @media (max-width: 991px) {
     .cover-title-inner h1 {
-      font-size: 2.2em; } }
+      font-size: 1.2em; } }
   @media (max-width: 767px) {
     .cover-title-inner h1 {
-      font-size: 1.8em; } }
+      font-size: 0.8em; } }
   @media (max-width: 543px) {
     .cover-title-inner h1 {
       padding-left: 15px;
-      font-size: 1.5em; } }
+      font-size: 0.5em; } }
   .cover-center .cover-title-inner h1 {
     background-color: transparent;
     font-weight: 500;
