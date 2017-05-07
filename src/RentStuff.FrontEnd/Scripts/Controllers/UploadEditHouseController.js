@@ -195,7 +195,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                         var authData = localStorageService.get('authorizationData');
                         if (authData) {
                             $scope.house.OwnerEmail = authData.email;
-                            $scope.house.OwnerName = authData.fullName;
+                            //$scope.house.OwnerName = authData.fullName;
                         }
 
                         if ($scope.ownerIsViewingHouse) {
