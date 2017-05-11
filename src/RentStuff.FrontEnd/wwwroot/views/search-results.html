@@ -81,21 +81,21 @@
                                 </div><!-- /.listing-row-inner -->
                             </div><!-- /.listing-row -->
                             <div class="pagination-wrapper">
-                                <ul ng-if="vm.pager.pages.length" class="pagination">
+                                <ul ng-if="pagingManager.pager.pages.length" class="pagination">
                                     <!--<li ng-class="{disabled:vm.pager.currentPage === 1}">
                                         <a ng-click="vm.setPage(1)">First</a>
                                     </li>-->
-                                    <li ng-class="{'page-item disabled':vm.pager.currentPage === 1, 'page-item':vm.pager.currentPage !== 1}">
-                                        <a class="page-link" aria-label="Previous" ng-click="vm.setPage(vm.pager.currentPage - 1)" href="">
+                                    <li ng-class="{'page-item disabled':pagingManager.pager.currentPage === 1, 'page-item':pagingManager.pager.currentPage !== 1}">
+                                        <a class="page-link" aria-label="Previous" ng-click="setPage(pagingManager.pager.currentPage - 1)" href="">
                                             <span aria-hidden="true">&laquo;</span>
                                             <span class="sr-only">Previous</span>
                                         </a>
                                     </li>
-                                    <li ng-repeat="page in vm.pager.pages" ng-class="{'page-item active':vm.pager.currentPage === page, 'page-item':vm.pager.currentPage !== page}">
-                                        <a href="" class="page-link" ng-click="vm.setPage(page)">{{page}}</a>
+                                    <li ng-repeat="page in pagingManager.pager.pages" ng-class="{'page-item active':pagingManager.pager.currentPage === page, 'page-item':pagingManager.pager.currentPage !== page}">
+                                        <a href="" class="page-link" ng-click="setPage(page)">{{page}}</a>
                                     </li>
-                                    <li ng-class="{'page-item disabled':vm.pager.currentPage === vm.pager.totalPages, 'page-item':vm.pager.currentPage !== vm.pager.totalPages}">
-                                        <a class="page-link" aria-label="Next" ng-click="vm.setPage(vm.pager.currentPage + 1)" href="">
+                                    <li ng-class="{'page-item disabled':pagingManager.pager.currentPage === pagingManager.pager.totalPages, 'page-item':pagingManager.pager.currentPage !== pagingManager.pager.totalPages}">
+                                        <a class="page-link" aria-label="Next" ng-click="setPage(pagingManager.pager.currentPage + 1)" href="">
                                             <span aria-hidden="true">&raquo;</span>
                                             <span class="sr-only">Next</span>
                                         </a>
