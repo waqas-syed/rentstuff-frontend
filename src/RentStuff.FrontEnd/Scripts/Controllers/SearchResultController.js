@@ -46,9 +46,10 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
                 var pagingManager = $scope.pagingManager = this;
 
                 var input = [];
-                for (var i = 0; i <= response; i++) {
+                for (var i = 0; i <= response.RecordCount - 1; i++) {
                     input.push(i);
                 }
+                $scope.pageSize = response.PageSize;
                 $scope.pagingManager.itemsCount = input; // array of items to be paged
                 $scope.pagingManager.pager = {};
                 //$scope.pagingManager.setPage = setPage;
@@ -64,7 +65,8 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
             }
 
             // get pager object from service
-            $scope.pagingManager.pager = pagerService.GetPager($scope.pagingManager.itemsCount.length, page);
+            $scope.pagingManager.pager = pagerService.GetPager($scope.pagingManager.itemsCount.length, page,
+                $scope.pageSize);
 
             // get current page of items
             $scope.pagingManager.items = $scope.pagingManager.itemsCount.slice(
