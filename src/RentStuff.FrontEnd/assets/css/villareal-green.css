@@ -5897,6 +5897,10 @@ label {
   text-align: center; }
   .box:hover .box-icon {
     color: #25b45b; }
+  .box .box-icon a {
+    color: #c6c6c6; }
+  .box:hover .box-icon a {
+    color: #25b45b; }
     .boxes-circle .box:hover .box-icon {
       background-color: #25b45b;
       color: #fff; }
