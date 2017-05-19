@@ -56,7 +56,7 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
                 $scope.setPage(1);
             })
             .error(function(error) {
-
+                console.error = 'Error while getting house count';
             });
 
         $scope.setPage = function(page) {
@@ -81,16 +81,23 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
             } else {
                 searchParameters = { pageNo: pageNo };
             }
+            $scope.downloadInProgress = true;
             searchService.searchHouses(searchParameters)
                     .then(function(response) {
                         if (response.status === 200) {
                             $scope.houses = response.data;
+                            $scope.downloadInProgress = false;
                         }
-                    });
-
-            $scope.navigateToDetails = function(houseId) {
-                $state.go('house-details', { houseId: houseId });
-            };
+                        $scope.downloadInProgress = false;
+                    }, function(error) {
+                        console.error = 'Error while getting search results for houses';
+                        $scope.downloadInProgress = false;
+                    $scope.error = "Error while fetching results. Please try again later";
+                });
         }
+
+        $scope.navigateToDetails = function (houseId) {
+            $state.go('house-details', { houseId: houseId });
+        };
     }
 ]);

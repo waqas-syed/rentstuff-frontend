@@ -4,15 +4,15 @@
 
             <div class="content">
                 <div class="container">
-                    <!--The Loading Spinner; shown during HTTP requests-->
-                    <span us-spinner="{radius:30, width:8, length: 16}"></span>
+                    <!--The Loading Spinner; shown during HTTP requests
+                    <span us-spinner="{radius:30, width:8, length: 16}"></span>-->
                     <div class="row">
-                        <div class="col-md-8 col-lg-9">
+                        <div class="col-md-8 col-lg-9" >
                             <div>
                                 <span class="aligncenter" ng-show="houses.length === 0 && !ownerViewingOwnProperties"><strong>No houses found for the given location. Please also mention town names, for example, Saddar, Rawalpindi, Pakistan</strong></span>
                                 <span class="aligncenter" ng-show="houses.length === 0 && ownerViewingOwnProperties"><strong>You dont have any properties posted. Please click the 'Upload Properties' button to post your property</strong></span>
                             </div>
-                            <div class="listing-row" ng-repeat="house in houses">
+                            <div class="listing-row" ng-show="!downloadInProgress" ng-hide="downloadInProgress" ng-repeat="house in houses">
                                 <div class="listing-row-inner">
                                     <!--If the image attached with this house is not null and not undefined, then show the image-->
                                     <div class="listing-row-image" style="background-image: url('{{house.Image}}');" ng-show="house.Image !== null && house.Image !== undefined">
@@ -80,7 +80,7 @@
                                     </div><!-- /.listing-row-content -->
                                 </div><!-- /.listing-row-inner -->
                             </div><!-- /.listing-row -->
-                            <div class="pagination-wrapper">
+                            <div class="pagination-wrapper" ng-show="!downloadInProgress" ng-hide="downloadInProgress">
                                 <ul ng-if="pagingManager.pager.pages.length" class="pagination">
                                     <!--<li ng-class="{disabled:vm.pager.currentPage === 1}">
                                         <a ng-click="vm.setPage(1)">First</a>
@@ -105,6 +105,10 @@
                                     </li>-->
                                 </ul>
                             </div><!-- /.pagination-wrapper -->
+                            <div>
+                                <span class="aligncenter red-font" ng-show="error !== null && error !== undefined"><strong ng-bind="error"></strong></span>
+                                <span class="aligncenter" ng-show="downloadInProgress" ng-hide="!downloadInProgress"><strong>Loading Results. Please Wait...</strong></span>
+                            </div>
                         </div><!-- /.col-sm-* -->
                         <div class="col-md-4 col-lg-3">
                             <div class="widget">

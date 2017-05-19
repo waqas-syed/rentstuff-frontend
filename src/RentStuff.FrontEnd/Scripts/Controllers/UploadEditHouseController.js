@@ -13,6 +13,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         $scope.dimensionTypes = ['Marla', 'Kanal', 'Acre'];
         $scope.genderRestrictions = ['Families Only', 'Girls Only', 'Boys Only', 'No restriction'];
         var imagesToDelete = [];
+        $scope.error = null;
         
         // PHOTOS UPLOADER CONFIGURATION
         var bearerToken = '';
@@ -37,6 +38,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
 
         // EDIT HOUSE IF THE USER IS LOGGED-IN ANF HOUSE ID IS PROVIDED AS A PARAMETER
         if ($stateParams.houseid !== null && $stateParams.houseid !== undefined) {
+            $scope.downloadInProgress = true;
             var searchParameters = { houseId: $stateParams.houseid };
             // Get teh house using the houseId
             searchService.searchHouses(searchParameters)
@@ -107,8 +109,11 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                 }
                             }
                         }
+                        $scope.downloadInProgress = false;
                     },
                     function(error) {
+                        $scope.downloadInProgress = false;
+                        $scope.error = "Error while loading data. Please try again later";
                         console.log('Error while getting house for edit. Error : ' + error);
                     });
         }
@@ -147,6 +152,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         $scope.uploader.onErrorItem = function (item, response, status, headers) {
             console.error("Error while uploading photo" + item.headers.houseId + " | FileName = " + item._file.name);
             $scope.uploadInProgress = false;
+            $scope.error = "One or more photots might not have been uploaded correctly.";
         };
 
         // DELETES THE IMAGES FROM THE SERVER FOR THE CURRENT HOUSE
@@ -166,7 +172,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         $scope.uploadHouse = function () {
                 $scope.uploadInProgress = true;
                 $scope.invalidPhoneNumber = false;
-                $scope.errorReceived = false;
+                $scope.error = null;
                 if ($scope.house !== null && $scope.house !== undefined) {
                     // Only one of Families, Girls or Boys value is allowed.
                     if ($scope.genderRestriction === "Families Only") {
@@ -188,7 +194,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                             $scope.house.DimensionStringValue === undefined)) {
                         $scope.DimensionStringEmpty = true;
                         $scope.uploadInProgress = false;
-                        $scope.errorReceived = true;
+                        $scope.error = "No value provided for the size of the Dimension";
                     } else {
                         // Set the area from the Area object specified
                         $scope.house.Area = $scope.houseArea.formatted_address;
@@ -214,6 +220,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         deleteImagesFromServer();
                                     } else {
                                         console.log('Error while editing house:' + error);
+                                        $scope.error = "There was an error while saving changes. Please try again later.";
                                     }
                                 });
                         } else {
@@ -227,9 +234,10 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         uploadPhotos($scope.houseId);
                                     } else {
                                         console.log('Error while uploading house:' + response.data.Message);
+                                        $scope.error = "Error while upoading house. Please try again later";
                                         if (response.data.Message === 'Invalid phone number') {
                                             $scope.invalidPhoneNumber = true;
-                                            $scope.errorReceived = true;
+                                            $scope.error = "Invalid phone number";
                                         }
                                     }
                                 });
