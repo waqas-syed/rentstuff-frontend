@@ -54,24 +54,24 @@
             <div class="col-sm-4">
                 <div class="form-group">
                     <label><strong>Number of Bedrooms</strong></label>
-                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" min="0"
-                           ng-model="house.NumberOfBedrooms">
+                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" 
+                           min="0" max="100" ng-model="house.NumberOfBedrooms">
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
 
             <div class="col-sm-4">
                 <div class="form-group">
                     <label><strong>Number of Bathrooms</strong></label>
-                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" min="0"
-                           ng-model="house.NumberOfBathrooms">
+                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" 
+                           min="0" max="100" ng-model="house.NumberOfBathrooms">
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
 
             <div class="col-sm-4">
                 <div class="form-group">
                     <label><strong>Number of Kitchens</strong></label>
-                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" min="0"
-                           ng-model="house.NumberOfKitchens">
+                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" 
+                           min="0" max="100" ng-model="house.NumberOfKitchens">
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
         </div><!-- /.row -->
@@ -102,7 +102,7 @@
             <div class="col-sm-11">
                 <div class="form-group">
                     <label><strong>Location<span class="required-arsterisk">  *</span></strong></label>
-                    <input type="text" class="form-control half-width"
+                    <input type="text" class="form-control half-width" maxlength="70"
                            placeholder="Start Typing Location like: Saddar, Rawalpindi, Pakistan"
                            options="autocompleteOptions" g-places-autocomplete ng-model="houseArea"
                            autocomplete="off" required>
@@ -119,10 +119,12 @@
         <div class="row">
             <div class="col-sm-6">
                 <div class="form-group">
-                    <label><strong>Phone<span class="required-arsterisk">  *</span></strong></label>
-                    <input type = "text" title="Enter a 11 digit phone number valid in Pakistan" pattern="[0-9]{11}" minlength="11" maxlength="11"
-                           class="form-control half-width" placeholder="For example: 03455138018"
-                           ng-model="house.OwnerPhoneNumber" required>
+                    <label><strong>Phone Number(will be verified)<span class="required-arsterisk">  *</span></strong></label>
+                    <input type = "text" 
+                           title="Enter a 11 digit phone number valid in Pakistan, so that it can be verified" 
+                           pattern="03[0-9]{9}"
+                           minlength="11" maxlength="11" class="form-control half-width" 
+                           placeholder="For example: 03455138018" ng-model="house.OwnerPhoneNumber" required>
                     <span ng-show="invalidPhoneNumber" class="red-font">Invalid Phone Number. Enter 11 digits, e.g., 03455138018</span>
                 </div><!-- /.form-group -->
             </div><!-- /.col-* -->
@@ -131,7 +133,8 @@
                 <div class="col-sm-6">
                     <div class="form-group">
                         <label><strong>Owner/Guardian Name<span class="required-arsterisk">  *</span></strong></label>
-                        <input type="text" class="form-control half-width" placeholder="Any reference name to use for the call"
+                        <input type="text" pattern="[\w ]*" class="form-control half-width" 
+                               placeholder="Any reference name to use for the call" title="Please enter a valid name, consisting only of alphabets"
                                minlength="1" maxlength="21" ng-model="house.OwnerName" required>
                     </div><!-- /.form-group -->
                 </div><!-- /.col-* -->
