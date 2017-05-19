@@ -8497,10 +8497,11 @@ label {
      font-size: 1.2em;
      font-weight: 700;
      padding: 5px 12px;
-     position: absolute;
-     width: 176px;
-     right: 0px;
-     top: 20px; }
+     position: relative;
+     width: 40px;
+	 float: right;
+     right: -10px;
+    }
 
 @media (max-width: 991px) and (min-width: 768px) {
   .listing-row-attributes li .fa {
@@ -8838,4 +8839,21 @@ label {
 
 .red-font {
     color: red;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:block;
+    width : 400px; /* this could be defined on any parent */
+}
+@media (max-width: 600px) {
+    .ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display:block;
+    width : 160px; /* this could be defined on any parent */
+    }
 }
