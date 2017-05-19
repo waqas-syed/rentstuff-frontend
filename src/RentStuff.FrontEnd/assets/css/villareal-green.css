@@ -8809,6 +8809,7 @@ label {
     .listing-compare-list li.no {
       color: #F75156; }
 
+/* Custom Styles introduced by Waqas */
 .detail-contact-label {  
     display:block;
     text-align: center;
@@ -8818,4 +8819,23 @@ label {
 
 .word-wrap {
     word-wrap: break-word;
+}
+
+.upload-house-container {
+    margin-top: -50px; 
+    background-color: #fff; 
+    border-radius: 3px; 
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.08);
+}
+
+.half-width {
+    width: 50%;
+}
+
+.width-percent-70 {
+    width: 70%;
+}
+
+.red-font {
+    color: red;
 }

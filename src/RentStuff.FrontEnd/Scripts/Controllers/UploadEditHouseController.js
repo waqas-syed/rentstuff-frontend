@@ -187,6 +187,8 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                             null ||
                             $scope.house.DimensionStringValue === undefined)) {
                         $scope.DimensionStringEmpty = true;
+                        $scope.uploadInProgress = false;
+                        $scope.errorReceived = true;
                     } else {
                         // Set the area from the Area object specified
                         $scope.house.Area = $scope.houseArea.formatted_address;
