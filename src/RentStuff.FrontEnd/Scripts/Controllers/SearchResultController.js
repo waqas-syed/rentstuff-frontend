@@ -5,6 +5,8 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
 
         var searchParameters = null;
         $scope.ownerViewingOwnProperties = false;
+        $scope.downloadInProgress = true;
+
         // Populate the criteria for the search
         if ($stateParams !== null && $stateParams !== undefined) {
 
@@ -42,7 +44,7 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
         // to get the total number of houses, and pager will be populated until the user searches again with 
         // another criteria
         searchService.getHouseCount(searchParameters)
-            .success(function(response) {
+            .success(function(response) {                
                 var pagingManager = $scope.pagingManager = this;
 
                 var input = [];
@@ -57,9 +59,11 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
             })
             .error(function(error) {
                 console.error = 'Error while getting house count';
+                $scope.downloadInProgress = false;
+                $scope.error = "Error while fetching results. Please try again later";
             });
 
-        $scope.setPage = function(page) {
+        $scope.setPage = function (page) {
             if (page < 1 || page > $scope.pagingManager.pager.totalPages) {
                 return;
             }
@@ -81,18 +85,17 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
             } else {
                 searchParameters = { pageNo: pageNo };
             }
-            $scope.downloadInProgress = true;
+            
             searchService.searchHouses(searchParameters)
                     .then(function(response) {
                         if (response.status === 200) {
                             $scope.houses = response.data;
-                            $scope.downloadInProgress = false;
                         }
                         $scope.downloadInProgress = false;
                     }, function(error) {
                         console.error = 'Error while getting search results for houses';
                         $scope.downloadInProgress = false;
-                    $scope.error = "Error while fetching results. Please try again later";
+                        $scope.error = "Error while fetching results. Please try again later";
                 });
         }
 
