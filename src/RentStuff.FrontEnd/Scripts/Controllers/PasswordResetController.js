@@ -37,11 +37,12 @@ rentApp.controller('passwordResetController', ['$scope', '$state', '$stateParams
                     .then(function(response) {
                         $state.go('login');
                     }, function (error) {
-                        if (error !== null && error !== undefined && error.Message !== null && error.Message !== undefined) {
+                        $scope.errorReceived = "Could not reset password. Please make sure that you have requested password reset and that you have not reset the password already.";
+                        /*if (error !== null && error !== undefined && error.Message !== null && error.Message !== undefined) {
                             $scope.errorReceived = error.Message;
                         } else {
-                            $scope.errorReceived = "Could not reset password. Please try again later";
-                        }
+                            $scope.errorReceived = "Could not reset password. Please make sure that you have requested password reset and you that have not reset the password already.";
+                        }*/
                     });
             };
 

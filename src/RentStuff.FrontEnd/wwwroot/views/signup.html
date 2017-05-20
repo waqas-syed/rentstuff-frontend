@@ -45,6 +45,7 @@
                                             </span>
                                             <span ng-show="passwordsDontMatch" style="color: red;">Passwords do not match</span>
                                         </div><!-- /.form-group -->
+                                        <span ng-show="error !== undefined && error !== null" class="red-font" ng-bind="error"></span>
                                     </div><!-- /.col-* -->
                                 </div><!-- /.row -->
                                 <div class="center">

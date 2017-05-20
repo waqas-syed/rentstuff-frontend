@@ -29,12 +29,13 @@ rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'auth
                                 "User has been registered successfully, you will be redicted to login page in 2 seconds.";
                             startTimer();
                         } else {
+                            $scope.error = "Unable to register user.";
                             if (response.data.Message === "Select a different email address. An account has already been created with this email address.") {
                                 $scope.emailAlreadyTaken = true;
                             }
                         }
                     },
-                    function(response) {
+                    function (response) {
                         var errors = [];
                         for (var key in response.data.modelState) {
                             for (var i = 0; i < response.data.modelState[key].length; i++) {
