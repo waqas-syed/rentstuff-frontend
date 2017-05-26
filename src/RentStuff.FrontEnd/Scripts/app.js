@@ -4,8 +4,9 @@
     var rentApp = angular.module('rentApp', ['ui.router', 'google.places', 'ngAnimate', 'ngSanitize', 'ui.bootstrap',
     'LocalStorageModule', 'angularFileUpload', 'ngLoadingSpinner']);
 
-    rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider",
-		function ($stateProvider, $urlRouterProvider, $httpProvider) {
+    rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locationProvider",
+		function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
+		    $locationProvider.html5Mode(true);
 		    $httpProvider.interceptors.push('authInterceptorService');
 
 		    $httpProvider.interceptors.push(function () {
