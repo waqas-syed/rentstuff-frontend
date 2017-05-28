@@ -134,6 +134,11 @@
 		            controller: "uploadEditHouseController",
 		            templateUrl: "/views/upload-house.html",
                     permissions: { redirectForNonLoggedInUser: true }
+		        })
+		        .state("terms-and-conditions",
+		        {
+		            url: "/terms-and-conditions",
+                    templateUrl: "/views/terms-and-conditions.html"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/

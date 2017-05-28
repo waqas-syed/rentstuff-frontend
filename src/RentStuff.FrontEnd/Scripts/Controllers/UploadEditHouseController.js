@@ -157,6 +157,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
 
         // DELETES THE IMAGES FROM THE SERVER FOR THE CURRENT HOUSE
         var deleteImagesFromServer = function () {
+            // ToDo: We should check if there are any images to delete; should abondon the call if there are none
             var deleteParams = { HouseId: $scope.house.Id, ImagesList: imagesToDelete };
             searchService.deleteImage(deleteParams)
                 .then(function (response) {
