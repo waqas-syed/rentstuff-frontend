@@ -96,7 +96,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
         },
 
         getPropertyTypes: function () {
-            return $http.get(globalService.serverUrl + 'property-types')
+            return $http.get(globalService.serverUrl + 'property-type')
             .success(function (response) {
                         return response;
                     }
