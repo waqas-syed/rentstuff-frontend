@@ -9,11 +9,17 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         $scope.checked = true;
         $scope.DimensionStringEmpty = false;
         $scope.numbersOnly = "^[0-9-]*$";
-        $scope.propertyTypes = ['House', 'Apartment', 'Hostel', 'Hotel'];
         $scope.dimensionTypes = ['Marla', 'Kanal', 'Acre'];
         $scope.genderRestrictions = ['Families Only', 'Girls Only', 'Boys Only', 'No restriction'];
         var imagesToDelete = [];
         $scope.error = null;
+
+        searchService.getPropertyTypes().then(function (response) {
+            $scope.propertyTypes = response.data;
+        },
+        function (error) {
+            console.log("Error while retrieving Property types. Error: " + error);
+        });
         
         // PHOTOS UPLOADER CONFIGURATION
         var bearerToken = '';

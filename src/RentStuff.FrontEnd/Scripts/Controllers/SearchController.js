@@ -2,11 +2,14 @@
 
 rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchService', '$state', function ($scope, $window, $http, searchService, $state) {
 
-    /*searchService.getPropertyTypes().then(function (response) {
-        $scope.propertyTypes = response;
-    });*/
+    searchService.getPropertyTypes().then(function (response) {
+        $scope.propertyTypes = response.data;
+    },
+    function(error) {
+        console.log("Error while retrieving Property types. Error: " + error);
+    });
 
-    $scope.propertyTypes = ["House", "Apartment", "Hotel", "Hostel"];
+    //$scope.propertyTypes = ["Hostel", "Shared", "House", "Apartment", "Hotel"];
 
     $scope.autocompleteOptions = {
         componentRestrictions: { country: 'pk' },
