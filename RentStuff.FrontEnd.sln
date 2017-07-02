@@ -1,16 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{987F904D-CCFD-4853-9EA2-9901024F841A}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{019A30E5-1944-406B-AD36-77537DA5E861}"
-	ProjectSection(SolutionItems) = preProject
-		global.json = global.json
-	EndProjectSection
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "RentStuff.FrontEnd", "src\RentStuff.FrontEnd\RentStuff.FrontEnd.xproj", "{2AB71924-5557-407C-87E5-E719670CEE3D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentStuff.FrontEnd", "src\RentStuff.FrontEnd\RentStuff.FrontEnd.csproj", "{2AB71924-5557-407C-87E5-E719670CEE3D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
