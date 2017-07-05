@@ -51,7 +51,7 @@ rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'auth
         var timer = $timeout(function () {
             $timeout.cancel(timer);
             //$location.path('/login');
-            $state.go('registration-confirmation');
+            $state.go('registration-confirmation', { email: $scope.registration.email });
         }, 2000);
     }
  

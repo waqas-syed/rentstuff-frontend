@@ -112,8 +112,9 @@
 		        })
 		        .state("registration-confirmation",
 		        {
-		            url: "/registration-confirmation",
-		            templateUrl: "/views/registration-confirmation.html"
+		            url: "/registration-confirmation?email",
+                    templateUrl: "/views/registration-confirmation.html",
+                    controller: "registrationConfirmationController"
 		        })
 		        .state("activate-account",
 		        {
