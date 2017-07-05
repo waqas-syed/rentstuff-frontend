@@ -17,20 +17,20 @@
                                     <!--If the image attached with this house is not null and not undefined, then show the image-->
                                     <div class="listing-row-image" style="background-image: url('{{house.Image}}');" ng-show="house.Image !== null && house.Image !== undefined">
                                         <span class="listing-row-image-links">
-                                            <a href="" ng-click="navigateToDetails(house.HouseId)"><i class="fa fa-search"></i> <span>View detail</span></a>
+                                            <a href="" ui-sref="house-details({houseId: house.HouseId})"><i class="fa fa-search"></i> <span>View detail</span></a>
                                         </span>
                                     </div>
                                     <!--If the image attached with this house is  null or undefined, then show the default image-->
                                     <div class="listing-row-image" style="background-image: url('/images/house-logo.jpg');" ng-show="house.Image === null || house.Image === undefined">
                                         <span class="listing-row-image-links">
-                                            <a href="" ng-click="navigateToDetails(house.HouseId)"><i class="fa fa-search"></i> <span>View detail</span></a>
+                                            <a ui-sref="house-details({houseId: house.HouseId})"><i class="fa fa-search"></i> <span>View detail</span></a>
                                         </span>
                                     </div>
 
                                     <div class="listing-row-content">
-                                        <h3 class="ellipsis"><a href="" ng-click="navigateToDetails(house.HouseId)"><b ng-bind="house.Title"></b></a>
+                                        <h3 class="ellipsis"><a href="" ui-sref="house-details({houseId: house.HouseId})"><b ng-bind="house.Title"></b></a>
                                         </h3>
-                                        <h3><a href="" ng-click="navigateToDetails(house.HouseId)" ng-bind="house.Area"></a>
+                                        <h3><a ui-sref="house-details({houseId: house.HouseId})"  ng-bind="house.Area"></a>
                                         </h3>
                                         <h4 ng-bind="'Rs ' + house.Rent + '/Month'"></h4>
                                         <ul class="listing-row-attributes">
