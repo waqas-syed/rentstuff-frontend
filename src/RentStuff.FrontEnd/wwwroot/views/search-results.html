@@ -48,21 +48,32 @@
                                             </li>
                                             <li>
                                                 <strong><i class="fa fa-umbrella" style="color: #FF3333;"></i> Baths</strong>
-                                                <span ng-bind="house.NumberOfBathrooms">3</span>
+                                                <span ng-bind="house.NumberOfBathrooms"></span>
                                             </li>
                                             <li>
                                                 <strong><i class="fa fa-bed" style="color: Blue;"></i> Bedrooms</strong>
-                                                <span ng-bind="house.NumberOfBedrooms">5</span>
-                                            </li>
-                                            <!--<li>
-                                                <strong><i class="fa fa-coffee"></i> Kitchens</strong>
-                                                <span ng-bind="house.NumberOfKitchens">5</span>
-                                            </li>-->
-                                            <li>
-                                                <strong><i class="fa fa-arrows-alt" style="color: Orange;"></i> Size</strong>
-                                                <span ng-bind="house.Dimension"></span>
+                                                <span ng-bind="house.NumberOfBedrooms"></span>
                                             </li>
                                             <li>
+                                                <strong><i class="fa fa-arrows-alt" style="color: indigo;"></i> Size</strong>
+                                                <span ng-if="house.Dimension !== null && house.Dimension !== undefined && house.Dimension !== ''" ng-bind="house.Dimension"></span>
+                                                <span ng-if="house.Dimension === null || house.Dimension === undefined || house.Dimension === ''">Not Given</span>
+                                            </li>
+                                            <li>
+                                                <strong><i class="fa fa-coffee" style="color: Orange;"></i> Shared?</strong>
+                                                <span ng-if="house.IsShared">Yes</span>
+                                                <span ng-if="!house.IsShared">No</span>
+                                            </li>
+                                            <li>
+                                                <strong ng-if="house.GenderRestriction !== 'NoRestriction'">
+                                                <i class="fa fa-female" style="color:lightseagreen"></i> 
+                                                Only For</strong>
+                                                <span ng-if="house.GenderRestriction === 'BoysOnly'"> Boys</span>
+                                                <span ng-if="house.GenderRestriction === 'GirlsOnly'"> Girls</span>
+                                                <span ng-if="house.GenderRestriction === 'FamiliesOnly'"> Families</span>
+                                            </li>
+                                            
+                                            <li style="float:right;">
                                                 <button type="submit" ng-class="{true: 'btn btn-primary', false: 'btn btn-secondary'}[!tooltipIsOpen]" ng-click="tooltipIsOpen = !tooltipIsOpen" class="btn btn-primary">
                                                     <i class="fa fa-phone" style="color: white;"> <span tooltip-class="listing-row-attributes-tooltip" uib-tooltip-html="'{{house.OwnerName}} <br/> {{house.OwnerPhoneNumber}}'" tooltip-is-open="tooltipIsOpen" tooltip-placement="bottom"></span>
                                                     </i>

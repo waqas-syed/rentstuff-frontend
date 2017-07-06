@@ -12,224 +12,241 @@
         <div class="row">
         <div class="col-md-12 col-lg-12">
         <div class="content">
-        <form name="uploadHouseForm" method="post" ng-submit="uploadHouse()">
-        <div class="page-header page-header-small">
-            <h3><strong>Property Information</strong>
-            </h3>
-        </div><!-- /.page-header -->
+            <form name="uploadHouseForm" method="post" ng-submit="uploadHouse()">
+                <div class="page-header page-header-small">
+                    <h3>
+                        <strong>Property Information</strong>
+                    </h3>
+                </div><!-- /.page-header -->
 
-        <div class="form-group">
-            <label><strong>Property Title<span class="required-arsterisk">  *</span></strong></label>
-            <input name="title" type="text" class="form-control half-width" maxlength="199" placeholder="Title for your property (Max 99 characters)"
-                   ng-model="house.Title" required>
-        </div><!-- /.form-group -->
-
-        <div class="form-group">
-            <label><strong>Description</strong></label>
-            <textarea class="form-control" rows="6" placeholder="For example: seaside with a great view, newly refurbished, safe locality etc (Max 1500 characters)" 
-                      ng-model="house.Description" maxlength="1499"></textarea>
-        </div><!-- /.form-group -->
-
-        <div class="row">
-            <div class="col-sm-6">
                 <div class="form-group">
-                    <label><strong>Monthly Rent<span class="required-arsterisk">  *</span></strong></label>
-                    <input type="number" min="100" max="999999999" class="form-control half-width" placeholder="In Pakistani Rupees"
-                           ng-model="house.MonthlyRent" ng-pattern="numbersOnly" required>
+                    <label><strong>Property Title<span class="required-arsterisk">  *</span></strong></label>
+                    <input name="title" type="text" class="form-control half-width" maxlength="199" placeholder="Title for your property (Max 99 characters)"
+                           ng-model="house.Title" required>
                 </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
-        </div><!-- /.row -->
 
-        <div class="row">
-            <div class="col-sm-6">
                 <div class="form-group">
-                    <label><strong>Property Type<span class="required-arsterisk">  *</span></strong></label>
-                    <select class="form-control half-width" ng-model="house.PropertyType"
-                            ng-options="propertyType as propertyType for propertyType in propertyTypes" required>
-                        <option value="" disabled selected style="display: none;">PropertyType</option>
-                    </select>
+                    <label><strong>Description</strong></label>
+                    <textarea class="form-control" rows="6" placeholder="For example: seaside with a great view, newly refurbished, safe locality etc (Max 1500 characters)"
+                              ng-model="house.Description" maxlength="1499"></textarea>
                 </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
-        </div><!-- /.row -->
 
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label><strong>Number of Bedrooms</strong></label>
-                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" 
-                           min="0" max="100" ng-model="house.NumberOfBedrooms">
-                </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><strong>Monthly Rent<span class="required-arsterisk">  *</span></strong></label>
+                            <input type="number" min="100" max="999999999" class="form-control half-width" placeholder="In Pakistani Rupees"
+                                   ng-model="house.MonthlyRent" ng-pattern="numbersOnly" required>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-* -->
+                </div><!-- /.row -->
 
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label><strong>Number of Bathrooms</strong></label>
-                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" 
-                           min="0" max="100" ng-model="house.NumberOfBathrooms">
-                </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
+                <div class="row">
+                    <div class="col-sm-6">
+                        <div class="form-group">
+                            <label><strong>Property Type<span class="required-arsterisk">  *</span></strong></label>
+                            <select class="form-control half-width" ng-model="house.PropertyType"
+                                    ng-options="propertyType as propertyType for propertyType in propertyTypes" required>
+                                <option value="" disabled selected style="display: none;">PropertyType</option>
+                            </select>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-* -->
+                </div><!-- /.row -->
 
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label><strong>Number of Kitchens</strong></label>
-                    <input type="number" class="form-control width-percent-70" placeholder="Enter a number" 
-                           min="0" max="100" ng-model="house.NumberOfKitchens">
-                </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
-        </div><!-- /.row -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><strong>Number of Bedrooms</strong></label>
+                            <input type="number" class="form-control width-percent-70" placeholder="Enter a number"
+                                   min="0" max="100" ng-model="house.NumberOfBedrooms">
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-* -->
 
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label><strong>Land Size</strong></label>
-                    <select class="form-control" ng-model="house.DimensionType"
-                            ng-options="dimensionType as dimensionType for dimensionType in dimensionTypes">
-                        <option value="" disabled required style="display: none;">Land Type</option>
-                    </select>
-                    <select ng-init="house.DimensionStringValue = house.DimensionStringValue || propertySizes[0]"
-                            ng-disabled="house.DimensionType === undefined || house.DimensionType === null"
-                            class="form-control" ng-model="house.DimensionStringValue"
-                            ng-options="propertySize as propertySize for propertySize in propertySizes">
-                        <option value="" required selected="selected">Size</option>
-                    </select>
-                    <!--If the DimensionType is not empty but the DimensionString value is, then do not proceed instead show the error to the user on the UI-->
-                    <span class="red-font" ng-show="DimensionStringEmpty">
-                        Land Size is Required!
-                    </span>
-                </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
-        </div><!-- /.row -->
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><strong>Number of Bathrooms</strong></label>
+                            <input type="number" class="form-control width-percent-70" placeholder="Enter a number"
+                                   min="0" max="100" ng-model="house.NumberOfBathrooms">
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-* -->
 
-        <div class="row">
-            <div class="col-sm-11">
-                <div class="form-group">
-                    <label><strong>Location<span class="required-arsterisk">  *</span></strong></label>
-                    <input type="text" class="form-control half-width" maxlength="99"
-                           placeholder="Start Typing Location like: Saddar, Rawalpindi, Pakistan"
-                           options="autocompleteOptions" g-places-autocomplete ng-model="houseArea"
-                           autocomplete="off" required>
-                    Suggestions will be shown automatically once you start typing
-                </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
-        </div><!-- /.row -->
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><strong>Number of Kitchens</strong></label>
+                            <input type="number" class="form-control width-percent-70" placeholder="Enter a number"
+                                   min="0" max="100" ng-model="house.NumberOfKitchens">
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-* -->
+                </div><!-- /.row -->
 
-        <div class="page-header page-header-small">
-            <h3><strong>Contact Information</strong>
-            </h3>
-        </div><!-- /.page-header -->
+                <div class="row">
+                    <div class="col-sm-4">
+                        <div class="form-group">
+                            <label><strong>Land Size</strong></label>
+                            <select class="form-control" ng-model="house.DimensionType"
+                                    ng-options="dimensionType as dimensionType for dimensionType in dimensionTypes">
+                                <option value="" disabled required style="display: none;">Land Type</option>
+                            </select>
+                            <select ng-init="house.DimensionStringValue = house.DimensionStringValue || propertySizes[0]"
+                                    ng-disabled="house.DimensionType === undefined || house.DimensionType === null"
+                                    class="form-control" ng-model="house.DimensionStringValue"
+                                    ng-options="propertySize as propertySize for propertySize in propertySizes">
+                                <option value="" required selected="selected">Size</option>
+                            </select>
+                            <!--If the DimensionType is not empty but the DimensionString value is, then do not proceed instead show the error to the user on the UI-->
+                            <span class="red-font" ng-show="DimensionStringEmpty">
+                                Land Size is Required!
+                            </span>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-* -->
+                </div><!-- /.row -->
 
-        <div class="row">
-            <div class="col-sm-6">
-                <div class="form-group">
-                    <label><strong>Mobile Number (it will be verified this number is yours)<span class="required-arsterisk">  *</span></strong></label>
-                    <input type = "text" 
-                           title="Enter a 11 digit phone number valid in Pakistan, so that it can be verified" 
-                           pattern="03[0-9]{9}"
-                           minlength="11" maxlength="11" class="form-control half-width" 
-                           placeholder="For example: 03455138018" ng-model="house.OwnerPhoneNumber" required>
-                    <span ng-show="invalidPhoneNumber" class="red-font">Invalid Phone Number. Enter 11 digits, e.g., 03455138018</span>
-                </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
-        </div>
-            <div class="row">
-                <div class="col-sm-6">
-                    <div class="form-group">
-                        <label><strong>Owner/Guardian Name<span class="required-arsterisk">  *</span></strong></label>
-                        <input type="text" pattern="[\w ]*" class="form-control half-width" 
-                               placeholder="Any reference name to use for the call" title="Please enter a valid name, consisting only of alphabets"
-                               minlength="1" maxlength="99" ng-model="house.OwnerName" required>
-                    </div><!-- /.form-group -->
-                </div><!-- /.col-* -->
-            </div>
-        <div class="page-header page-header-small">
-            <h3><strong>Upload Photos</strong>
-            </h3>
-        </div><!-- /.page-header -->
-        <!--<input type="file" nv-file-select="" uploader="uploader" multiple/>-->
-        <label class="fileContainer btn btn-primary">
-            Choose Files
-            <input type="file" nv-file-select="" uploader="uploader" multiple/>
-        </label>
-        <!--<button ng-click="upload()"></button>-->
-        <table class="table">
-            <thead>
-            </thead>
-            <tbody>
-            <tr ng-repeat="item in uploader.queue">
-                <td>
+                <div class="row">
+                    <div class="col-sm-11">
+                        <div class="form-group">
+                            <label><strong>Location<span class="required-arsterisk">  *</span></strong></label>
+                            <input type="text" class="form-control half-width" maxlength="99"
+                                   placeholder="Start Typing Location like: Saddar, Rawalpindi, Pakistan"
+                                   options="autocompleteOptions" g-places-autocomplete ng-model="houseArea"
+                                   autocomplete="off" required>
+                            Suggestions will be shown automatically once you start typing
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-* -->
+                </div><!-- /.row -->
+
+                        <div class="page-header page-header-small">
+                            <h3>
+                                <strong>Contact Information</strong>
+                            </h3>
+                        </div><!-- /.page-header -->
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label><strong>Mobile Number (it will be verified this number is yours)<span class="required-arsterisk">  *</span></strong></label>
+                                    <input type="text"
+                                           title="Enter a 11 digit phone number valid in Pakistan, so that it can be verified"
+                                           pattern="03[0-9]{9}"
+                                           minlength="11" maxlength="11" class="form-control half-width"
+                                           placeholder="For example: 03455138018" ng-model="house.OwnerPhoneNumber" required>
+                                    <span ng-show="invalidPhoneNumber" class="red-font">Invalid Phone Number. Enter 11 digits, e.g., 03455138018</span>
+                                </div><!-- /.form-group -->
+                            </div><!-- /.col-* -->
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label><strong>Owner/Guardian Name<span class="required-arsterisk">  *</span></strong></label>
+                                    <input type="text" pattern="[\w ]*" class="form-control half-width"
+                                           placeholder="Any reference name to use for the call" title="Please enter a valid name, consisting only of alphabets"
+                                           minlength="1" maxlength="99" ng-model="house.OwnerName" required>
+                                </div><!-- /.form-group -->
+                            </div><!-- /.col-* -->
+                        </div>
+                        <div class="page-header page-header-small">
+                            <h3>
+                                <strong>Upload Photos</strong>
+                            </h3>
+                        </div><!-- /.page-header -->
+                        <!--<input type="file" nv-file-select="" uploader="uploader" multiple/>-->
+                        <label class="fileContainer btn btn-primary">
+                            Choose Files
+                            <input type="file" nv-file-select="" uploader="uploader" multiple />
+                        </label>
+                        <!--<button ng-click="upload()"></button>-->
+                        <table class="table">
+                            <thead>
+                            </thead>
+                            <tbody>
+                                <tr ng-repeat="item in uploader.queue">
+                                    <td>
+
                     <!--<strong>{{ item.file.name }}</strong>-->
                     <!-- Image preview -->
                     <!--auto height-->
                     <!--<div ng-thumb="{ file: item.file, width: 100 }"></div>-->
                     <!--auto width-->
-                    <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
-                    <!--fixed width and height -->
-                    <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
-                </td>
-                <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
-                <td nowrap>
-                    <button type="button" class="btn btn-danger btn-xs" ng-click="deleteImage(item)">
-                        <span class="glyphicon glyphicon-trash"></span> Remove
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
+                                        <div ng-show="uploader.isHTML5" ng-thumb="{ file: item._file, height: 100 }"></div>
+                                        <!--fixed width and height -->
+                                        <!--<div ng-thumb="{ file: item.file, width: 100, height: 100 }"></div>-->
+                                    </td>
+                                    <td ng-show="uploader.isHTML5" nowrap>{{ item.file.size/1024/1024|number:2 }} MB</td>
+                                    <td nowrap>
+                                        <button type="button" class="btn btn-danger btn-xs" ng-click="deleteImage(item)">
+                                            <span class="glyphicon glyphicon-trash"></span> Remove
+                                        </button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
 
-        <div class="page-header page-header-small">
-            <h3><strong>Facilities</strong>
-            </h3>
-        </div><!-- /.page-header -->
+                        <div class="page-header page-header-small">
+                            <h3>
+                                <strong>Facilities and Restrictions</strong>
+                            </h3>
+                        </div><!-- /.page-header -->
 
-        <div class="row">
-            <div class="col-sm-4">
-                <div class="form-group">
-                    <label><strong>Gender Restrictions</strong></label>
-                    <select class="form-control half-width" ng-model="genderRestriction"
-                            ng-options="genderRestriction as genderRestriction for genderRestriction in genderRestrictions">
-                        <option value="" disabled required style="display: none;">Gender Restrictions</option>
-                    </select>
-                </div><!-- /.form-group -->
-            </div><!-- /.col-* -->
-        </div><!-- /.row -->
+                        <div class="row">
+                            <div class="col-sm-4">
+                                <div class="form-group">
+                                    <label><strong>Gender Restrictions</strong></label>
+                                    <select class="form-control half-width" ng-model="genderRestriction"
+                                            ng-options="genderRestriction as genderRestriction for genderRestriction in genderRestrictions">
+                                        <option value="" disabled required style="display: none;">Gender Restrictions</option>
+                                    </select>
+                                </div><!-- /.form-group -->
+                            </div><!-- /.col-* -->
+                        </div><!-- /.row -->
 
-        <div class="checkbox-list" style="margin: 0 0 0 25px;">
-            <div class="checkbox">
-                <label><input type="checkbox" ng-model="house.InternetAvailable"> Internet</label>
-            </div><!-- /.checkbox-->
+                <div class="row">
+                    <div class="col-sm-11">
+                        <div class="form-group">
+                            <label><strong>Do you want more than one people to share this property?</strong></label>
+                            <div class="checkbox" style="margin: 0 0 0 25px;">
+                                <label><input type="checkbox" ng-model="house.IsShared"> Check this box if yes</label>
+                            </div><!-- /.checkbox-->
+                        </div>
+                    </div>
+                </div>
 
-            <div class="checkbox">
-                <label><input type="checkbox" ng-model="house.LandlinePhoneAvailable"> Landline Phone</label>
-            </div><!-- /.checkbox-->
+                <label><strong>Amenities</strong></label>
+                        <div class="checkbox-list" style="margin: 0 0 0 25px;">
+                            
+                            <div class="checkbox">
+                                <label><input type="checkbox" ng-model="house.InternetAvailable"> Internet</label>
+                            </div><!-- /.checkbox-->
 
-            <div class="checkbox">
-                <label><input type="checkbox" ng-model="house.CableTvAvailable"> Cable Tv</label>
-            </div><!-- /.checkbox-->
+                            <div class="checkbox">
+                                <label><input type="checkbox" ng-model="house.LandlinePhoneAvailable"> Landline Phone</label>
+                            </div><!-- /.checkbox-->
 
-            <div class="checkbox">
-                <label><input type="checkbox" ng-model="house.GarageAvailable"> Garage</label>
-            </div><!-- /.checkbox-->
+                            <div class="checkbox">
+                                <label><input type="checkbox" ng-model="house.CableTvAvailable"> Cable Tv</label>
+                            </div><!-- /.checkbox-->
 
-            <div class="checkbox">
-                <label><input type="checkbox" ng-model="house.SmokingAllowed"> Smoking Allowed</label>
-            </div><!-- /.checkbox-->
+                            <div class="checkbox">
+                                <label><input type="checkbox" ng-model="house.GarageAvailable"> Garage</label>
+                            </div><!-- /.checkbox-->
 
-        </div><!-- /.checkbox-list -->
+                            <div class="checkbox">
+                                <label><input type="checkbox" ng-model="house.SmokingAllowed"> Smoking Allowed</label>
+                            </div><!-- /.checkbox-->
 
-        <!--<div class="page-header page-header-small">
-            <h3>Agreement</h3>
-        </div>
+                        </div><!-- /.checkbox-list -->
+                        <!--<div class="page-header page-header-small">
+                    <h3>Agreement</h3>
+                </div>
 
-        <div class="checkbox" style="margin: -20px 0 20px 25px;">
-            <label><input type="checkbox"> I agree with terms &amp; conditions</label>
-        </div>-->
-            
-        <span ng-show="error !== null && error != undefined" ng-bind="error" class="red-font"></span>
-        <div class="center">
-            <button ng-if="!ownerIsViewingHouse" class="btn btn-primary" ntype="submit">Submit Property</button>
-            <button ng-if="ownerIsViewingHouse" class="btn btn-primary" ntype="submit">Update Property</button>
-        </div><!-- /.center -->
-        </form>
+                <div class="checkbox" style="margin: -20px 0 20px 25px;">
+                    <label><input type="checkbox"> I agree with terms &amp; conditions</label>
+                </div>-->
+
+                        <span ng-show="error !== null && error != undefined" ng-bind="error" class="red-font"></span>
+                        <div class="center">
+                            <button ng-if="!ownerIsViewingHouse" class="btn btn-primary" ntype="submit">Submit Property</button>
+                            <button ng-if="ownerIsViewingHouse" class="btn btn-primary" ntype="submit">Update Property</button>
+                        </div><!-- /.center -->
+            </form>
         </div><!-- /.content -->
         </div><!-- /.col-* -->
 

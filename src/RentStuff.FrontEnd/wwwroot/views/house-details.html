@@ -141,13 +141,13 @@
                             <div class="widget widget-background-white ng-cloak" ng-show="ownerIsViewingHouse">
                                 <div class="form-group">
                                     <a class="btn btn-primary btn-block" ui-sref="edit-house({houseid:house.Id})">
-                                        <i class="fa fa-edit"></i><span>Edit House</span>
+                                        <i class="fa fa-edit"></i><span>Edit Property</span>
                                     </a>
                                 </div><!-- /.form-group-btn -->
                                 <div class="form-group-btn">
                                     <button type="submit" class="btn btn-danger btn-block" 
-                                            confirmed-click="deleteHouse()" ng-confirm-click="Are you sure you want to delete this house?">
-                                        <i class="fa fa-trash"></i> <span>Delete House</span>
+                                            confirmed-click="deleteHouse()" ng-confirm-click="Are you sure you want to delete this Property?">
+                                        <i class="fa fa-trash"></i> <span>Delete Property</span>
                                     </button>
                                 </div><!-- /.form-group-btn -->
                             </div><!-- /.widget -->
@@ -157,11 +157,17 @@
                                         <div class="overview">
                                             <h3>Overview</h3>
                                             <ul>
+                                                <li><strong>Shared?</strong>
+                                                    <span ng-if="house.IsShared">Yes</span>
+                                                    <span ng-if="!house.IsShared">No</span>
+                                                </li>
                                                 <li><strong>Bedrooms</strong><span ng-bind="house.NumberOfBedrooms"></span></li>
                                                 <li><strong>Bathrooms</strong><span ng-bind="house.NumberOfBathrooms"></span></li>
                                                 <li><strong>Kitchens</strong><span ng-bind="house.NumberOfKitchens"></span></li>
                                                 <li><strong>Status</strong><span>Rent</span></li>
-                                                <li><strong>Size</strong><span  ng-bind="house.Dimension"></span></li>
+                                                <li ng-if="house.Dimension !== null && house.Dimension !== undefined && house.Dimension !== ''">
+                                                    <strong>Size</strong><span  ng-bind="house.Dimension"></span>
+                                                </li>
                                                 <li><strong>Price</strong><span ng-bind="'Rs ' + house.MonthlyRent"></span></li>
                                             </ul>
                                         </div><!-- /.overview -->
