@@ -112,7 +112,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         return deferred.promise;
     };
 
-    var _fillAuthData = function () {
+    var _fillAuthData = function() {
 
         var authData = localStorageService.get('authorizationData');
         if (authData) {
@@ -120,7 +120,30 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
             _authentication.fullName = authData.fullName;
             _authentication.email = authData.email;
         }
-    }
+    };
+
+    var _registerExternal = function (registerExternalData) {
+
+        var deferred = $q.defer();
+
+        $http.post(globalService.serverUr + 'account/registerexternal', registerExternalData).success(function (response) {
+
+            localStorageService.set('authorizationData', { token: response.access_token, userName: response.userName, refreshToken: "", useRefreshTokens: false });
+
+            _authentication.isAuth = true;
+            _authentication.userName = response.userName;
+            _authentication.useRefreshTokens = false;
+
+            deferred.resolve(response);
+
+        }).error(function (err, status) {
+            _logOut();
+            deferred.reject(err);
+        });
+
+        return deferred.promise;
+
+    };
 
     authServiceFactory.saveRegistration = _saveRegistration;
     authServiceFactory.login = _login;
@@ -130,6 +153,8 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
     authServiceFactory.resetPassword = _resetPassword;
     authServiceFactory.authentication = _authentication;
     authServiceFactory.activateAccount = activateAccount;
+    
+    authServiceFactory.registerExternal = _registerExternal;
 
     return authServiceFactory;
 }]);

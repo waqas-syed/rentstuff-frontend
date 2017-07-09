@@ -24,6 +24,12 @@
                     <!--The Loading Spinner; shown during HTTP requests-->
                     <span us-spinner="{radius:30, width:8, length: 16}"></span>
                     <div class="row">
+                        <div class="col-md-4">
+                            <h2 class="form-login-heading">Social Logins</h2>
+                            <p>Or you can login using one of the social logins bleow</p>
+                            <button class="btn btn-large btn-facebook btn-block" type="button" data-ng-click="authExternalProvider('Facebook')"><i class="fa fa-facebook"></i> | Connect with Facebook</button>
+                            <button class="btn btn-large btn-google-plus btn-block" type="button" data-ng-click="authExternalProvider('Google')"><i class="fa fa-google-plus"></i> | Connect with Google+</button>
+                        </div>
                         <div class="col-lg-4 col-lg-offset-4">
                             <h1 class="h1-uppercase-formatted">LOGIN</h1>
                             <form method="post">

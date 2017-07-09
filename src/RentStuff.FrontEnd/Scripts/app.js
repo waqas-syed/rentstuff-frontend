@@ -140,6 +140,12 @@
 		        {
 		            url: "/terms-and-conditions",
                     templateUrl: "/views/terms-and-conditions.html"
+                })
+                .state("post-signin-facebook",
+		        {
+                    url: "/post-signin-facebook",
+                    templateUrl: "/views/post-signin-facebook.html"
+                    //controller: "postSignInFacebookController"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
