@@ -126,7 +126,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
 
         var deferred = $q.defer();
 
-        $http.post(globalService.serverUr + 'account/registerexternal', registerExternalData).success(function (response) {
+        $http.post(globalService.serverUrl + 'account/register-external', registerExternalData).success(function (response) {
 
             localStorageService.set('authorizationData', { token: response.access_token, userName: response.userName, refreshToken: "", useRefreshTokens: false });
 

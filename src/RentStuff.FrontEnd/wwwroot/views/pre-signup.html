@@ -1,0 +1,22 @@
+﻿<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+            <div class="content">
+                <div class="container">
+                    <!--The Loading Spinner; shown during HTTP requests-->
+                    <span us-spinner="{radius:30, width:8, length: 16}"></span>
+                    <button class="loginBtn loginBtn--facebook">
+                        Continue with Facebook
+                    </button>
+                    <fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+                    </fb:login-button>
+                    <div class="fb-login-button" data-max-rows="1" data-size="large" data-button-type="continue_with" data-show-faces="false" data-auto-logout-link="false" data-use-continue-as="false"></div>
+                    
+
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div><!-- /.main-wrapper -->
+
+<link href="../lib/angular-material/angular-material.min.css" rel="stylesheet">

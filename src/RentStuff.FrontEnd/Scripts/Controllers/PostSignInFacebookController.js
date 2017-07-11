@@ -10,7 +10,8 @@ window.common = (function () {
     var common = {};
 
     common.getFragment = function getFragment() {
-        if (window.location.hash.indexOf("#") === 0) {
+        return parseQueryString(window.location.hash.substr(1));
+        if (window.location.hash.indexOf("?") === 0) {
             return parseQueryString(window.location.hash.substr(1));
         } else {
             return {};
@@ -24,8 +25,8 @@ window.common = (function () {
         if (queryString === null) {
             return data;
         }
-
-        pairs = queryString.split("&");
+        queryString = queryString.split("?");
+        pairs = queryString[1].split("&");
 
         for (var i = 0; i < pairs.length; i++) {
             pair = pairs[i];
@@ -55,7 +56,7 @@ var fragment = common.getFragment();
 
 window.location.hash = fragment.state || '';
 
-window.parent.$windowScope.authCompletedCB(fragment);
+window.opener.$windowScope.authCompletedCB(fragment);
 
 window.close();
 

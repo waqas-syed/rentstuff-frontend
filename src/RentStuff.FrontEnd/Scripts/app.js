@@ -55,7 +55,13 @@
 		        {
 		            url: "/about-us",
 		            templateUrl: "/views/about-us.html"
-		        })
+                })
+                .state("pre-signup",
+		            {
+                        url: "/pre-signup",
+                        controller: "preSignupController",
+                        templateUrl: "/views/pre-signup.html"
+		            })
 		        .state("signup",
 		        {
 		            url: "/signup",
