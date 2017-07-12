@@ -122,19 +122,57 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         }
     };
 
+    var _assignAuthDataAfterExternalLogin = function(deferred, response) {
+        // Having the email and access token is a must. Cannot proceed without it.
+        if (response.Email !== null &&
+            response.Email !== undefined &&
+            response.InternalAccessToken !== null &&
+            response.InternalAccessToken !== undefined) {
+
+            // Now check if FulName is recieved or not. If not, then assign the email to the full name
+            var fullName = "";
+            if (response.FullName !== null && response.FullName !== undefined && response.FullName !== '') {
+                fullName = response.FullName;
+            } else {
+                fullName = response.Email;
+            }
+            _authentication.isAuth = true;
+            _authentication.email = response.Email;
+            _authentication.fullName = fullName;
+            localStorageService.set('authorizationData',
+                {
+                    token: response.InternalAccessToken,
+                    email: response.Email,
+                    fullName: fullName
+                });
+            deferred.resolve(response);
+        } else {
+            _logOut();
+            deferred.reject("Both Email and Access Token are required to proceed");
+        }
+    }
+
     var _registerExternal = function (registerExternalData) {
 
         var deferred = $q.defer();
 
         $http.post(globalService.serverUrl + 'account/register-external', registerExternalData).success(function (response) {
+            _assignAuthDataAfterExternalLogin(deferred, response);
+        }).error(function (err, status) {
+            _logOut();
+            deferred.reject(err);
+        });
 
-            localStorageService.set('authorizationData', { token: response.access_token, userName: response.userName, refreshToken: "", useRefreshTokens: false });
+        return deferred.promise;
+    };
 
-            _authentication.isAuth = true;
-            _authentication.userName = response.userName;
-            _authentication.useRefreshTokens = false;
+    var _obtainAccessToken = function (externalData) {
 
-            deferred.resolve(response);
+        var deferred = $q.defer();
+
+        $http.get(globalService.serverUrl + 'account/obtain-local-access-token', { params: { provider: externalData.provider, externalAccessToken: externalData.externalAccessToken } }).success(function (response) {
+
+            _assignAuthDataAfterExternalLogin(deferred, response);
 
         }).error(function (err, status) {
             _logOut();
@@ -142,8 +180,55 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         });
 
         return deferred.promise;
-
     };
+
+    var _externalLoginRequest = function ($state, fragment) {
+        var deferred = $q.defer();
+        if (fragment.haslocalaccount == 'False') {
+            
+            _logOut();
+
+            this.externalAuthData = {
+                provider: fragment.provider,
+                fullName: fragment.full_name,
+                email: fragment.email,
+                externalAccessToken: fragment.external_access_token
+            };
+            var registerData = {
+                FullName: this.externalAuthData.fullName,
+                Email: this.externalAuthData.email,
+                Provider: this.externalAuthData.provider,
+                ExternalAccessToken: this.externalAuthData.externalAccessToken
+            };
+            _registerExternal(registerData)
+                .then(function (response) {
+
+                    //$scope.savedSuccessfully = true;
+                    console.log = "User has been registered successfully using external login";
+                    //startTimer();
+                    $state.go('home');
+                    deferred.resolve(response);
+                }, function (error) {
+                    deferred.reject(error);
+                });
+
+        }
+        else {
+            //Obtain access token and redirect to home page
+            var externalData = { provider: fragment.provider, externalAccessToken: fragment.external_access_token };
+            _obtainAccessToken(externalData)
+                .success(function (response) {
+                    console.log = "User has been logged in successfully using external login";
+                    $state.go('home');
+                    deferred.resolve(response);
+                })
+                .error(function (err) {
+                    deferred.reject(err);
+                });
+        }
+
+        return deferred.promise;
+    }
 
     authServiceFactory.saveRegistration = _saveRegistration;
     authServiceFactory.login = _login;
@@ -153,8 +238,10 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
     authServiceFactory.resetPassword = _resetPassword;
     authServiceFactory.authentication = _authentication;
     authServiceFactory.activateAccount = activateAccount;
-    
-    authServiceFactory.registerExternal = _registerExternal;
+
+    authServiceFactory.externalLoginRequest = _externalLoginRequest;
+    //authServiceFactory.registerExternal = _registerExternal;
+    //authServiceFactory.obtainAccessToken = _obtainAccessToken;
 
     return authServiceFactory;
 }]);

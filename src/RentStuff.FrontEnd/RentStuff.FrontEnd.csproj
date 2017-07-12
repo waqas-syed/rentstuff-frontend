@@ -11,6 +11,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Content Include="wwwroot\views\post-external-login.html" />
     <Content Include="wwwroot\views\pre-signup.html" />
   </ItemGroup>
 
@@ -43,10 +44,6 @@
 
   <ItemGroup>
     <DotNetCliToolReference Include="BundlerMinifier.Core" Version="2.2.301" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Include="wwwroot\views\post-signin-facebook.html" />
   </ItemGroup>
 
 </Project>

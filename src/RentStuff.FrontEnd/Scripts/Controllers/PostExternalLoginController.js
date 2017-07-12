@@ -26,6 +26,9 @@ window.common = (function () {
             return data;
         }
         queryString = queryString.split("?");
+        if (queryString[1] === null || queryString[1] === undefined) {
+            return data;
+        }
         pairs = queryString[1].split("&");
 
         for (var i = 0; i < pairs.length; i++) {
@@ -56,7 +59,9 @@ var fragment = common.getFragment();
 
 window.location.hash = fragment.state || '';
 
-window.opener.$windowScope.authCompletedCB(fragment);
+if (window.opener !== null && window.opener !== undefined) {
 
-window.close();
+    window.opener.$windowScope.authCompletedCB(fragment);
 
+    window.close();
+}

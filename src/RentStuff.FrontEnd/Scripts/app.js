@@ -147,10 +147,10 @@
 		            url: "/terms-and-conditions",
                     templateUrl: "/views/terms-and-conditions.html"
                 })
-                .state("post-signin-facebook",
+                .state("post-external-login",
 		        {
-                    url: "/post-signin-facebook",
-                    templateUrl: "/views/post-signin-facebook.html"
+                    url: "/post-external-login",
+                    templateUrl: "/views/post-external-login.html"
                     //controller: "postSignInFacebookController"
 		        });
 		    //.state("details", {
