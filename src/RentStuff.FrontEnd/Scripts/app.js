@@ -221,7 +221,7 @@
 
         $rootScope.$on('unauthorized', function () {
             authService.logOut();
-            $state.go('login');
+            $state.go('pre-login');
         });
 
     }]);

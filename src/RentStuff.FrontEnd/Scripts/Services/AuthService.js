@@ -122,6 +122,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         }
     };
 
+    // After login through the external source, maintain the login information for this user
     var _assignAuthDataAfterExternalLogin = function(deferred, response) {
         // Having the email and access token is a must. Cannot proceed without it.
         if (response.Email !== null &&
@@ -152,6 +153,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         }
     }
 
+    // Register the user who is authenticating through an external source. This will automatically log the user in
     var _registerExternal = function (registerExternalData) {
 
         var deferred = $q.defer();
@@ -166,6 +168,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         return deferred.promise;
     };
 
+    // Log the user in who used an external source to log in
     var _obtainAccessToken = function (externalData) {
 
         var deferred = $q.defer();
@@ -206,23 +209,23 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
                     //$scope.savedSuccessfully = true;
                     console.log = "User has been registered successfully using external login";
                     //startTimer();
-                    $state.go('home');
+                    //$state.go('home');
                     deferred.resolve(response);
                 }, function (error) {
+                    console.log = "User could not be registered using external login";
                     deferred.reject(error);
                 });
-
         }
         else {
             //Obtain access token and redirect to home page
             var externalData = { provider: fragment.provider, externalAccessToken: fragment.external_access_token };
             _obtainAccessToken(externalData)
-                .success(function (response) {
+                .then(function (response) {
                     console.log = "User has been logged in successfully using external login";
-                    $state.go('home');
+                    //$state.go('home');
                     deferred.resolve(response);
-                })
-                .error(function (err) {
+                }, function (err) {
+                    console.log = "User could not be logged in using external login";
                     deferred.reject(err);
                 });
         }

@@ -8960,3 +8960,7 @@ label {
     width: 34px;
     height: 100%;
 }
+
+.btn-login-padding {
+    padding: 0 59px 0 58px;
+}

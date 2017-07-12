@@ -18,7 +18,8 @@ rentApp.controller('preSignupController', ['$scope', '$state', 'authService', 'g
                 $scope.$apply(function () {
                     authService.externalLoginRequest($state, fragment)
                         .then(function(response) {
-                            console.log();
+                            //console.log();
+                            $state.go('home');
                         },function(error) {
                             $scope.error = "Unable to register via Facebook";
                         });
