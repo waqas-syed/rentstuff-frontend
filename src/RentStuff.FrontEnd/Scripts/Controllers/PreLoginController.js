@@ -20,7 +20,7 @@ rentApp.controller('preLoginController', ['$scope', '$state', 'authService', 'gl
                     .then(function (response) {
                         $state.go('home');
                     }, function (error) {
-                        $scope.error = "Unable to register via Facebook";
+                        $scope.error = "Unable to register via Facebook. Make sure you haven't logged in with Facebook using the same email address.";
                     });
 
             });

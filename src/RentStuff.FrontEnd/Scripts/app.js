@@ -196,7 +196,7 @@
                         var redirectForNonLoggedInUser = next.permissions.redirectForNonLoggedInUser;
                         if (redirectForNonLoggedInUser) {
                             event.preventDefault();
-                            $state.go('login');
+                            $state.go('pre-login');
                         }
                     }
                 }
