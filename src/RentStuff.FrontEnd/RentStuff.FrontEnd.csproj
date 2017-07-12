@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Content Include="wwwroot\views\post-external-login.html" />
+    <Content Include="wwwroot\views\pre-login.html" />
     <Content Include="wwwroot\views\pre-signup.html" />
   </ItemGroup>
 

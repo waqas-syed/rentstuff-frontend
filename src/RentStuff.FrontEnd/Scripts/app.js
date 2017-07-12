@@ -35,6 +35,12 @@
 		             url: "/home", 
 		             controller: "SearchController",
 		             templateUrl: "/views/landing-page.html"
+                })
+                .state("pre-login",
+		        {
+		            url: "/pre-login",
+		            controller: "preLoginController",
+		            templateUrl: "/views/pre-login.html",
 		        })
 		        .state("login",
 		        {
