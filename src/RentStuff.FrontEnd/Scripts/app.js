@@ -35,6 +35,12 @@
 		             url: "/home", 
 		             controller: "SearchController",
 		             templateUrl: "/views/landing-page.html"
+                })
+                .state("pre-login",
+		        {
+		            url: "/pre-login",
+		            controller: "preLoginController",
+		            templateUrl: "/views/pre-login.html",
 		        })
 		        .state("login",
 		        {
@@ -55,7 +61,13 @@
 		        {
 		            url: "/about-us",
 		            templateUrl: "/views/about-us.html"
-		        })
+                })
+                .state("pre-signup",
+		            {
+                        url: "/pre-signup",
+                        controller: "preSignupController",
+                        templateUrl: "/views/pre-signup.html"
+		            })
 		        .state("signup",
 		        {
 		            url: "/signup",
@@ -140,6 +152,12 @@
 		        {
 		            url: "/terms-and-conditions",
                     templateUrl: "/views/terms-and-conditions.html"
+                })
+                .state("post-external-login",
+		        {
+                    url: "/post-external-login",
+                    templateUrl: "/views/post-external-login.html"
+                    //controller: "postSignInFacebookController"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
@@ -178,7 +196,7 @@
                         var redirectForNonLoggedInUser = next.permissions.redirectForNonLoggedInUser;
                         if (redirectForNonLoggedInUser) {
                             event.preventDefault();
-                            $state.go('login');
+                            $state.go('pre-login');
                         }
                     }
                 }
@@ -203,7 +221,7 @@
 
         $rootScope.$on('unauthorized', function () {
             authService.logOut();
-            $state.go('login');
+            $state.go('pre-login');
         });
 
     }]);

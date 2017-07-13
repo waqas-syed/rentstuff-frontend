@@ -31,5 +31,4 @@ rentApp.controller('loginController', ['$scope', '$location', 'authService', fun
              }
          });
     };
- 
 }]);

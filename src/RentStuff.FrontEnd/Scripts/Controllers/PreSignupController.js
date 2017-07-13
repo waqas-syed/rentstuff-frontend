@@ -1,0 +1,30 @@
+﻿var rentApp = angular.module('rentApp');
+
+rentApp.controller('preSignupController', ['$scope', '$state', 'authService', 'globalService',
+    function ($scope, $state, authService, globalService) {
+            $scope.signupWithFacebook = function() {
+                
+                window.$windowScope = $scope;
+
+                window.open(globalService.externalLoginUrl, "Authenticate Account", "location=0,status=0,width=600,height=750");
+            };
+
+            $scope.signupWithEmail = function() {
+                $state.go('signup');
+            };
+
+            $scope.authCompletedCB = function (fragment) {
+
+                $scope.$apply(function () {
+                    authService.externalLoginRequest($state, fragment)
+                        .then(function(response) {
+                            //console.log();
+                            $state.go('home');
+                        },function(error) {
+                            $scope.error = "Unable to register via Facebook. Make sure you haven't logged in with Facebook using the same email address.";
+                        });
+                    
+                });
+            }
+        }
+    ]);

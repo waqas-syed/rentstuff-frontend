@@ -49,150 +49,151 @@
     <link rel="icon" href="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/browser-tab-icon.ico" />
 </head>
 <body>
-    <div ng-app="rentApp" ng-controller="indexController">
-        <div class="page-wrapper">
-            <div class="header-wrapper">
-                <div class="header">
-                    <div class="header-inner">
-                        <div class="container">
-                            <div class="header-topbar ng-cloak" ng-if="!isAuthenticated()">
-                                <div class="header-topbar-left">
-                                    <ul class="nav nav-pills nav-topbar">
-                                        <li class="nav-item"><a ui-sref="login" class="nav-link"><strong>LOGIN</strong></a></li>
-                                        <li class="nav-item"><a ui-sref="signup" class="nav-link"><strong>SIGNUP</strong></a></li>
-                                    </ul><!-- /.nav -->
-                                </div><!-- /.header-topbar-left -->
-                                <!--<div class="header-topbar-right nav-topbar nav-topbar-social">
-                                    <ul class="nav nav-pills">
-                                        <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-facebook"></i></a></li>
-                                        <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-twitter"></i></a></li>
-                                        <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-linkedin"></i></a></li>
-                                        <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-foursquare"></i></a></li>
-                                    </ul>--><!-- /.nav -->
-                                <!--</div>--><!-- /.header-topbar-right -->
-                            </div><!-- /.header-topbar -->
-                            <div class="header-top-authenticated ng-cloak" ng-show="isAuthenticated()">
-                                <div class="nav-primary-wrapper collapse navbar-toggleable-sm header-topbar-right">
-                                    <ul class="nav nav-pills nav-primary ng-cloak">
-                                        <li class="nav-item nav-item-parent">
-                                            <a href="index.html" class="nav-link active" ng-bind="authentication.fullName">
+
+<div ng-app="rentApp" ng-controller="indexController">
+    <div class="page-wrapper">
+        <div class="header-wrapper">
+            <div class="header">
+                <div class="header-inner">
+                    <div class="container">
+                        <div class="header-topbar ng-cloak" ng-if="!isAuthenticated()">
+                            <div class="header-topbar-left">
+                                <ul class="nav nav-pills nav-topbar">
+                                    <li class="nav-item"><a ui-sref="pre-login" class="nav-link"><strong>LOGIN</strong></a></li>
+                                    <li class="nav-item"><a ui-sref="pre-signup" class="nav-link"><strong>SIGNUP</strong></a></li>
+                                </ul><!-- /.nav -->
+                            </div><!-- /.header-topbar-left -->
+                            <!--<div class="header-topbar-right nav-topbar nav-topbar-social">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-facebook"></i></a></li>
+                                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-twitter"></i></a></li>
+                                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-linkedin"></i></a></li>
+                                <li class="nav-item"><a href="#" class="nav-link"><i class="fa fa-foursquare"></i></a></li>
+                            </ul>--><!-- /.nav -->
+                            <!--</div>--><!-- /.header-topbar-right -->
+                        </div><!-- /.header-topbar -->
+                        <div class="header-top-authenticated ng-cloak" ng-show="isAuthenticated()">
+                            <div class="nav-primary-wrapper collapse navbar-toggleable-sm header-topbar-right">
+                                <ul class="nav nav-pills nav-primary ng-cloak">
+                                    <li class="nav-item nav-item-parent">
+                                        <a href="index.html" class="nav-link active" ng-bind="authentication.fullName">
+                                        </a>
+                                        <ul class="sub-menu">
+                                            <li ng-click="logOut()"><a href="">Log Out</a></li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="header-top">
+                            <div class="header-top-inner">
+                                <a class="header-logo" ui-sref="home">
+                                    <img src="images/light_green.png" style="height: 35px; width: 242px;">
+                                    <!--<span class="header-logo-shape" style="background-image: url('images/zarqoon_logo.png');"></span>
+                                    <span class="header-logo-text">ZARQOON</span>-->
+                                </a><!-- /.header-logo -->
+                                <div class="header-separator">
+                                </div><!-- /.header-separator -->
+                                <!--<button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target=".nav-primary-wrapper">
+                                    <span></span>
+                                    <span></span>
+                                    <span></span>
+                                </button>-->
+                            </div><!-- /.header-top-inner -->
+                            <div class="header-top-right">
+                                <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
+                                    <ul class="nav nav-pills nav-primary">
+                                        <li class="nav-item">
+                                            <a href="index.html" class="nav-link ">
+                                                Search Houses
                                             </a>
-                                            <ul class="sub-menu">
-                                                <li ng-click="logOut()"><a href="">Log Out</a></li>
-                                            </ul>
+                                        </li>
+                                        <li class="nav-item ng-cloak" ng-if="isAuthenticated()">
+                                            <a ui-sref="search-results({email:getCurrentUserEmail()})" class="nav-link ">
+                                                My Properties
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a ui-sref="contact" class="nav-link ">
+                                                Contact Us
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a ui-sref="about-us" class="nav-link ">
+                                                About Us
+                                            </a>
+                                        </li>
+                                        <li class="nav-item right">
+                                            <a class="btn btn-primary" style="margin: 4px 0 0 7px" ui-sref="upload-house">
+                                                <i class="fa fa-upload"></i> <span>Post Property</span>
+                                            </a><!-- /.header-action -->
                                         </li>
                                     </ul>
                                 </div>
                             </div>
+                        </div><!-- /.header-top -->
+                    </div><!-- /.container -->
+                </div><!-- /.header-inner -->
+            </div><!-- /.header -->
+        </div><!-- /.header-wrapper-->
 
-                                <div class="header-top">
-                                    <div class="header-top-inner" >
-                                        <a class="header-logo" ui-sref="home">
-                                            <img src="images/light_green.png" style="height: 35px; width: 242px;">
-                                            <!--<span class="header-logo-shape" style="background-image: url('images/zarqoon_logo.png');"></span>
-                                            <span class="header-logo-text">ZARQOON</span>-->
-                                        </a><!-- /.header-logo -->
-                                        <div class="header-separator">
-                                        </div><!-- /.header-separator -->
-                                        <!--<button class="navbar-toggler pull-xs-right hidden-md-up" type="button" data-toggle="collapse" data-target=".nav-primary-wrapper">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                </button>-->
-                                    </div><!-- /.header-top-inner -->
-                                    <div class="header-top-right">
-                                        <div class="nav-primary-wrapper collapse navbar-toggleable-sm">
-                                            <ul class="nav nav-pills nav-primary">
-                                                <li class="nav-item">
-                                                    <a href="index.html" class="nav-link ">
-                                                        Search Houses
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item ng-cloak" ng-if="isAuthenticated()">
-                                                    <a ui-sref="search-results({email:getCurrentUserEmail()})" class="nav-link ">
-                                                        My Properties
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a ui-sref="contact" class="nav-link ">
-                                                        Contact Us
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item">
-                                                    <a ui-sref="about-us" class="nav-link ">
-                                                        About Us
-                                                    </a>
-                                                </li>
-                                                <li class="nav-item right">
-                                                    <a class="btn btn-primary" style="margin:4px 0 0 7px" ui-sref="upload-house">
-                                                        <i class="fa fa-upload"></i> <span>Post Property</span>
-                                                    </a><!-- /.header-action -->
-                                                </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div><!-- /.header-top -->
-                            </div><!-- /.container -->
-                    </div><!-- /.header-inner -->
-                </div><!-- /.header -->
-            </div><!-- /.header-wrapper-->
-
-            <div id="ui-view" class="page-wrapper" ui-view></div>
+        <div id="ui-view" class="page-wrapper" ui-view></div>
 
 
-            <div class="footer-wrapper">
-                <div class="container">
-                    <div class="footer-inner">
-                        <div class="footer-top">
-                            <div class="footer-top-left">
-                                
-                                <p>
-                                    Help us grow. Email your suggestions and feedback to support@zarqoon.com
-                                </p>
+        <div class="footer-wrapper">
+            <div class="container">
+                <div class="footer-inner">
+                    <div class="footer-top">
+                        <div class="footer-top-left">
 
-                                <!--<div class="social">
-                                    <a href="#"><i class="fa fa-facebook"></i></a>
-                                    <a href="#"><i class="fa fa-twitter"></i></a>
-                                    <a href="#"><i class="fa fa-linkedin"></i></a>
-                                    <a href="#"><i class="fa fa-envelope"></i></a>
-                                    <a href="#"><i class="fa fa-instagram"></i></a>
-                                </div>--><!-- /.social -->
-                            </div><!-- /.footer-top-left -->
+                            <p>
+                                Help us grow. Email your suggestions and feedback to support@zarqoon.com
+                            </p>
 
-                            <div class="footer-top-right">
-                                <!--<h2>Subscribe To Newsletter</h2>
+                            <!--<div class="social">
+                                <a href="#"><i class="fa fa-facebook"></i></a>
+                                <a href="#"><i class="fa fa-twitter"></i></a>
+                                <a href="#"><i class="fa fa-linkedin"></i></a>
+                                <a href="#"><i class="fa fa-envelope"></i></a>
+                                <a href="#"><i class="fa fa-instagram"></i></a>
+                            </div>--><!-- /.social -->
+                        </div><!-- /.footer-top-left -->
 
-                                <form method="post" action="?">
-                                    <div class="input-group">
-                                        <input type="email" class="form-control" placeholder="Your e-mail address">
-                                        <span class="input-group-btn">
-                                            <button class="btn btn-primary" type="submit">Subscribe</button>
-                                        </span>--><!-- /.input-group-btn -->
-                                    <!--</div>--><!-- /.form-group -->
-                                <!--</form>
+                        <div class="footer-top-right">
+                            <!--<h2>Subscribe To Newsletter</h2>
 
-                                <p>
-                                    * We promise that we will not send you spam messages.
-                                </p>-->
-                            </div><!-- /.footer-top-right -->
-                        </div><!-- /.footer-top -->
+                            <form method="post" action="?">
+                            <div class="input-group">
+                            <input type="email" class="form-control" placeholder="Your e-mail address">
+                            <span class="input-group-btn">
+                                <button class="btn btn-primary" type="submit">Subscribe</button>
+                            </span>--><!-- /.input-group-btn -->
+                            <!--</div>--><!-- /.form-group -->
+                            <!--</form>
 
-                        <div class="footer-bottom">
-                            <div class="footer-left">
-                                &copy; 2017 Created by Zarqoon. All Rights reserved.
-                            </div><!-- /.footer-left -->
-                        
-                            <div class="footer-right">
-                                <ul class="nav nav-pills">
-                                    <li class="nav-item"><a ui-sref="terms-and-conditions" class="nav-link">Terms And Conditions</a></li>
-                                </ul>
-                            </div><!-- /.footer-right -->
-                        </div><!-- /.footer-bottom -->
-                    </div><!-- /.footer-inner -->
-                </div><!-- /.container -->
-            </div><!-- /.footer-wrapper -->
-        </div>
+                            <p>
+                                * We promise that we will not send you spam messages.
+                            </p>-->
+                        </div><!-- /.footer-top-right -->
+                    </div><!-- /.footer-top -->
+
+                    <div class="footer-bottom">
+                        <div class="footer-left">
+                            &copy; 2017 Created by Zarqoon. All Rights reserved.
+                        </div><!-- /.footer-left -->
+
+                        <div class="footer-right">
+                            <ul class="nav nav-pills">
+                                <li class="nav-item"><a ui-sref="terms-and-conditions" class="nav-link">Terms And Conditions</a></li>
+                            </ul>
+                        </div><!-- /.footer-right -->
+                    </div><!-- /.footer-bottom -->
+                </div><!-- /.footer-inner -->
+            </div><!-- /.container -->
+        </div><!-- /.footer-wrapper -->
     </div>
+</div>
 
     <!--<script src="lib/angular/angular.js"></script>-->
 
@@ -250,7 +251,10 @@
     <script type="text/javascript" src="ActivateAccountController.js"></script>
     <script type="text/javascript" src="PasswordResetController.js"></script>
     <script type="text/javascript" src="UploadEditHouseController.js"></script>
+    <script type="text/javascript" src="PostExternalLoginController.js"></script>
+    <script type="text/javascript" src="PreSignupController.js"></script>
+    <script type="text/javascript" src="PreLoginController.js"></script>
 
-    <!--<script src="//maps.googleapis.com/maps/api/js" type="text/javascript"></script>-->
+<!--<script src="//maps.googleapis.com/maps/api/js" type="text/javascript"></script>-->
 </body>
 </html> 

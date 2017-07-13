@@ -1,0 +1,38 @@
+﻿<div class="main-wrapper">
+    <div class="main">
+        <div class="main-inner">
+            <div class="content">
+                <div class="container">
+                    <!--The Loading Spinner; shown during HTTP requests-->
+                    <span us-spinner="{radius:30, width:8, length: 16}"></span>
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-4">
+                            <button class="loginBtn loginBtn--facebook" ng-click="signupWithFacebook()">
+                                Continue with Facebook
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-5">
+                            <h1 class="or-heading">OR</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-4">
+                            <button class="btn-signup-with-email btn-primary" ng-click="signupWithEmail()">
+                                Signup with Email
+                            </button>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6 col-lg-offset-4">
+                            <span ng-show="error !== undefined" style="color: red;">{{error}}</span>
+                        </div>
+                    </div>
+                </div><!-- /.container -->
+            </div><!-- /.content -->
+        </div><!-- /.main-inner -->
+    </div><!-- /.main -->
+</div><!-- /.main-wrapper -->
+
+<link href="../lib/angular-material/angular-material.min.css" rel="stylesheet">
