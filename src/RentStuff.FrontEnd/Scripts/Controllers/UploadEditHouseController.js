@@ -19,7 +19,14 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         },
         function (error) {
             //console.log("Error while retrieving Property types. Error: " + error);
-        });
+            });
+
+        searchService.getRentUnits().then(function(response) {
+                $scope.rentUnits = response.data;
+            },
+            function(error) {
+                // Do nothing
+            });
         
         // PHOTOS UPLOADER CONFIGURATION
         var bearerToken = '';

@@ -106,6 +106,16 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                         return errResponse;
                         //   return $q.reject(errResponse);
                     });
+        },
+
+        getAllRentUnits: function() {
+            return $http.get(globalService.serverUrl + 'rent-unit')
+                .success(function(response) {
+                    return response;
+                })
+                .error(function(error) {
+                    return error;
+                });
         }
     };
 }]);
