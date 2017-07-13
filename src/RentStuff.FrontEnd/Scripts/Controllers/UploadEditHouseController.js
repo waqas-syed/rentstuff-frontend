@@ -285,7 +285,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
 
         // AUTOCOMPLETE RESTRICTED TO PAKISTAN ONLY
         $scope.autocompleteOptions = {
-            componentRestrictions: { country: 'pk' },
+            //componentRestrictions: { country: 'pk' },
             types: ['geocode']
         }
 
