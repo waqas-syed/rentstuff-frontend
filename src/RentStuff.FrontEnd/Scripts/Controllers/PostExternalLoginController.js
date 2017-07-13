@@ -1,16 +1,28 @@
-﻿/*var rentApp = angular.module('rentApp');
+﻿var rentApp = angular.module('rentApp');
 
-rentApp.controller('postSignInFacebookController', ['$scope',
-    function ($scope) {
-        
+rentApp.controller('postExternalLoginController', ['$scope', '$stateParams',
+    function ($scope, $stateParams) {
+        var redirectData = {
+            external_access_token: $stateParams.external_access_token,
+            provider: $stateParams.provider,
+            haslocalaccount: $stateParams.haslocalaccount,
+            email: $stateParams.email,
+            full_name: $stateParams.full_name
         }
-    ]);*/
 
-window.common = (function () {
+        if (window.opener !== null && window.opener !== undefined) {
+
+            window.opener.$windowScope.authCompletedCB(redirectData);
+
+            window.close();
+        }
+    }]);
+
+/*window.common = (function () {
     var common = {};
 
     common.getFragment = function getFragment() {
-        return parseQueryString(window.location.hash.substr(1));
+        return parseQueryString(window.location.href.substr(1));
         if (window.location.hash.indexOf("?") === 0) {
             return parseQueryString(window.location.hash.substr(1));
         } else {
@@ -65,3 +77,4 @@ if (window.opener !== null && window.opener !== undefined) {
 
     window.close();
 }
+*/

@@ -155,9 +155,9 @@
                 })
                 .state("post-external-login",
 		        {
-                    url: "/post-external-login",
-                    templateUrl: "/views/post-external-login.html"
-                    //controller: "postSignInFacebookController"
+                    url: "/post-external-login?external_access_token&provider&haslocalaccount&email&full_name",
+                    templateUrl: "/views/post-external-login.html",
+                    controller: "postExternalLoginController"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
