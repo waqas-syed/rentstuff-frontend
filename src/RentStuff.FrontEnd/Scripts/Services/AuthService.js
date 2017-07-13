@@ -61,7 +61,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
                     email: loginData.userName,
                     fullName: loginData.userName
                 });
-                console.log('Error while retreiving user: ' + err);
+                //console.log('Error while retreiving user: ' + err);
                 deferred.resolve(err);
             });
         }).error(function (err, status) {
@@ -86,11 +86,11 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         var deferred = $q.defer();
         $http.post(globalService.serverUrl + 'account/forgot-password', forgotPasswordData)
             .success(function(response) {
-                console.log(response);
+                //console.log(response);
                 deferred.resolve(response);
             })
             .error(function(error) {
-                console.log(error);
+                //console.log(error);
                 deferred.reject(error);
             });
 
@@ -101,11 +101,11 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         var deferred = $q.defer();
         $http.post(globalService.serverUrl + 'account/reset-password', resetPasswordData)
             .success(function (response) {
-                console.log(response);
+                //console.log(response);
                 deferred.resolve(response);
             })
             .error(function (error) {
-                console.log(error);
+                //console.log(error);
                 deferred.reject(error);
             });
 
@@ -207,12 +207,12 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
                 .then(function (response) {
 
                     //$scope.savedSuccessfully = true;
-                    console.log = "User has been registered successfully using external login";
+                    //console.log = "User has been registered successfully using external login";
                     //startTimer();
                     //$state.go('home');
                     deferred.resolve(response);
                 }, function (error) {
-                    console.log = "User could not be registered using external login";
+                    //console.log = "User could not be registered using external login";
                     deferred.reject(error);
                 });
         }
@@ -221,11 +221,11 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
             var externalData = { provider: fragment.provider, externalAccessToken: fragment.external_access_token };
             _obtainAccessToken(externalData)
                 .then(function (response) {
-                    console.log = "User has been logged in successfully using external login";
+                    //console.log = "User has been logged in successfully using external login";
                     //$state.go('home');
                     deferred.resolve(response);
                 }, function (err) {
-                    console.log = "User could not be logged in using external login";
+                    //console.log = "User could not be logged in using external login";
                     deferred.reject(err);
                 });
         }

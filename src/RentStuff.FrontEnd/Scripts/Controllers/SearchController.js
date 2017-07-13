@@ -6,7 +6,7 @@ rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchSer
         $scope.propertyTypes = response.data;
     },
     function(error) {
-        console.log("Error while retrieving Property types. Error: " + error);
+        //console.log("Error while retrieving Property types. Error: " + error);
     });
 
     //$scope.propertyTypes = ["Hostel", "Shared", "House", "Apartment", "Hotel"];

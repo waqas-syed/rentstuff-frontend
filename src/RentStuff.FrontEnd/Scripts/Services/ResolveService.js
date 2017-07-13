@@ -9,7 +9,7 @@ rentApp.factory('resolveService', ['$http', function ($http) {
                         return response.data;
                     },
                     function (errResponse) {
-                        console.error('Error while fetching users');
+                        //console.error('Error while fetching users');
                         return errResponse;
                         //   return $q.reject(errResponse);
                     }

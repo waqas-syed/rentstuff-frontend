@@ -58,7 +58,7 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
                 $scope.setPage(1);
             })
             .error(function(error) {
-                console.error = 'Error while getting house count';
+                //console.error = 'Error while getting house count';
                 $scope.downloadInProgress = false;
                 $scope.error = "Error while fetching results. Please try again later";
             });
@@ -93,7 +93,7 @@ rentApp.controller('SearchResultController', ['$scope', '$state', '$stateParams'
                         }
                         $scope.downloadInProgress = false;
                     }, function(error) {
-                        console.error = 'Error while getting search results for houses';
+                        //console.error = 'Error while getting search results for houses';
                         $scope.downloadInProgress = false;
                         $scope.error = "Error while fetching results. Please try again later";
                 });

@@ -203,20 +203,20 @@
             });
         $rootScope.$on('$stateChangeError',
             function(event, toState, toParams, fromState, fromParams, error) {
-                console.log(event);
-                console.log(toState);
-                console.log(toParams);
-                console.log(fromState);
-                console.log(fromParams);
-                console.log(error);
+                //console.log(event);
+                //console.log(toState);
+                //console.log(toParams);
+                //console.log(fromState);
+                //console.log(fromParams);
+                //console.log(error);
             });
 
         $rootScope.$on('$stateNotFound',
             function(event, unfoundState, fromState, fromParams) {
-                console.log(event);
-                console.log(unfoundState);
-                console.log(fromState);
-                console.log(fromParams);
+                //console.log(event);
+                //console.log(unfoundState);
+                //console.log(fromState);
+                //console.log(fromParams);
             });
 
         $rootScope.$on('unauthorized', function () {
@@ -240,7 +240,7 @@
                                 return {house: response.data, imagesArray: imagesArray}
                             },
                             function(errResponse) {
-                                console.error('Error while fetching users');
+                                //console.error('Error while fetching users');
                                 return errResponse;
                                 //   return $q.reject(errResponse);
                             }

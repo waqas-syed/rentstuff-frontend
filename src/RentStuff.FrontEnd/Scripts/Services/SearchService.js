@@ -18,7 +18,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
             }
             )
             .error(function (errResponse) {
-                console.log('Error while searching houses');
+                //console.log('Error while searching houses');
                 return errResponse;
             });
         },
@@ -29,7 +29,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
             }
             )
             .error(function (errResponse) {
-                console.log('Error while uploading house');
+                //console.log('Error while uploading house');
                 return errResponse;
                 //   return $q.reject(errResponse);
             });
@@ -41,7 +41,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
             }
             )
             .error(function (errResponse) {
-                console.log('Error while editing house');
+                //console.log('Error while editing house');
                 return errResponse;
                 //   return $q.reject(errResponse);
             });
@@ -53,7 +53,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     }
             )
             .error(function (errResponse) {
-                console.log('Error while deleting house');
+                //console.log('Error while deleting house');
                         return errResponse;
                         //   return $q.reject(errResponse);
                     });
@@ -65,7 +65,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
             }
             )
             .error(function (errResponse) {
-                console.log('Error while deleting image');
+                //console.log('Error while deleting image');
                 return errResponse;
                 //   return $q.reject(errResponse);
             });
@@ -77,7 +77,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
             }
             )
             .error(function (errResponse) {
-                console.log('Error while getting house details');
+                //console.log('Error while getting house details');
                 return errResponse;
                 //   return $q.reject(errResponse);
             });
@@ -89,7 +89,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                 }
             )
             .error(function (errResponse) {
-                console.log('Error while getting houses by Email');
+                //console.log('Error while getting houses by Email');
                 return errResponse;
                 //   return $q.reject(errResponse);
             });
@@ -102,7 +102,7 @@ rentApp.factory('searchService', ['$http', '$q', 'globalService', function ($htt
                     }
             )
             .error(function (errResponse) {
-                console.log('Error while getting property types');
+                //console.log('Error while getting property types');
                         return errResponse;
                         //   return $q.reject(errResponse);
                     });

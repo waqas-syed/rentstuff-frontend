@@ -18,7 +18,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
             $scope.propertyTypes = response.data;
         },
         function (error) {
-            console.log("Error while retrieving Property types. Error: " + error);
+            //console.log("Error while retrieving Property types. Error: " + error);
         });
         
         // PHOTOS UPLOADER CONFIGURATION
@@ -120,7 +120,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                     function(error) {
                         $scope.downloadInProgress = false;
                         $scope.error = "Error while loading data. Please try again later";
-                        console.log('Error while getting house for edit. Error : ' + error);
+                        //console.log('Error while getting house for edit. Error : ' + error);
                     });
         }
 
@@ -149,14 +149,14 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
 
         // PHOTOS UPLOAD CALLBACKS
         $scope.uploader.onCompleteAll = function() {
-            console.log("All photos Uploaded successfully");
+            //console.log("All photos Uploaded successfully");
             $state.go('house-details', { houseId: $scope.houseId });
         }
         $scope.uploader.onSuccessItem = function(item, response, status, headers) {
-            console.log("Photo Uploaded successfully. HouseId = " + item.headers.houseId + " | FileName = " + item._file.name);
+            //console.log("Photo Uploaded successfully. HouseId = " + item.headers.houseId + " | FileName = " + item._file.name);
         };
         $scope.uploader.onErrorItem = function (item, response, status, headers) {
-            console.error("Error while uploading photo" + item.headers.houseId + " | FileName = " + item._file.name);
+            //console.error("Error while uploading photo" + item.headers.houseId + " | FileName = " + item._file.name);
             $scope.uploadInProgress = false;
             $scope.error = "One or more photots might not have been uploaded correctly.";
         };
@@ -168,7 +168,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
             searchService.deleteImage(deleteParams)
                 .then(function (response) {
                     if (response.status === 200) {
-                        console.log("Images deleted successfully. HouseId = " + $scope.house.Id);
+                        //console.log("Images deleted successfully. HouseId = " + $scope.house.Id);
                         // Now upload the photos for this house
                         uploadPhotos($scope.houseId);
                     }
@@ -220,13 +220,13 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                             searchService.editHouse($scope.house)
                                 .then(function (response) {
                                     if (response.status === 200) {
-                                        console.log('Edited House Successfuly');
+                                        //console.log('Edited House Successfuly');
                                         $scope.houseId = $scope.house.Id;
                                         // Delete and upload photos for this house. UploadPhotos is called from within the 
                                         // deleteImagesFromServer method below
                                         deleteImagesFromServer();
                                     } else {
-                                        console.log('Error while editing house:' + error);
+                                        //console.log('Error while editing house:' + error);
                                         $scope.error = "There was an error while saving changes. Please try again later.";
                                     }
                                 });
@@ -235,12 +235,12 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                             searchService.uploadHouse($scope.house)
                                 .then(function (response) {
                                     if (response.status === 200) {
-                                        console.log('Uploaded House Successfuly');
+                                        //console.log('Uploaded House Successfuly');
                                         $scope.houseId = response.data;
                                         // Upload photos for this house
                                         uploadPhotos($scope.houseId);
                                     } else {
-                                        console.log('Error while uploading house:' + response.data.Message);
+                                        //console.log('Error while uploading house:' + response.data.Message);
                                         $scope.error = "Error while upoading house. Please try again later";
                                         if (response.data.Message === 'Invalid phone number') {
                                             $scope.invalidPhoneNumber = true;
@@ -253,7 +253,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                 }
             },
             function(error) {
-                console.log('Error while uploading house');
+                //console.log('Error while uploading house');
                 $scope.uploadInProgress = false;
             };
 
