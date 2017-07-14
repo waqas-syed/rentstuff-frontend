@@ -12,7 +12,7 @@ rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchSer
     //$scope.propertyTypes = ["Hostel", "Shared", "House", "Apartment", "Hotel"];
 
     $scope.autocompleteOptions = {
-        //componentRestrictions: { country: 'pk' },
+        componentRestrictions: { country: 'pk' },
         types: ['geocode']
     }
 

@@ -32,11 +32,20 @@
                 </div><!-- /.form-group -->
 
                 <div class="row">
-                    <div class="col-sm-6">
+                    <div class="col-sm-3">
                         <div class="form-group">
-                            <label><strong>Monthly Rent<span class="required-arsterisk">  *</span></strong></label>
-                            <input type="number" min="100" max="999999999" class="form-control half-width" placeholder="In Pakistani Rupees"
-                                   ng-model="house.MonthlyRent" ng-pattern="numbersOnly" required>
+                            <label><strong>Rent<span class="required-arsterisk">  *</span></strong></label>
+                            <input type="number" min="100" max="999999999" class="form-control" placeholder="In Pakistani Rupees"
+                                   ng-model="house.RentPrice" ng-pattern="numbersOnly" required>
+                        </div><!-- /.form-group -->
+                    </div><!-- /.col-* -->
+                    
+                    <div class="col-sm-2">
+                        <div class="form-group">
+                            <label><strong>Per<span class="required-arsterisk">  </span></strong></label>
+                            <select class="form-control half-width" ng-init="house.RentUnit = house.RentUnit || rentUnits[0] || 'Month'" 
+                                    ng-model="house.RentUnit" ng-options="rentUnit as rentUnit for rentUnit in rentUnits" >
+                            </select>
                         </div><!-- /.form-group -->
                     </div><!-- /.col-* -->
                 </div><!-- /.row -->

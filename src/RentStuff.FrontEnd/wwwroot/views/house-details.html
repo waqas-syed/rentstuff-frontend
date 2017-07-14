@@ -41,7 +41,7 @@
                                 </div><!-- /.listing-detail-attribute -->
                                 <div class="listing-detail-attribute">
                                     <div class="key">Rent</div>
-                                    <div class="value" ng-bind="house.Rent + '/' + house.RentUnit"></div>
+                                    <div class="value" ng-bind="'Rs ' + house.RentPrice + '/' + house.RentUnit"></div>
                                 </div><!-- /.listing-detail-attribute -->
                                 <div class="listing-detail-attribute">
                                     <div class="key">Location</div>
@@ -168,7 +168,7 @@
                                                 <li ng-if="house.Dimension !== null && house.Dimension !== undefined && house.Dimension !== ''">
                                                     <strong>Size</strong><span  ng-bind="house.Dimension"></span>
                                                 </li>
-                                                <li><strong>Rent</strong><span ng-bind="'Rs ' + house.Rent + '/' + house.RentUnit"></span></li>
+                                                <li><strong>Rent</strong><span ng-bind="'Rs ' + house.RentPrice + '/' + house.RentUnit"></span></li>
                                             </ul>
                                         </div><!-- /.overview -->
                                     </div><!-- /.col-* -->

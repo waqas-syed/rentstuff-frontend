@@ -21,7 +21,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
             //console.log("Error while retrieving Property types. Error: " + error);
             });
 
-        searchService.getRentUnits().then(function(response) {
+        searchService.getAllRentUnits().then(function(response) {
                 $scope.rentUnits = response.data;
             },
             function(error) {
@@ -292,7 +292,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
 
         // AUTOCOMPLETE RESTRICTED TO PAKISTAN ONLY
         $scope.autocompleteOptions = {
-            //componentRestrictions: { country: 'pk' },
+            componentRestrictions: { country: 'pk' },
             types: ['geocode']
         }
 
