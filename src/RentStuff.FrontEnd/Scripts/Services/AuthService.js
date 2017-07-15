@@ -218,7 +218,7 @@ rentApp.factory('authService', ['$http', '$q', 'localStorageService', 'globalSer
         }
         else {
             //Obtain access token and redirect to home page
-            var externalData = { provider: fragment.provider, externalAccessToken: fragment.external_access_token };
+            var externalData = { provider: fragment.provider, internalId: fragment.external_access_token };
             _obtainAccessToken(externalData)
                 .then(function (response) {
                     //console.log = "User has been logged in successfully using external login";
