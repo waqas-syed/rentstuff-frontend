@@ -8919,11 +8919,11 @@ label {
     /*font-family: "Helvetica neue", Helvetica Neue, Helvetica, Arial, sans-serif;*/
     /*text-shadow: 0 -1px 0 #354C8C;*/
 }
-.loginBtn--facebook:before {
-    background: url('https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/facebook-logo.jpg') 6px 6px no-repeat;
-    background-size: 25px 25px;
-    margin: 2px 0 0 1px;
-}
+    .loginBtn--facebook:before {
+        background: url('https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Logos/facebook-logo.jpg') 6px 6px no-repeat;
+        background-size: 25px 25px;
+        margin: 2px 0 0 1px;
+    }
 .loginBtn--facebook:hover,
 .loginBtn--facebook:focus {
     background-color: #5B7BD5;
