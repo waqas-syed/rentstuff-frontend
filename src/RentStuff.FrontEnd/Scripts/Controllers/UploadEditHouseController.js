@@ -13,14 +13,8 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
         $scope.genderRestrictions = ['Families Only', 'Girls Only', 'Boys Only', 'No restriction'];
         var imagesToDelete = [];
         $scope.error = null;
-
-        searchService.getPropertyTypes().then(function (response) {
-            $scope.propertyTypes = response.data;
-        },
-        function (error) {
-            //console.log("Error while retrieving Property types. Error: " + error);
-            });
-
+        $scope.propertyTypes = globalService.getPropertyTypes();
+        
         searchService.getAllRentUnits().then(function(response) {
                 $scope.rentUnits = response.data;
             },
@@ -79,7 +73,7 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                         } else {
                                             $scope.genderRestriction = "NoRestriction";
                                         }
-
+                                        
                                         if ($scope.house.Dimension !== null && $scope.house.Dimension !== undefined) {
                                             // Parse Dimension into expected format
                                             var dimensionTypeAndStringValueArray = $scope.house.Dimension.split(" ");
@@ -219,6 +213,9 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                             $scope.house.OwnerEmail = authData.email;
                             //$scope.house.OwnerName = authData.fullName;
                         }
+
+                        // Remove the postfix (Whole/Portion) from House & Apartment
+                        $scope.house.PropertyType = globalService.removePostfixHousePropertyType($scope.house.PropertyType);
 
                         if ($scope.ownerIsViewingHouse) {
                             // Remove the Image from the HouseImages list because the payload is way too high and results in timout during

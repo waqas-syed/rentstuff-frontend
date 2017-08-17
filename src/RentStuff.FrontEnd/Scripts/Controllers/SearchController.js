@@ -1,13 +1,8 @@
 ﻿var rentApp = angular.module('rentApp');
 
-rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchService', '$state', function ($scope, $window, $http, searchService, $state) {
-
-    searchService.getPropertyTypes().then(function (response) {
-        $scope.propertyTypes = response.data;
-    },
-    function(error) {
-        //console.log("Error while retrieving Property types. Error: " + error);
-    });
+rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchService', '$state', 'globalService', function ($scope, $window, $http, searchService, $state, globalService) {
+    
+    $scope.propertyTypes = globalService.getPropertyTypes();
 
     //$scope.propertyTypes = ["Hostel", "Shared", "House", "Apartment", "Hotel"];
 
@@ -18,6 +13,8 @@ rentApp.controller('SearchController', ['$scope', '$window', '$http', 'searchSer
 
     var searchParameters = null;
     $scope.searchHouses = function () {
+        $scope.selectedPropertyType = globalService.removePostfixHousePropertyType($scope.selectedPropertyType);
+
         if (($scope.area !== '' && $scope.area !== undefined) &&
             ($scope.area.formatted_address !== '' && $scope.area.formatted_address !== undefined) &&
             ($scope.selectedPropertyType !== '' && $scope.selectedPropertyType !== undefined)) {
