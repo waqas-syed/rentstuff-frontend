@@ -119,9 +119,14 @@
                                                 Contact Us
                                             </a>
                                         </li>
-                                        <li class="nav-item">
+                                        <li class="nav-item" ng-if="!isAuthenticated()">
                                             <a ui-sref="about-us" class="nav-link ">
                                                 About Us
+                                            </a>
+                                        </li>
+                                        <li class="nav-item">
+                                            <a ui-sref="blog-posts" class="nav-link ">
+                                                Blog
                                             </a>
                                         </li>
                                         <li class="nav-item right">
@@ -186,6 +191,7 @@
                         <div class="footer-right">
                             <ul class="nav nav-pills">
                                 <li class="nav-item"><a ui-sref="terms-and-conditions" class="nav-link">Terms And Conditions</a></li>
+                                <li class="nav-item"><a ui-sref="about-us" class="nav-link">About Us</a></li>
                             </ul>
                         </div><!-- /.footer-right -->
                     </div><!-- /.footer-bottom -->

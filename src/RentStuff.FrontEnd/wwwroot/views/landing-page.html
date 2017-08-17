@@ -10,7 +10,7 @@
 
         <div class="content">
             <div class="cover cover-center">
-                <div class="cover-image" style="background-image: url('https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/cover1-trimmed.png');">
+                <div class="cover-image" style="background-image: url('https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Landing_Page/landing_page-cover-photo.png');">
                     <!--<img src="/images/cover1-trimmed.png" />--><!-- style="height:600px; width:1300px;overflow: hidden;">-->
                 </div><!-- /.cover-image -->
                 <!--<div class="cover-title">-->
@@ -24,7 +24,7 @@
 
                     <form ng-submit="searchHouses()">
                         <div class="form-group col-sm-3">
-                            <input class="form-control" type="text" name="location" placeholder="Enter Location" options="autocompleteOptions" g-places-autocomplete ng-model="area" autocomplete="off">
+                            <input class="form-control" type="text" name="location" placeholder="Enter Location(Autocomplete)" options="autocompleteOptions" g-places-autocomplete ng-model="area" autocomplete="off">
                         </div><!-- /.form-group -->
                         <div class="form-group col-sm-3">
                             <select class="form-control" ng-model="selectedPropertyType"
@@ -57,44 +57,53 @@
                                 </div><!-- /.box-icon -->
                                 <div class="box-content">
                                     <a ui-sref="upload-house">
-                                        <h2>Post Your Property For Rent</h2>
+                                        <h2>Got Property For Rent?</h2>
                                     </a>
-                                    <p>Post your property for rent by clicking or tapping the icon above. Houses, Apartments, Hostel Rooms and Hotel Rooms, all are supported. You can post in any location that is available on Google Maps.</p>
+                                    <p>Post your property for rent by clicking the icon above. You need to <a ui-sref="pre-signup">sign up</a>(using Facebook or Email) in order to post. Post houses, hostel rooms, apartments, hotel or guest house rooms</p>
                                     </div><!-- /.box-content -->
                             </div><!-- /.box -->
                         </div><!-- /.col-* -->
                         <div class="col-md-6 col-lg-3">
                             <div class="box">
                                 <div class="box-icon">
-                                    <i class="fa fa-search"></i>
+                                    <a ui-sref="search-results"><i class="fa fa-search"></i></a>
                                 </div><!-- /.box-icon -->
                                 <div class="box-content">
-                                    <h2>Search and Find Properties on Rent</h2>
-                                    <p>Search for any type of property for rent, see their details and compare. Just like in the case of posting a property, you can search a property in any location that is avaiable on Google Maps.</p>
+                                    <a ui-sref="search-results">
+                                        <h2>Looking For a Place On Rent?</h2>
+                                    </a>
+                                    <p>Search hostel rooms, houses, apartments, hotel rooms and guest house rooms anywhere, at the best rates. No signup required</p>
                                 </div><!-- /.box-content -->
                             </div><!-- /.box -->
                         </div><!-- /.col-* -->
-
+                        
                         <div class="col-md-6 col-lg-3">
                             <div class="box">
                                 <div class="box-icon">
-                                    <i class="fa fa-google"></i>
+                                    <a ui-sref="pre-signup">
+                                        <i class="fa fa-google"></i>
+                                    </a>
                                 </div><!-- /.box-icon -->
                                 <div class="box-content">
-                                    <h2>Google Powered</h2>
-                                    <p>Just enter the initial letters for a location and we will autocomplete it and show a list of related places, using Google Geocoding and Places APIs. Likewise we will search for properties at and near your searched location using our Google powered search algorithms.</p>
+                                    <a ui-sref="pre-signup">
+                                        <h2>Absolutely Free Of Cost</h2>
+                                        </a>
+                                        <p>There are NO charges for anything. Post as much properties as you want</p>
                                 </div><!-- /.box-content -->
                             </div><!-- /.box -->
                         </div><!-- /.col-* -->
                         <div class="col-md-6 col-lg-3">
                             <div class="box">
                                 <div class="box-icon">
-                                    <i class="fa fa-home"></i>
+                                    <a ui-sref="search-results">
+                                        <i class="fa fa-home"></i>
+                                    </a>
                                 </div><!-- /.box-icon -->
                                 <div class="box-content">
-                                    <h2>Type Matters</h2>
-                                    <p>Whether it is a Hostel Room, a House, an Apartment or a Hotel Room, you can post or find any kind 
-                                    of property space for rent on Zarqoon.com</p>
+                                    <a ui-sref="search-results">
+                                        <h2>Any City Or Town</h2>
+                                    </a>
+                                    <p>There is no restriction for any city. Start typing a place and we will autocomplete it for you with related suggestions, just like in Google Maps</p>
                                 </div><!-- /.box-content -->
                             </div><!-- /.box -->
                         </div><!-- /.col-* -->
@@ -117,12 +126,12 @@
                 </p>
             </div>
             <div class="listing-detail col-lg-4 col-md-4">
-                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/landing-page-sharing-economy.jpg" alt="Sharing Economy - Rent your space" />
+                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Landing_Page/landing-page-sharing-economy.jpg" alt="Sharing Economy - Rent your space" />
             </div>
         </div>
         <div class="row">
             <div class="listing-detail col-lg-4 col-md-4">
-                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/landing-page-stone-on-fire.jpg" alt="Zarqoon - Stone on Fire" />
+                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Landing_Page/landing-page-stone-on-fire.jpg" alt="Zarqoon - Stone on Fire" />
             </div>
             <div class="listing-detail col-lg-8 col-md-8">
 
@@ -147,12 +156,12 @@
                 </p>
             </div>
             <div class="listing-detail col-lg-4 col-md-4">
-                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/landing-page-google.jpg" alt="Google powered rent property search" />
+                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Landing_Page/landing-page-google.jpg" alt="Google powered rent property search" />
             </div>
         </div>
         <div class="row">
             <div class="listing-detail col-lg-4 col-md-4">
-                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/landing-page-open-to-the-public.jpg" alt="For Rent - Open to the public" />
+                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Landing_Page/landing-page-open-to-the-public.jpg" alt="For Rent - Open to the public" />
             </div>
             <div class="listing-detail col-lg-8 col-md-8">
                 <h1>Open For Everyone</h1>
@@ -175,12 +184,12 @@
                 </p>
             </div>
             <div class="listing-detail col-lg-4 col-md-4">
-                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/landing-page-hostel-for-rent.jpg" alt="Hostel for Rent" />
+                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Landing_Page/landing-page-hostel-for-rent.jpg" alt="Hostel for Rent" />
             </div>
         </div>
         <div class="row">
             <div class="listing-detail col-lg-4 col-md-4">
-                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/landing-page-house-for-rent.jpg" alt="House for Rent" />
+                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Landing_Page/landing-page-house-for-rent.jpg" alt="House for Rent" />
             </div>
             <div class="listing-detail col-lg-8 col-md-8">
 
@@ -204,7 +213,7 @@
                 </p>
             </div>
             <div class="listing-detail col-lg-4 col-md-4">
-                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/landing-page-apartment-for-rent.jpg" alt="Apartment for Rent" />
+                <img class="image-fit-to-container" src="https://storage.googleapis.com/rentstuff-1022-photo-storage-bucket/Company_Images/Landing_Page/landing-page-apartment-for-rent.jpg" alt="Apartment for Rent" />
             </div>
         </div>
     </div>

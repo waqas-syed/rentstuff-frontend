@@ -7,6 +7,12 @@
       <loc>https://zarqoon.com/home</loc>
    </url>
    <url>
+      <loc>https://zarqoon.com/blog-posts</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/blog-post-1</loc>
+   </url>
+   <url>
       <loc>https://zarqoon.com/about-us</loc>
 	  <changefreq>weekly</changefreq>
    </url>
