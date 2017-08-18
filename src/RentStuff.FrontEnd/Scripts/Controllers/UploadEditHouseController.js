@@ -80,6 +80,8 @@ rentApp.controller('uploadEditHouseController', ['$scope', '$state', '$statePara
                                             $scope.house.DimensionType = dimensionTypeAndStringValueArray[1];
                                             $scope.house.DimensionStringValue = dimensionTypeAndStringValueArray[0];
                                         }
+                                        // Add Postfix text if the property is House or Apartment to House or Apartment
+                                        $scope.house.PropertyType = globalService.addPostfixHousePropertyType($scope.house.PropertyType);
                                         $scope.ownerIsViewingHouse = true;
                                         var counter = 0;
                                         // Convert images from Base64 String to a file

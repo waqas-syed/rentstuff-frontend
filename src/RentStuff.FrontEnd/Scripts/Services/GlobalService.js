@@ -28,6 +28,23 @@ rentApp.factory('globalService', function () {
                 }
             }
             return propertyType;
+        },
+
+        addPostfixHousePropertyType: function (propertyType) {
+            // The House and Apartment must be postfixed with "Whole or portion" before being bound to the view
+            if (propertyType !== '' && propertyType !== undefined) {
+                // Check if the text is equal to House
+                if (propertyType === "House") {
+                    // If so, postfix it 
+                    propertyType = "House (Whole/Portion)";
+                }
+                // Check if the text cis equal to Apartment
+                else if (propertyType === "Apartment") {
+                    // If so, postfix it
+                    propertyType = "Apartment (Whole/Portion)";
+                }
+            }
+            return propertyType;
         }
     };
 });
