@@ -168,7 +168,12 @@
                 {
                     url: "/blog-post-1",
                     templateUrl: "/views/blog-post-1.html"
-                });
+                })
+		        .state("blog-post-hostels",
+		            {
+		                url: "/blog-post-hostels",
+		                templateUrl: "/views/blog-post-hostels.html"
+		            });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
 		    /*resolve: {

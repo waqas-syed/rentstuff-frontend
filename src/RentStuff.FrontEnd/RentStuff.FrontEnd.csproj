@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <Content Include="wwwroot\views\blog-post-1.html" />
+    <Content Include="wwwroot\views\blog-post-hostels.html" />
     <Content Include="wwwroot\views\blog-posts.html" />
     <Content Include="wwwroot\views\post-external-login.html" />
     <Content Include="wwwroot\views\pre-login.html" />
