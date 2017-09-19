@@ -13,6 +13,9 @@
       <loc>https://zarqoon.com/blog-post-1</loc>
    </url>
    <url>
+      <loc>https://zarqoon.com/blog-post-hostels</loc>
+   </url>
+   <url>
       <loc>https://zarqoon.com/about-us</loc>
 	  <changefreq>weekly</changefreq>
    </url>
@@ -98,4 +101,47 @@
    <url>
       <loc>https://zarqoon.com/terms-and-conditions</loc>
    </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=3dc4cc3a-3cf3-4a00-8feb-a1a2a014341e</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=9f6e1865-83e6-4690-be86-2b84773a4612</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=1adda514-6463-4482-9bd2-80a4eb7e1cd0</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=0cd35db7-0e72-4e9c-aa45-0616fa3ee9af</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=991d4408-c3f9-4576-ac01-f5cfced19527</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=221897e8-c601-4a77-9c47-d4486bf0d27d</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=7203ff37-5caf-4c14-aa11-57dfedd688d8</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=6a3ea025-d8d2-477b-93c9-ba5d2117b2ce</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=f0371b76-fd0f-4c78-9451-7918008fe05e</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=1bfd60ff-a7c7-4639-a3b8-88a6389bbc81</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=6cf2fa28-5055-40c4-b9a5-84c134fbdde6</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=8a93f3da-44ce-4753-afbf-59a92624bbf4</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=47c89c49-6524-4bfe-a891-3226a0380f0a</loc>
+   </url>
+   <url>
+      <loc>https://zarqoon.com/house-details?houseId=782bf5bc-56c1-4a28-a7ee-db59ec358779</loc>
+   </url>
+   
 </urlset> 

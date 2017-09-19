@@ -162,18 +162,23 @@
                 .state("blog-posts",
                 {
                     url: "/blog-posts",
-                    templateUrl: "/views/blog-posts.html"
+                    templateUrl: "/views/blog-posts/blog-posts.html"
                 })
                 .state("blog-post-1",
                 {
                     url: "/blog-post-1",
-                    templateUrl: "/views/blog-post-1.html"
+                    templateUrl: "/views/blog-posts/blog-post-1.html"
                 })
 		        .state("blog-post-hostels",
-		            {
-		                url: "/blog-post-hostels",
-		                templateUrl: "/views/blog-post-hostels.html"
-		            });
+		        {
+		            url: "/blog-post-hostels",
+                    templateUrl: "/views/blog-posts/blog-post-hostels.html"
+                })
+		        .state("blog-post-resort-houses",
+		        {
+		            url: "/blog-post-resort-houses",
+		            templateUrl: "/views/blog-posts/blog-post-resort-houses.html"
+		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
 		    /*resolve: {
