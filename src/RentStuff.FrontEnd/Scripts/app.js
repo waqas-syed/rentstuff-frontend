@@ -6,7 +6,7 @@
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locationProvider",
 		function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
-		    //$locationProvider.html5Mode(true);
+		    $locationProvider.html5Mode(true);
 		    $httpProvider.interceptors.push('authInterceptorService');
 
 		    $httpProvider.interceptors.push(function () {
@@ -183,6 +183,11 @@
 		        {
                     url: "/blog-post-resort-house-for-rent-seeker",
 		            templateUrl: "/views/blog-posts/blog-post-resort-house-seeker.html"
+                })
+		        .state("blog-post-apartments",
+		        {
+		            url: "/blog-post-apartments",
+		            templateUrl: "/views/blog-posts/blog-post-apartments.html"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/

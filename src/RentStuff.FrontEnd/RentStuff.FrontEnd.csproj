@@ -15,6 +15,7 @@
     <Content Include="wwwroot\views\blog-post-hostels.html" />
     <Content Include="wwwroot\views\blog-posts.html" />
     <Content Include="wwwroot\views\blog-posts\blog-post-1.html" />
+    <Content Include="wwwroot\views\blog-posts\blog-post-apartments.html" />
     <Content Include="wwwroot\views\blog-posts\blog-post-hostels.html" />
     <Content Include="wwwroot\views\blog-posts\blog-post-houses.html" />
     <Content Include="wwwroot\views\blog-posts\blog-post-resort-house-seeker.html" />
