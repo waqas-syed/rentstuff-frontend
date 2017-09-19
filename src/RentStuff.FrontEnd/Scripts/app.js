@@ -6,7 +6,7 @@
 
     rentApp.config(["$stateProvider", "$urlRouterProvider", "$httpProvider", "$locationProvider",
 		function ($stateProvider, $urlRouterProvider, $httpProvider, $locationProvider) {
-		    $locationProvider.html5Mode(true);
+		    //$locationProvider.html5Mode(true);
 		    $httpProvider.interceptors.push('authInterceptorService');
 
 		    $httpProvider.interceptors.push(function () {
