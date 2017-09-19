@@ -178,6 +178,11 @@
 		        {
 		            url: "/blog-post-resort-houses",
 		            templateUrl: "/views/blog-posts/blog-post-resort-houses.html"
+                })
+                .state("blog-post-resort-house-for-rent-seeker",
+		        {
+                    url: "/blog-post-resort-house-for-rent-seeker",
+		            templateUrl: "/views/blog-posts/blog-post-resort-house-seeker.html"
 		        });
 		    //.state("details", {
 		    //  parent: "overview", url: "/details", templateUrl: "/templates/details.html"/*, controller: "DetailsController",*/
