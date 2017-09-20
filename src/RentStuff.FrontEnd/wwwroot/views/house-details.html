@@ -58,9 +58,9 @@
                                 </jk-carousel>
                             </md-card>-->
                             <div >
-                                <div uib-carousel active="active" no-transition="true" no-wrap="noWrapSlides" style="max-height: 500px; max-width: 830px;">
-                                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id">
-                                        <img ng-src="{{slide.image}}" style="margin:auto;">
+                                <div uib-carousel active="active" no-transition="true" no-wrap="noWrapSlides">
+                                    <div uib-slide ng-repeat="slide in slides track by slide.id" index="slide.id" style="max-height: 500px; max-width: 830px;">
+                                        <img ng-src="{{slide.image}}" class="image-fit-to-container">
                                         <div class="carousel-caption">
                                             <h4>Slide {{slide.id}}</h4>
                                             <p>{{slide.text}}</p>
