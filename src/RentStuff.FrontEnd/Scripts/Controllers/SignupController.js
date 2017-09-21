@@ -27,9 +27,10 @@ rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'auth
                             $scope
                                 .message =
                                 "User has been registered successfully, you will be redicted to login page in 2 seconds.";
-                            startTimer();
+                            //startTimer();
+                            $state.go('registration-confirmation', { email: $scope.registration.email });
                         } else {
-                            $scope.error = "Unable to register user. Make sure you haven't logged in using Facebook with the same email address.";
+                            $scope.error = "Unable to register user. Make sure you haven't signed up with the same email already.";
                             if (response.data.Message === "Select a different email address. An account has already been created with this email address.") {
                                 $scope.emailAlreadyTaken = true;
                             }
@@ -51,7 +52,7 @@ rentApp.controller('signupController', ['$scope', '$location', '$timeout', 'auth
         var timer = $timeout(function () {
             $timeout.cancel(timer);
             //$location.path('/login');
-            $state.go('registration-confirmation', { email: $scope.registration.email });
+            
         }, 2000);
     }
  
